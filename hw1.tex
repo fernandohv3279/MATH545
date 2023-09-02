@@ -1,0 +1,220 @@
+\documentclass{article}
+\usepackage{enumitem} % Change enumerate
+\setlist[enumerate,2]{label=(\alph*)} % Change enumerate
+\usepackage{amsmath}
+\title{MATH 545: Homework 1}
+\author{Yingli, Laurette, Fernando}
+\date{September 9th, 2023}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Solve the following ODEs.
+\begin{enumerate}
+	\item $(y')^2 -4y +4 = 0$
+
+		Solution:
+
+		We proceed by separation of variables.
+
+		\begin{align*}
+			(y')^2 -4y +4 = 0 \\
+			\iff (y')^2 = 4y -4
+		\end{align*}
+		This means that we have two options for $y'$, namely:
+		\[y' = \pm 2\sqrt{y-1}.\]
+		Then:
+		\begin{align*}
+			y' = \pm 2\sqrt{y-1} \\
+			\iff \frac{dy}{dx} = \pm 2\sqrt{y-1} \\
+			\iff \frac{dy}{\pm 2\sqrt{y-1}} = dx
+		\end{align*}
+		Integrating we get:
+		$\pm \sqrt{y-1} = x+c$,
+
+		then
+		\begin{equation} \label{sol}
+			y = (x+c)^2 + 1.
+		\end{equation}
+		Now we test the function we found. First we notice that
+		\begin{equation} \label{sol_deriv}
+			y' = 2(x+c),
+		\end{equation}
+		then we substitute (\ref{sol}) and (\ref{sol_deriv}) in the original equation to obtain
+		\begin{align*}
+			(2(x+c))^2 -4((x+c)^2 + 1) +4 =0 \\
+			\iff 4(x+c)^2 -4(x+c)^2 -4 + 4 =0,
+		\end{align*}
+		so the function we found is in fact a solution.
+
+	\item $(y\;\text{sin} x + xy\;\text{cos}x)dx + (x\;\text{sin}x + 1)dy = 0$
+
+		Solution:
+		
+		We start by showing that this equation is exact.
+
+		In this case we have $M(x,y) = y\text{sin}x + xy\text{cos}x$ and $N(x,y) = x\text{sin}x + 1$.
+
+		Then $\frac{\partial M(x,y)}{\partial y} = \text{sin}x + x\text{cos}x$ and $\frac{\partial N(x,y)}{\partial x} = \text{sin}x + x\text{cos}x$
+
+		i.e. $\frac{\partial M(x,y)}{\partial y} = \frac{\partial N(x,y)}{\partial x}$.
+
+		Hence, the equation is exact.
+
+		Now we solve $\frac{\partial f(x,y)}{\partial y} = x\text{sin}x + 1$. Integrating with respect to $y$ we get
+		\[f(x,y) = y(x\text{sin}x +1) + h(x)\]
+		In order to determine $h(x)$ we differentiate with
+		respect to $x$ to obtain
+		\[\frac{\partial f(x,y)}{\partial x} = y(\text{sin}x+x\text{cos}x) + h'(x).\]
+		This must equal $M(x,y)$, so:
+		\[y(\text{sin}x+x\text{cos}x) + h'(x) = y\text{sin}x + xy\text{cos}x,\]
+		this implies that $h'(x)=0$, which means that $h(x) = c_1$.
+		So the solution is implicitely given by:
+		\begin{align*}
+			f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \\
+			\iff y(x\text{sin}x +1) = c \\
+		\end{align*}
+		In order to verify that this function solves the equation we calculate the differential.
+
+		\[\frac{\partial f}{\partial x} = y\text{sin}x + xy\text{cos}x\]
+		\[\frac{\partial f}{\partial y} = x\text{sin}x + 1\]
+		So when we calculate $df$ we get:
+		\[ df = (y\text{sin}x + xy\text{cos}x)dx + (x\text{sin}x + 1)dy =0\]
+		Hence, this solves the equation.
+		
+	\item $y' + (2/x)y = x$; initial condition $y(1)=0$
+
+		Solution:
+
+		We begin by solving the homogeneous equation
+
+		\[ \frac{dy}{dx} + \frac{2y}{x} = 0\]
+
+		by separation of variables.
+
+		\[\frac{dy}{y} = -2\frac{dx}{x} \implies ln(y) = -2ln(x) + c_1 \implies y = \frac{c_2}{x^2}\]
+
+		Now we solve the equation:
+
+		\begin{equation} \label{sol_homo}
+			y(x) = q(x)u(x)
+		\end{equation}
+
+		where $q(x) = \frac{1}{x^2}$. For this we substitute (\ref{sol_homo}) into the original equation.
+		\begin{align}
+			y' + (2/x)y = x \nonumber \\
+			\iff q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) = x \nonumber \\
+			\iff \frac{-2}{x^3}	u(x) +\frac{1}{x^2}u'(x) + (2/x)\frac{1}{x^2}u(x) = x \nonumber \\
+			\iff \frac{1}{x^2}u'(x) = x \nonumber \\
+			\iff u'(x) = x^3 \nonumber \\
+			\implies u(x) = \frac{x^4}{4} + c \label{ux}.
+		\end{align}
+
+		Since we know $q(x)$ we can sustitute \ref{ux} into \ref{sol_homo} to get:
+		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} + \frac{c}{x^2}.\]
+
+		The initial condition is $y(1)=0$ so $y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4}$,
+		then
+		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} - \frac{1}{4x^2}.\]
+
+		Now we check that the function found is a solution.
+
+		First, the initial condition:
+		\[y(1)= \frac{1^2}{4} - \frac{1}{4\cdot 1^2} =0.\]
+
+		Secondly, we check that it satisfies the equation.
+		\[y'+(2/x)y = \left(\frac{x}{2} + \frac{1}{2x^3}\right) +(2/x)\left(\frac{x^2}{4} - \frac{1}{4x^2}\right) = x.\]
+		Hence this the function solves the equation.
+
+
+\end{enumerate}
+\item Strauss section 1.2
+	\begin{enumerate}
+		\item Exercise 1. Solve the first-order equation
+			$2u_t +3u_ x =0$ with the auxiliary condition $u=\text{sin}x$ when $t=0.$
+
+			Solution:
+
+			We solved this type of equation in class.
+			the solution is 
+
+			$u(t,x)=f(2x-3t)$
+
+			Where $f$ is any sufficiently nice function.
+
+			Using the initial condition we get:
+			\[u(0,x)=f(2x)=\text{sin}x,\]
+			so $f(x)=\text{sin}\left(\frac{x}{2}\right)$.
+			Finally we have:
+			\[u(t,x)=\text{sin}\left(x-\frac{3}{2}t\right)\]
+			We check by differentiating.
+
+			\[u_x=\text{cos}\left(x-\frac{3}{2}t\right)\]
+			\[u_t=-\frac{3}{2}\text{cos}\left(x-\frac{3}{2}t\right)\]
+
+			so
+			\[ 2u_t +3u_x=-3\text{cos}\left(x-\frac{3}{2}t\right) + 3\text{cos}\left(x-\frac{3}{2}t\right)=0\]
+
+			As for the initial condition:
+			\[u(0,x)=\text{sin}\left(x-\frac{3}{2}\cdot0\right)=\text{sin}x.\]
+
+			Hence $u(t,x)$ is in fact a solution to the PDE.
+
+		\item Exercise 2. Solve the equation $3u_y + u_{xy} =0$
+
+			Solution:
+
+		
+			Let $v=u_y$, then the equation becomes:
+			\begin{align*}
+				 3v+v_x=0 \\
+				 \iff 3v+\frac{\partial v}{\partial x}=0 \\
+				 \iff \frac{\partial v}{\partial x}=-3v \\
+				 \iff \frac{\partial v}{v}=-3\partial x \\
+				 \iff ln(v) = -3x + f(y) \\
+				 \iff v = g(y)e^{-3x}
+			\end{align*}
+			Since $v=u_y$ we have:
+			\[u(x,y)=\int vdy = e^{-3x}\int g(y)dy + f(x).\]
+
+
+		\item Exercise 6. Solve the equation $\sqrt{1-x^2}u_x+u_y=0$ with the condition $u(0, y)=y.$
+		
+            Solution: The charecteristic curve satisfies the ODE: 
+            \[ \frac{dy}{dx}=\frac{1}{\sqrt{1-x^2}}\]
+			To solve the solution, we separate variables: 		
+			\[ dy=\frac{1}{\sqrt{1-x^2}}dx.\]
+			By intergral, \[y= arcsinx + c .\]
+			Since $u(x,y)$ is a constant on each such curve, so
+			\[ u(x,y)=f(c)=f(y - arcsinx).\]
+			Since the initial condition is $u(0,y)=y$, then $u(0,y)=f(y)=y.$
+
+			Finally we have:
+			\[u(t,x)=y - arcsinx.\]
+			We check our solution by differentiating:
+			\[u_x=-\frac{1}{\sqrt{1-x^2}}\]
+			\[u_y=1\]
+			so \[\sqrt{1-x^2}u_x+u_y=-\sqrt{1-x^2} \cdot \frac{1}{\sqrt{1-x^2}}+1=0.\]
+
+			Hence $u(t,x)$ is in fact a solution to the PDE.
+
+
+		\item Exercise 8.
+	\end{enumerate}
+\item Strauss section 1.3
+	\begin{enumerate}
+		\item Exercise 4.
+		\item Exercise 8.
+	\end{enumerate}
+\item Strauss section 1.4
+	\begin{enumerate}
+		\item Exercise 1.
+		\item Exercise 2.
+	\end{enumerate}
+\item Strauss section 1.5
+	\begin{enumerate}
+		\item Exercise 1.
+		\item Exercise 4.
+	\end{enumerate}
+\end{enumerate}
+
+\end{document}
