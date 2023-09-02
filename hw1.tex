@@ -198,7 +198,24 @@
 			Hence $u(t,x)$ is in fact a solution to the PDE.
 
 
-		\item Exercise 8.
+		\item Exercise 8.Solve $au_x+bu_y+cu=0.$
+		Solution:
+		By using coordinate method: let $x'=ax+by$, $y'=bx-ay$.
+
+		Replace all $x$ and $y$ derivatives by $x'$ and $y'$ derivatives.
+
+		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial x'}\cdot{\partial x'}{\partial x}+\frac{\partial u}{\partial y'}\cdot{\partial y'}{\partial x}=au_{x'}+bu_{y'},\]
+		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x'}\cdot{\partial x'}{\partial y}+\frac{\partial u}{\partial y'}\cdot{\partial y'}{\partial y}=bu_{x'}-au_{y'}.\]
+
+		Hence, \[au_x+bu_y+cu=a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)=\left(a^2+b^2\right)u_{x'}+cu=0.\]
+		We seperate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial x'.\]
+		Hence, \[\ln u = -\frac{c}{a^2+b^2}x' +g(y'),\] so that \[ u = f(y')e^{-\frac{c}{a^2+b^2}x'}.\]
+		Thus the solution is  \[ u = f(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}.\]
+
+		We check our solution by differentiating:
+		\[u_x= b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
+		\[u_y= -a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
+		So \[au_x+bu_y+cu= a\cdot b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay)-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay)\]
 	\end{enumerate}
 \item Strauss section 1.3
 	\begin{enumerate}
