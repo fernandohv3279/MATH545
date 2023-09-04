@@ -239,7 +239,42 @@
 \item Strauss section 1.3
 	\begin{enumerate}
 		\item Exercise 4.
-		\item Exercise 8.
+		\item Exercise 8. For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show thath the same is true at all later times.
+		
+		Solution: If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
+                  
+		Since
+		\begin{align*}
+			 \frac{d}{dt}\int \left | u^2 \right | d \vec{x } =&
+			 \int \frac{d}{dt} \left | u^2 \right | d \vec{x }=
+			 \int \frac{d}{dt} \left(uu^* \right)d \vec{x }=
+			 \int\left(  u_{t}u^*+uu_{t}^*\right) d \vec{x }
+		\end{align*}
+
+		According to Schr$\ddot{o}$dinger equation: 
+		\[-\mathrm{i}hu_{t}=\frac{h^2}{2m}\triangle u+ \frac{e^2}{r}u,\]
+		we will obtain that
+		\[u_{t}=\frac{\mathrm{i}h}{2m}\triangle u+ \frac{ie^2}{hr}u,\]
+		\[u_{t}^*=-\frac{\mathrm{i}h}{2m}\triangle u^*-\frac{ie^2}{hr}u^*,\]
+
+		Therefore,
+
+			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{ie^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{ie^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
+			Since, \[\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^*=\triangle u \cdot u^*-u\cdot\triangle u^*,\]
+			Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }\]
+            In $\mathrm{R}^3$ space, let $B(r)$ be a ball with origin center and radius r.
+			Then \[ \frac{d}{dt}\int_{\mathrm{R^3} }^{}  \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\int_{B(r)}\frac{d}{dt} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
+			From divergence theorem,
+			\[\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)dx dy dz= \iint_{\partial B(r)}^{}(\nabla u \cdot u^* -u\cdot \nabla u^*) \cdot \bar{n} dS.	\]
+			Assume that $u$ and $\nabla u \to 0$ fast enough as $\left | \vec{x} \right | \to 0$, then we get
+		
+		\[ \lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x } =0,\]
+
+		Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }=0,\]
+			which means that at all later times, $ \int \left | u^2 \right | d \vec{x } =1$.
+		
+
+
 	\end{enumerate}
 \item Strauss section 1.4
 	\begin{enumerate}
