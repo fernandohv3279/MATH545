@@ -238,7 +238,61 @@
 	\end{enumerate}
 \item Strauss section 1.3
 	\begin{enumerate}
-		\item Exercise 4.
+		\item Exercise 4. Suppose that some particles which are
+			suspended in a liquid medium would be pulled down
+			at a constant velocity $V > 0$ by gravity in the
+			absence of diffusion. Taking account of the
+			diffusion, find the equation for the concentration
+			of particles. Assume homogeneity in the horizontal
+			directions $x$ and $y$. Let the $z$ axis point
+			upwards.
+
+			Solution:
+
+			% TODO: Add a drawing if time allows
+
+			Since we are assuming homogeneity in the horizontal
+			directions, the concentration $u$ depends only on $z$.
+			Let $u(z,t)$ be the concentration. We proceed as the
+			book does for diffusion.
+
+			The mass in the region of the fluid contained between
+			$z_0$ and $z_1$ is given by:
+
+			\begin{equation} \label{change_of_mass}
+				M(t) = \int_{z_0}^{z_1} u(z,t)dz, \text{ so }
+			\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
+			\end{equation}
+
+			The mass in this section of the fluid cannot change
+			except by flowing in or out if its ends.
+
+			There are two proceses that regulate the entrance and
+			exit of particles into this region of the fluid.
+			The first one is difusion and the second one is the
+			movement of the particles due to gravity acting on
+			them.
+
+			For diffusion we have:
+			\[\frac{dM_{diffusion}}{dt}=ku_z(z_1,t)-ku_z(z_0,t),\]
+			just like the example in the book.
+
+			For the movement of particles due to gravity we have:
+			\[\frac{dM_{gravity}}{dt} = Vu(z_1,t) - Vu(z_0,t).\]
+
+			Now the total change in the mass per unit of time is
+			the sum of this two componenets.
+			\begin{align*}
+				\frac{dM}{dt}&=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt} \\
+				\frac{dM}{dt}&=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t)
+			\end{align*}
+			Using equation (\ref{change_of_mass}) we get:
+			\[\int_{z_0}^{z_1}u_t(z,t)dz= ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t).\]
+			Differentiating with respect to $z_1$ we get:
+			\[
+				u_t=ku_{zz}+Vu_z.
+			\]
+
 		\item Exercise 8. For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show thath the same is true at all later times.
 		
 		Solution: If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
@@ -273,8 +327,6 @@
 		Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }=0,\]
 			which means that at all later times, $ \int \left | u^2 \right | d \vec{x } =1$.
 		
-
-
 	\end{enumerate}
 \item Strauss section 1.4
 	\begin{enumerate}
