@@ -330,7 +330,7 @@
 	\end{enumerate}
 \item Strauss section 1.4
 	\begin{enumerate}
-		\item Exercise 1.By trial and error, find a solytion of the diffusion equation $u_t=u_{xx}$ with thw initial condition $u(x,0)=x^2.$
+		\item Exercise 1. By trial and error, find a solytion of the diffusion equation $u_t=u_{xx}$ with thw initial condition $u(x,0)=x^2.$
 		
 		Solution: From the initial condition $u(x,0)=x^2$, we know that $u_{xx}=2=u_t$. 
 		
@@ -342,7 +342,27 @@
 
 		\[u_{t}-u_{xx}=2-2=0,\] and it also satisfies the initial condition: $u(x,0)=x^2$, hence, the solution is $u(t,x)=x^2+2t$.
 
-		\item Exercise 2.a 
+		\item Exercise 2.a Show that the temperature of a metal rod,
+			insulated at the end $x=0$, satisfies the boundary
+			condition $\frac{\partial u}{\partial x} =0$. (Use
+			Fourier's law.)
+
+			Solution:
+
+			By Fourier's law we have:
+			\[
+				H_t = ku_x
+			\]
+			The rod being insulated at $x=0$ means that there is no
+			heat exchange at that point, so we have:
+			\[
+				0 = H_t(0,t) = ku_x(0,t) \implies u_x(0,t) =0
+			\]
+			This shows what we wanted, namely that the temperature
+			satisfies the boundary condition:
+			\[
+				\frac{\partial u}{\partial x} =0.
+			\]
 		\item Exercise 2.b Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$.
 		
 		Solution: $u(t,x)$ be the concentration of gas at position $x$ of the pipe at $t$.
@@ -357,6 +377,7 @@
        \[0= \frac{dM}{dt}|_ {x=0}= ku_{x}(0,t),\]
 
 	   Therefore, the diffusion of gas along a tube that is closed off at the end $x=0$ satisfies the boundary condition $ \frac{\partial u}{\partial x}(0,t)=0.$
+
 		\item Exercise 2.c  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundart condition $\partial u/ \partial n=0$.
 
 	\end{enumerate}
