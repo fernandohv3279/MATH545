@@ -378,13 +378,48 @@
 
 	   Therefore, the diffusion of gas along a tube that is closed off at the end $x=0$ satisfies the boundary condition $ \frac{\partial u}{\partial x}(0,t)=0.$
 
-		\item Exercise 2.c  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundart condition $\partial u/ \partial n=0$.
+		\item Exercise 2.c  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.
+		
+		Solution: We will choose (a) insulated solid to show the boundary condition in three-dimensional version.
+	    
+		Assume $D$ be a insulated solid.
+		 
+		By Fourier's law, we have 
+		 \[0= H_{t}|_{S}= k\vec{n}\cdot \nabla u |_{S}=k\cdot \frac{\partial u}{\partial n}|_{S}, \]
+        where $S$ is boundary of $D$.
+
+		Therefore, the boundary condition is \[ \frac{\partial u}{\partial n}|_{S}=0,\]
+		where $S$ is boundary of $D$.
+
+		
 
 	\end{enumerate}
 \item Strauss section 1.5
 	\begin{enumerate}
 		\item Exercise 1.
-		\item Exercise 4.
+		\[\triangle u = f(x,y,z) in D\]		\item Exercise 4 Consider the Neumann problem: \[\triangle u = f(x,y,z) in D\]
+		\[\frac{\partial u}{\partial n}=0 on bdy D.\]
+		\item  Exercise 4.a
+		\item Exercise 4.b Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
+		
+		Solution: Integrating $\triangle u = f(x,y,z)$ in D, we obtain
+		\[0= \iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz
+		\]
+		From divergence theorem,
+		\[\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz=\iint_{S}^{} \nabla u \cdot \vec{n}dS=\iint_{S}^{} \frac{\partial u}{\partial n}dS,
+			\]
+
+			Therefore, if we want to have a solution of the Neumann problem, we have to satisfy the boundary condition, which also means $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
+		\item Exercise 4.c Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
+		
+		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
+		where $k$ isa propoetionality factor (the "heat conductivity").
+        
+		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the temperature $u$ won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the temperature of this system will be steady at any time.
+
+		Also, the Neumann boundary condition means that the whole system is insulated. From Frouier's theorem, it also means that there are no heat flow out and flow in at the boundary.
+
+		
 	\end{enumerate}
 \end{enumerate}
 
