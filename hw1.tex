@@ -441,7 +441,17 @@
 		
 		\item Exercise 4 Consider the Neumann problem: \[\triangle u = f(x,y,z) in D\]
 		\[\frac{\partial u}{\partial n}=0 on bdy D.\]
-		\item  Exercise 4.a
+		\item  Exercise 4.a What can we surly add to any
+		solution to get another solution? So we
+		don't have uniqueness
+
+		Solution:
+
+		We can add a constant because if $u$ is a solution,
+		then $\Delta(u+c)= \Delta u$ and $\frac{\partial
+		(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
+		So $u+c$ is also a solution.
+
 		\item Exercise 4.b Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
 		
 		Solution: Integrating $\triangle u = f(x,y,z)$ in D, we obtain
