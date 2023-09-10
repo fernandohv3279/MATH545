@@ -11,26 +11,27 @@
 \begin{enumerate}
 \item Solve the following ODEs.
 \begin{enumerate}
-	\item $(y')^2 -4y +4 = 0$
+	\item $(y')^2 -4y +4 = 0.$
 
 		Solution:
 
 		We proceed by separation of variables.
-
 		\begin{align*}
-			(y')^2 -4y +4 = 0 \\
-			\iff (y')^2 = 4y -4
+			(y')^2 -4y +4 = 0 \Longrightarrow (y')^2 = 4y -4. %Merge them in the same line
 		\end{align*}
 		This means that we have two options for $y'$, namely:
 		\[y' = \pm 2\sqrt{y-1}.\]
-		Then:
-		\begin{align*}
-			y' = \pm 2\sqrt{y-1} \\
-			\iff \frac{dy}{dx} = \pm 2\sqrt{y-1} \\
-			\iff \frac{dy}{\pm 2\sqrt{y-1}} = dx
-		\end{align*}
-		Integrating we get:
-		$\pm \sqrt{y-1} = x+c$,
+		%Then:
+		%\begin{align*}
+		%	y' = \pm 2\sqrt{y-1} \\
+		%	\iff \frac{dy}{dx} = \pm 2\sqrt{y-1} \\
+		%	\iff \frac{dy}{\pm 2\sqrt{y-1}} = dx.
+		%\end{align*}
+%Change an expression
+	Then, we seperate variables,
+	\[ \frac{dy}{dx} = \pm 2\sqrt{y-1} \implies \pm\frac{dy}{ 2\sqrt{y-1}} = dx.\]
+		Integrating both sides simultaneously, we get:
+		\[\pm \sqrt{y-1} = x+c,\]
 
 		then
 		\begin{equation} \label{sol}
@@ -41,56 +42,87 @@
 			y' = 2(x+c),
 		\end{equation}
 		then we substitute (\ref{sol}) and (\ref{sol_deriv}) in the original equation to obtain
-		\begin{align*}
-			(2(x+c))^2 -4((x+c)^2 + 1) +4 =0 \\
-			\iff 4(x+c)^2 -4(x+c)^2 -4 + 4 =0,
-		\end{align*}
+		%\begin{align*}
+		%	(2(x+c))^2 -4((x+c)^2 + 1) +4 =0 \\
+		%	\iff 4(x+c)^2 -4(x+c)^2 -4 + 4 =0,
+		%\end{align*}
+%Change some details
+		\[ [2(x+c)]^2 -4[(x+c)^2 + 1] +4= 4(x+c)^2 -4(x+c)^2 -4 + 4 =0,\]
 		so the function we found is in fact a solution.
 
-	\item $(y\;\text{sin} x + xy\;\text{cos}x)dx + (x\;\text{sin}x + 1)dy = 0$
+	\item $(y\;\text{sin} x + xy\;\text{cos}x)dx + (x\;\text{sin}x + 1)dy = 0.$
 
 		Solution:
 		
 		We start by showing that this equation is exact.
 
-		In this case we have $M(x,y) = y\text{sin}x + xy\text{cos}x$ and $N(x,y) = x\text{sin}x + 1$.
-
-		Then $\frac{\partial M(x,y)}{\partial y} = \text{sin}x + x\text{cos}x$ and $\frac{\partial N(x,y)}{\partial x} = \text{sin}x + x\text{cos}x$
-
-		i.e. $\frac{\partial M(x,y)}{\partial y} = \frac{\partial N(x,y)}{\partial x}$.
+		In this case, we have   
+%change layout
+		\begin{equation*}
+			\begin{cases}
+				M(x,y) = y\text{sin}x + xy\text{cos}x,
+				\\
+				N(x,y) = x\text{sin}x + 1.
+			\end{cases}
+		\end{equation*}
+	
+%change layout
+		Then
+		\begin{equation*}
+			\begin{cases}
+				\frac{\partial M(x,y)}{\partial y} = \text{sin}x + x\text{cos}x,
+				\\
+				\frac{\partial N(x,y)}{\partial x} = \text{sin}x + x\text{cos}x.
+			\end{cases}
+		\end{equation*}
+		
+		
+	
+		i.e. \[ \frac{\partial M(x,y)}{\partial y} = \frac{\partial N(x,y)}{\partial x}.\]
 
 		Hence, the equation is exact.
 
-		Now we solve $\frac{\partial f(x,y)}{\partial y} = x\text{sin}x + 1$. Integrating with respect to $y$ we get
-		\[f(x,y) = y(x\text{sin}x +1) + h(x)\]
-		In order to determine $h(x)$ we differentiate with
+		Now, we solve $\frac{\partial f(x,y)}{\partial y} = x\text{sin}x + 1$. 
+		Integrating with respect to $y$, we get
+		\[f(x,y) = y(x\text{sin}x +1) + h(x).\]
+		In order to determine $h(x)$, we differentiate with
 		respect to $x$ to obtain
 		\[\frac{\partial f(x,y)}{\partial x} = y(\text{sin}x+x\text{cos}x) + h'(x).\]
-		This must equal $M(x,y)$, so:
+		This must be equal $M(x,y)$, so:
 		\[y(\text{sin}x+x\text{cos}x) + h'(x) = y\text{sin}x + xy\text{cos}x,\]
 		this implies that $h'(x)=0$, which means that $h(x) = c_1$.
+		
 		So the solution is implicitely given by:
-		\begin{align*}
-			f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \\
-			\iff y(x\text{sin}x +1) = c \\
-		\end{align*}
-		In order to verify that this function solves the equation we calculate the differential.
+		%\begin{align*}
+		%	f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \\
+		%	\iff y(x\text{sin}x +1) = c. \\
+		%\end{align*}
+%Change some detail
+		\[ f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \implies y(x\text{sin}x +1) = c.\]
+		In order to verify that this function solves the equation we calculate the differential,
+  %change layout     
+		\begin{equation*}
+			\begin{cases}
+				\frac{\partial f}{\partial x} = y\text{sin}x + xy\text{cos}x,
+				\\
+				\frac{\partial f}{\partial y} = x\text{sin}x + 1.
+			\end{cases}
+		\end{equation*}
 
-		\[\frac{\partial f}{\partial x} = y\text{sin}x + xy\text{cos}x\]
-		\[\frac{\partial f}{\partial y} = x\text{sin}x + 1\]
-		So when we calculate $df$ we get:
-		\[ df = (y\text{sin}x + xy\text{cos}x)dx + (x\text{sin}x + 1)dy =0\]
+		
+		So when we calculate $df$, we get:
+		\[ df = (y\text{sin}x + xy\text{cos}x)dx + (x\text{sin}x + 1)dy =0.\]
 		Hence, this solves the equation.
 		
-	\item $y' + (2/x)y = x$; initial condition $y(1)=0$
+	\item $y' + (2/x)y = x$; initial condition $y(1)=0.$
 
 		Solution:
 
 		We begin by solving the homogeneous equation
 
-		\[ \frac{dy}{dx} + \frac{2y}{x} = 0\]
+		\[ \frac{dy}{dx} + \frac{2y}{x} = 0.\]
 
-		by separation of variables
+		By separating variables  %original version is by seperatation variables
 
 		\[\frac{dy}{y} = -2\frac{dx}{x} \implies ln(y) = -2ln(x) + c_1 \implies y = \frac{c_2}{x^2}.\]
 
@@ -99,146 +131,215 @@
 		Now we solve the equation:
 
 		\begin{equation} \label{sol_homo}
-			y(x) = q(x)u(x)
+			y(x) = q(x)u(x),
 		\end{equation}
 
-		where $q(x) = \frac{1}{x^2}$. For this we substitute (\ref{sol_homo}) into the original equation.
-		\begin{align}
-			y' + (2/x)y = x \nonumber \\
-			\iff q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) = x \nonumber \\
-			\iff \frac{-2}{x^3}	u(x) +\frac{1}{x^2}u'(x) + (2/x)\frac{1}{x^2}u(x) = x \nonumber \\
-			\iff \frac{1}{x^2}u'(x) = x \nonumber \\
-			\iff u'(x) = x^3 \nonumber \\
-			\implies u(x) = \frac{x^4}{4} + c \label{ux}.
-		\end{align}
-
-		Since we know $q(x)$ we can sustitute (\ref{ux}) into (\ref{sol_homo}) to get:
+		where $q(x) = \frac{1}{x^2}$. For this, we substitute (\ref{sol_homo}) into the original equation,
+		%\begin{align}
+		%	y' + (2/x)y = x \nonumber \\
+		%	\iff q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) = x \nonumber \\
+		%	\iff \frac{-2}{x^3}	u(x) +\frac{1}{x^2}u'(x) + (2/x)\frac{1}{x^2}u(x) = x \nonumber \\
+		%	\iff \frac{1}{x^2}u'(x) = x \nonumber \\
+		%	\iff u'(x) = x^3 \nonumber \\
+		%	\implies u(x) = \frac{x^4}{4} + c \label{ux}.
+		%\end{align}
+%Yingli changes the layout
+       \begin{equation*}
+	         \begin{aligned}
+	        	x&=y' + (2/x)y \\
+	        	&=q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) \\
+	        	&=\frac{-2}{x^3}	u(x) +\frac{1}{x^2}u'(x) + (2/x)\frac{1}{x^2}u(x)\\
+	        	&=\frac{1}{x^2}u'(x)
+	         \end{aligned}
+       \end{equation*}
+    Therefore, $u'(x) = x^3, $ intergrating $u'(x)$ about x, we obtain:
+        \begin{equation}\label{u(x)}
+        	u(x) = \frac{x^4}{4} + c .
+        \end{equation} 
+		Since we know $q(x)$, we can sustitute (\ref{u(x)}) into (\ref{sol_homo}) to get:
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} + \frac{c}{x^2}.\]
 
-		The initial condition is $y(1)=0$ so $y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4}$,
-		then
+		The initial condition is $y(1)=0$, thus \[ y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4},\]
+		therefore,
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} - \frac{1}{4x^2}.\]
-
 		Now we check that the function found is a solution.
 
-		First, the initial condition:
+		Firstly, the initial condition:
 		\[y(1)= \frac{1^2}{4} - \frac{1}{4\cdot 1^2} =0.\]
 
 		Secondly, we check that it satisfies the equation.
 		\[y'+(2/x)y = \left(\frac{x}{2} + \frac{1}{2x^3}\right) +(2/x)\left(\frac{x^2}{4} - \frac{1}{4x^2}\right) = x.\]
-		Hence the function solves the equation.
+		Hence, the function solves the equation.
 
 
 \end{enumerate}
 \item Strauss section 1.2
 	\begin{enumerate}
-		\item Exercise 1. Solve the first-order equation
+		\item Exercise 1: Solve the first-order equation
 			$2u_t +3u_ x =0$ with the auxiliary condition $u=\text{sin}x$ when $t=0.$
 
 			Solution:
 
 			We solved this type of equation in class.
-			the solution is 
+			The solution is 
+			\[ u(t,x)=f(2x-3t),\]
+			where $f$ is any sufficiently nice function.
 
-			$u(t,x)=f(2x-3t)$
-
-			Where $f$ is any sufficiently nice function.
-
-			Using the initial condition we get:
+			Using the initial condition, we get:
 			\[u(0,x)=f(2x)=\text{sin}x,\]
 			so $f(x)=\text{sin}\left(\frac{x}{2}\right)$.
 			Finally we have:
-			\[u(t,x)=\text{sin}\left(x-\frac{3}{2}t\right)\]
-			We check by differentiating.
+			\[u(t,x)=\text{sin}\left(x-\frac{3}{2}t\right).\]
+			We check it by differentiating,
+%Yingli changes the layout
+			\begin{equation*}
+				\begin{cases}
+					u_x=\text{cos}\left(x-\frac{3}{2}t\right),
+					\\
+					u_t=-\frac{3}{2}\text{cos}\left(x-\frac{3}{2}t\right).
+				\end{cases}
+			\end{equation*}
 
-			\[u_x=\text{cos}\left(x-\frac{3}{2}t\right)\]
-			\[u_t=-\frac{3}{2}\text{cos}\left(x-\frac{3}{2}t\right)\]
-
-			so
-			\[ 2u_t +3u_x=-3\text{cos}\left(x-\frac{3}{2}t\right) + 3\text{cos}\left(x-\frac{3}{2}t\right)=0\]
+			Therefore,
+			\[ 2u_t +3u_x=-3\text{cos}\left(x-\frac{3}{2}t\right) + 3\text{cos}\left(x-\frac{3}{2}t\right)=0.\]
 
 			As for the initial condition:
 			\[u(0,x)=\text{sin}\left(x-\frac{3}{2}\cdot0\right)=\text{sin}x.\]
 
 			Hence $u(t,x)$ is in fact a solution to the PDE.
 
-		\item Exercise 2. Solve the equation $3u_y + u_{xy} =0$
+		\item Exercise 2: Solve the equation $3u_y + u_{xy} =0.$
 
 			Solution:
 			% TODO: Maybe we should frame this in terms of antiderivaties!!!
 
 			Let $v=u_y$, then the equation becomes:
 			% TODO this align looks ugly, make it nicer if time allows
-			\begin{align*}
-				 3v+v_x=0 \\
-				 \iff 3v+\frac{\partial v}{\partial x}=0 \\
-				 \iff \frac{\partial v}{\partial x}=-3v \\
-				 \iff \frac{\partial v}{v}=-3\partial x \\
-				 \iff ln(v) = -3x + f(y) \\
-				 \iff v = g(y)e^{-3x}
-			\end{align*}
-			Since $v=u_y$ we have:
-			\[u(x,y)=\int vdy = e^{-3x}\int g(y)dy + f(x).\]
+			%\begin{align*}
+			%	 3v+v_x=0 \\
+			%	 \iff 3v+\frac{\partial v}{\partial x}=0 \\
+			%	 \iff \frac{\partial v}{\partial x}=-3v \\
+			%	 \iff \frac{\partial v}{v}=-3\partial x \\
+			%	 \iff ln(v) = -3x + f(y) \\
+			%	 \iff v = g(y)e^{-3x}
+			%\end{align*}
+%change as another writing way
+			\[3v+v_x=0.\]
+			By seperating variables, we get \[\frac{\partial v}{v}=-3\partial x.\]
+			Intergraling both sides simultaneously, the equation is \[ ln(v) = -3x + f(y),  \]
+			Therefore, \[ v = g(y)e^{-3x},\]
+			where $g(y)=e^{f(y)}$.
+			Since $v=u_y$, we have:
+			\[u(x,y)=\int vdy = e^{-3x}\int g(y)dy + h(x).\]
+%Yingli adds check part.	
+			Then we need to check it.
+			\begin{equation*}
+				\begin{cases}
+					u_{x}=-3e^{-3x}\int g(y)dy + h^{'}(x),
+					\\
+					u_{y}=e^{-3x} g(y),
+					\\
+					u_{xy}=-3e^{-3x} g(y).
+				\end{cases}
+			\end{equation*}
+			Therefore, \[3u_y + u_{xy}=3e^{-3x} g(y)-3e^{-3x} g(y)=0.\]
+            Hence $u(t,x)$ is the solution of the PDE.
 
-		\item Exercise 6. Solve the equation $\sqrt{1-x^2}u_x+u_y=0$ with the condition $u(0, y)=y.$
+
+		\item Exercise 6: Solve the equation $\sqrt{1-x^2}u_x+u_y=0$ with the condition $u(0, y)=y.$
 		
             Solution: The charecteristic curve satisfies the ODE: 
-            \[ \frac{dy}{dx}=\frac{1}{\sqrt{1-x^2}}\]
+            \[ \frac{dy}{dx}=\frac{1}{\sqrt{1-x^2}}.\]
 			To solve the solution, we separate variables: 		
 			\[ dy=\frac{1}{\sqrt{1-x^2}}dx.\]
-			By intergral, \[y= arcsinx + c .\]
+			By intergrating, \[y= arcsinx + c .\]
 			Since $u(x,y)$ is a constant on each such curve, so
 			\[ u(x,y)=f(c)=f(y - arcsinx).\]
-			Since the initial condition is $u(0,y)=y$, then $u(0,y)=f(y)=y.$
+			And the initial condition is $u(0,y)=y$, then $u(0,y)=f(y)=y.$
 
 			Finally we have:
 			\[u(t,x)=y - arcsinx.\]
 			We check our solution by differentiating:
-			\[u_x=-\frac{1}{\sqrt{1-x^2}}\]
-			\[u_y=1\]
-			so \[\sqrt{1-x^2}u_x+u_y=-\sqrt{1-x^2} \cdot \frac{1}{\sqrt{1-x^2}}+1=0.\]
+			\begin{equation*}
+				\begin{cases}
+					u_x=-\frac{1}{\sqrt{1-x^2}},
+					\\
+					u_y=1.
+				\end{cases}
+			\end{equation*}
+			Thus, \[\sqrt{1-x^2}u_x+u_y=-\sqrt{1-x^2} \cdot \frac{1}{\sqrt{1-x^2}}+1=0.\]
 
-			Hence $u(t,x)$ is in fact a solution to the PDE.
+			Hence, $u(t,x)$ is in fact a solution to the PDE.
 
 
-		\item Exercise 8. Solve $au_x+bu_y+cu=0.$
+		\item Exercise 8: Solve $au_x+bu_y+cu=0.$
+		
 		Solution:
-		By using coordinate method: let $x'=ax+by$, $y'=bx-ay$.
+		By using coordinate method. Let 
+		\begin{equation*}
+			\begin{cases}
+				x'=ax+by,
+				\\
+				y'=bx-ay.
+			\end{cases}
+		\end{equation*}
 
 		% TODO: Change the variable to something else, like \tilda to avoid confusion with derivative
 		Replace all $x$ and $y$ derivatives by $x'$ and $y'$ derivatives.
 
-		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial x'}\cdot{\partial x'}{\partial x}+\frac{\partial u}{\partial y'}\cdot{\partial y'}{\partial x}=au_{x'}+bu_{y'},\]
-		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x'}\cdot{\partial x'}{\partial y}+\frac{\partial u}{\partial y'}\cdot{\partial y'}{\partial y}=bu_{x'}-au_{y'}.\]
-
+		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial x}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial x}=au_{x'}+bu_{y'},\]
+		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial y}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial y}=bu_{x'}-au_{y'}.\]
 		Hence,
 		% TODO: Improve this!!!
-		\begin{align*}
-			au_x+bu_y+cu=\\
-			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)=\left(a^2+b^2\right)u_{x'}+cu=0.
-		\end{align*}
+
+%Yingli changes layout
+		\begin{equation*}
+			\begin{aligned}
+			au_x+bu_y+cu&=
+			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)\\
+			&=\left(a^2+b^2\right)u_{x'}+cu\\
+			&=0.
+			\end{aligned}
+		\end{equation*}
+
+%	\begin{align*}
+%			au_x+bu_y+cu=\\
+%			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)=\left(a^2+b^2\right)u_{x'}+cu=0.
+%		\end{align*}
 		We seperate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial x'.\]
-		Hence, \[\ln u = -\frac{c}{a^2+b^2}x' +g(y'),\] so that \[ u = f(y')e^{-\frac{c}{a^2+b^2}x'}.\]
-		Thus the solution is  \[ u = f(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}.\]
+%Little change, add some describe sentence.
+		Intergrating both sides simultaneously, \[\ln u = -\frac{c}{a^2+b^2}x' +g(y'),\] so that \[ u = f(y')e^{-\frac{c}{a^2+b^2}x'}, \]
+		where $f(y')=e^{g(y')}$.
+		Thus, the solution is  \[ u = f(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}.\]
 
 		We check our solution by differentiating:
-		\[u_x= b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
-		\[u_y= -a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
+				\[u_x= b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
+				\[u_y= -a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay).\]	
 		% TODO: Improve this!!
-		So
+%Yingli rewrite this part
+		Therefore,
+		\begin{equation*}
+			\begin{aligned}
+				au_x+bu_y+cu&= 
+				ab f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{a^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay)\\
+				&-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}-\frac{b^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
+				& +cf(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
+				&=0.
+			\end{aligned}
+		\end{equation*}
 		% TODO: ask Yingli if we should keep the e^f instead of just f
-		\begin{align*}
-			au_x+bu_y+cu= \\
-			a\cdot b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
-			-\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
-			-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
-			-\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
-			= 0
-		\end{align*}
+		%\begin{align*}
+		%	au_x+bu_y+cu= \\
+		%	a\cdot b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
+		%	-\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
+		%	-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
+		%	-\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
+		%	= 0
+		%\end{align*}
 	\end{enumerate}
 \item Strauss section 1.3
 	\begin{enumerate}
-		\item Exercise 4. Suppose that some particles which are
+		\item Exercise 4: Suppose that some particles which are
 			suspended in a liquid medium would be pulled down
 			at a constant velocity $V > 0$ by gravity in the
 			absence of diffusion. Taking account of the
@@ -258,18 +359,25 @@
 
 			The mass in the region of the fluid contained between
 			$z_0$ and $z_1$ is given by:
-
-			\begin{equation} \label{change_of_mass}
-				M(t) = \int_{z_0}^{z_1} u(z,t)dz, \text{ so }
-			\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
+%Yingli lets dM/dt as a single line
+            \begin{equation*}
+				M(t) = \int_{z_0}^{z_1} u(z,t)dz.
+			\end{equation*}
+			Differential the former equation about t,
+			\begin{equation}\label{change_of_mass}
+				\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
 			\end{equation}
+			%\begin{equation} \label{change_of_mass}
+			%	M(t) = \int_{z_0}^{z_1} u(z,t)dz, \text{ so }
+			%\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
+			%\end{equation}
 
 			The mass in this section of the fluid cannot change
 			except by flowing in or out if its ends.
 
-			There are two proceses that regulate the entrance and
+			There are two processes that regulate the entrance and
 			exit of particles into this region of the fluid.
-			The first one is difusion and the second one is the
+			The first one is diffusion and the second one is the
 			movement of the particles due to gravity acting on
 			them.
 
@@ -282,18 +390,22 @@
 
 			Now the total change in the mass per unit of time is
 			the sum of this two componenets.
-			\begin{align*}
-				\frac{dM}{dt}&=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt} \\
-				\frac{dM}{dt}&=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t)
-			\end{align*}
-			Using equation (\ref{change_of_mass}) we get:
+%Yingli seperates them with some explanation.
+			\[\frac{dM}{dt}=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt}.\]
+			%\begin{align*}
+			%	\frac{dM}{dt}&=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt} \\
+				%\frac{dM}{dt}&=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t)
+			%\end{align*}
+			Inputing equations of $\frac{dM_{diffusion}}{dt} $ and $\frac{dM_{gravity}}{dt} $, we have
+            \[\frac{dM}{dt}=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t). \]			
+			Combinating equation (\ref{change_of_mass}), we get:
 			\[\int_{z_0}^{z_1}u_t(z,t)dz= ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t).\]
-			Differentiating with respect to $z_1$ we get:
+			Differentiating with respect to $z_1$, we obtain:
 			\[
 				u_t=ku_{zz}+Vu_z.
 			\]
 
-		\item Exercise 8. For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show thath the same is true at all later times.
+		\item Exercise 8: For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
 		
 		Solution: If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
                   
@@ -308,12 +420,18 @@
 		According to Schr$\ddot{o}$dinger equation: 
 		\[-\mathrm{i}hu_{t}=\frac{h^2}{2m}\triangle u+ \frac{e^2}{r}u,\]
 		we will obtain that
-		\[u_{t}=\frac{\mathrm{i}h}{2m}\triangle u+ \frac{ie^2}{hr}u,\]
-		\[u_{t}^*=-\frac{\mathrm{i}h}{2m}\triangle u^*-\frac{ie^2}{hr}u^*,\]
+		\begin{equation*}
+			\begin{cases}
+				u_{t}=\frac{\mathrm{i}h}{2m}\triangle u+ \frac{\mathrm{i}e^2}{hr}u,
+				\\
+				u_{t}^*=-\frac{\mathrm{i}h}{2m}\triangle u^*-\frac{\mathrm{i}e^2}{hr}u^*,
+			\end{cases}
+		\end{equation*}
+		
 
 		Therefore,
 
-			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{ie^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{ie^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
+			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{\mathrm{i}e^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{\mathrm{i}e^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
 			Since, \[\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^*=\triangle u \cdot u^*-u\cdot\triangle u^*,\]
 			Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }\]
             In $\mathrm{R}^3$ space, let $B(r)$ be a ball with origin center and radius r.
@@ -330,11 +448,11 @@
 	\end{enumerate}
 \item Strauss section 1.4
 	\begin{enumerate}
-		\item Exercise 1. By trial and error, find a solytion of the diffusion equation $u_t=u_{xx}$ with thw initial condition $u(x,0)=x^2.$
+		\item Exercise 1: By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with the initial condition $u(x,0)=x^2.$
 		
 		Solution: From the initial condition $u(x,0)=x^2$, we know that $u_{xx}=2=u_t$. 
 		
-		Then, intergral $u_{t}$ about $t$, we can obtain that $\int u_{t} dt= \int 2 dt = 2t$,
+		Then, intergral $u_{t}$ about $t$, we obtain that $\int u_{t} dt= \int 2 dt = 2t$,
 
 		Therefore, we can constrcut $u(t,x)=x^2+2t$.
 
@@ -342,7 +460,7 @@
 
 		\[u_{t}-u_{xx}=2-2=0,\] and it also satisfies the initial condition: $u(x,0)=x^2$, hence, the solution is $u(t,x)=x^2+2t$.
 
-		\item Exercise 2.a Show that the temperature of a metal rod,
+		\item Exercise 2.a: Show that the temperature of a metal rod,
 			insulated at the end $x=0$, satisfies the boundary
 			condition $\frac{\partial u}{\partial x} =0$. (Use
 			Fourier's law.)
@@ -363,7 +481,7 @@
 			\[
 				\frac{\partial u}{\partial x} =0.
 			\]
-		\item Exercise 2.b Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$.
+		\item Exercise 2.b: Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$.
 		
 		Solution: $u(t,x)$ be the concentration of gas at position $x$ of the pipe at $t$.
         The mass of gas is $M(t)= \int_{x_0}^{x_1} u(t,x)dx$.
@@ -378,7 +496,7 @@
 
 	   Therefore, the diffusion of gas along a tube that is closed off at the end $x=0$ satisfies the boundary condition $ \frac{\partial u}{\partial x}(0,t)=0.$
 
-		\item Exercise 2.c  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.
+		\item Exercise 2.c:  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.
 		
 		Solution: We will choose (a) insulated solid to show the boundary condition in three-dimensional version.
 	    
@@ -396,11 +514,19 @@
 	\end{enumerate}
 \item Strauss section 1.5
 	\begin{enumerate}
-		\item Exercise 1. Consider the problem
-		\begin{align*}
-			\frac{d^2u}{dx^2}+u = 0 \\
-			u(0)=0 \text{ and } u(L)=0,
-		\end{align*}
+		\item Exercise 1: Consider the problem
+		%\begin{align*}
+		%	\frac{d^2u}{dx^2}+u = 0 \\
+		%	u(0)=0 \text{ and } u(L)=0,
+		%\end{align*}
+%Change as a group
+		\begin{equation*}
+			\begin{cases}
+				\frac{d^2u}{dx^2}+u = 0,
+				\\
+				u(0)=0 \text{ and } u(L)=0.
+			\end{cases}
+		\end{equation*}
 		consisting of an ODE and a pair of boundary
 		conditions. Clearly, the functino $u(x) \equiv 0$ is a
 		solution. Is the solution \textit{unique}, or \textit{not}?
@@ -414,45 +540,66 @@
 			\lambda^2 +1=0
 		\]
 		So the solution is:
-		\begin{align*}
-			u = d_1e^{ix} + d_2e^{-ix} \\
-			u = c_1\text{cos}x +
-			c_2\text{sin}x
-		\end{align*}
+		%\begin{align*}
+		%	u = d_1e^{ix} + d_2e^{-ix} \\
+		%	u = c_1\text{cos}x +
+		%	c_2\text{sin}x
+		%\end{align*}
+% I want to merge them
+\[u = d_1e^{ix} + d_2e^{-ix} =u = c_1\text{cos}x +	c_2\text{sin}x.\]
 		Now we use the first boundary condition:
 		\[
 			u(0)=0 \iff c_1\text{cos}(0) +
-			c_2\text{sin}(0) = 0 \implies c_1,
+			c_2\text{sin}(0) = 0 \implies c_1=0,
 	        \]
 		so the solution is of the form:
 		\[
-			u(x)=c\text{sin}x.
+			u(x)=c_{2}\text{sin}x.
 		\]
 		Using the second boundary condition we get:
 		\[
-			u(L)=0 \iff c\text{sin}(L) =0
+			u(L)=0 \iff c_{2}\text{sin}(L) =0 \implies c_{2}=0 \text{ or } L=k\pi, k\in \mathrm{Z}.
 		\]
 		Now we see that the answer depends on $L$. If $L$ is of the form $k\pi$ where $k$ is an integer, then $c$ can be anything, so we have infinite solutions.
 
-		In the case that $L$ is not of the above form we need $c=0$
+		In the case that $L$ is not of the above form, we need $c=0$
 		in order to satisfy the boundary condition, so in
-		this case we have a unique solution which is $u
+		this case we have a unique solution, which is $u
 		\equiv 0$.
 		
-		\item Exercise 4 Consider the Neumann problem: \[\triangle u = f(x,y,z) in D\]
-		\[\frac{\partial u}{\partial n}=0 on bdy D.\]
-		\item  Exercise 4.a What can we surly add to any
+		\item Exercise 4: Consider the Neumann problem: 
+		\begin{equation*}
+			\begin{cases}
+				\triangle u = f(x,y,z), \text{ in D, }
+				\\
+				\frac{\partial u}{\partial n}=0, \text{ on bdy D. }
+			\end{cases}
+		\end{equation*}
+	
+		\item  Exercise 4.a: What can we surely add to any
 		solution to get another solution? So we
 		don't have uniqueness
 
 		Solution:
 
-		We can add a constant because if $u$ is a solution,
-		then $\Delta(u+c)= \Delta u$ and $\frac{\partial
-		(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
+		We can add a constant, because if $u$ is a solution,
+		then,
+		\begin{equation*}
+			\begin{cases}
+			\Delta(u+c)= \Delta u,
+             \\
+			 \frac{\partial(u+c)}{\partial n}=\frac{\partial u}{\partial n}.
+			\end{cases}
+		\end{equation*}
+		
+		%divided them
+
+
+	%	$\Delta(u+c)= \Delta u$ and $\frac{\partial
+	%	(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
 		So $u+c$ is also a solution.
 
-		\item Exercise 4.b Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
+		\item Exercise 4.b: Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
 		
 		Solution: Integrating $\triangle u = f(x,y,z)$ in D, we obtain
 		\[0= \iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz
@@ -462,16 +609,29 @@
 			\]
 
 			Therefore, if we want to have a solution of the Neumann problem, we have to satisfy the boundary condition, which also means $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
-		\item Exercise 4.c Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
+		\item Exercise 4.c: Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
 		
 		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
-		where $k$ isa propoetionality factor (the "heat conductivity").
+		where $k$ is a propoetionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
         
-		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the temperature $u$ won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the temperature of this system will be steady at any time.
-
-		Also, the Neumann boundary condition means that the whole system is insulated. From Frouier's theorem, it also means that there are no heat flow out and flow in at the boundary.
-
+		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the heat flow won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the heat flow of this system will be steady at any time. 
 		
+		Also from Fourier's law, heat flows from hot to cold regions proportionately to the temperature gradient, therefore, the heat flow would only depend on the region of temperature.
+         
+		For (a), when we increase a certain temperature everywhere, the system is still stable, which means heat flow is the same as before. 
+
+		Also, for (b), the Neumann boundary condition means that the whole system is insulated. From Frouier's theorem, it also means that there are no heat flow out and flow in at the boundary, therefore, heat won't be loss from $D$ with time changes.
+
+		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a propoetionality constant, but from here, $u(t,x)$ means the concentration of object.
+		
+		For (a), the diffusion of object won't change if add a certain mass everywhere. And the diffusion only depends on the difference of different concentration regions.
+
+		For (b), since Neumann problem is achieved, on the boundary D, there are no mass flow in or flow out, therefore, this is a closed off system, and the mass $M(t)$ won't change with time goes by.  
+
+
+
+
+
 	\end{enumerate}
 \end{enumerate}
 
