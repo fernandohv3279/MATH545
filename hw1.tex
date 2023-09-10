@@ -557,8 +557,7 @@
 		\equiv 0$.
 		
 		\subsection{Exercise 4}
-	\begin{enumerate}
-		\item Exercise 4: Consider the Neumann problem: 
+		Exercise 4: Consider the Neumann problem:
 		\begin{equation*}
 			\begin{cases}
 				\triangle u = f(x,y,z), \text{ in D, }
@@ -567,9 +566,9 @@
 			\end{cases}
 		\end{equation*}
 	
-		\item  Exercise 4.a: What can we surely add to any
+		\subsubsection{Exercise 4.a: What can we surely add to any
 		solution to get another solution? So we
-		don't have uniqueness
+	don't have uniqueness}
 
 		Solution:
 
@@ -590,7 +589,7 @@
 	%	(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
 		So $u+c$ is also a solution.
 
-		\item Exercise 4.b: Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
+		\subsubsection{Exercise 4.b: Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.}
 		
 		Solution: Integrating $\triangle u = f(x,y,z)$ in D, we obtain
 		\[0= \iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz
@@ -600,7 +599,7 @@
 			\]
 
 			Therefore, if we want to have a solution of the Neumann problem, we have to satisfy the boundary condition, which also means $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
-		\item Exercise 4.c: Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
+			\subsubsection{ Exercise 4.c: Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?}
 		
 		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
 		where $k$ is a propoetionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
@@ -618,11 +617,5 @@
 		For (a), the diffusion of object won't change if add a certain mass everywhere. And the diffusion only depends on the difference of different concentration regions.
 
 		For (b), since Neumann problem is achieved, on the boundary D, there are no mass flow in or flow out, therefore, this is a closed off system, and the mass $M(t)$ won't change with time goes by.  
-
-
-
-
-
-	\end{enumerate}
 
 \end{document}
