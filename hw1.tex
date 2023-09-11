@@ -92,10 +92,11 @@
 		Now, we solve $\frac{\partial f(x,y)}{\partial y} = x\text{sin}x + 1$. 
 		Integrating with respect to $y$, we get
 		\[f(x,y) = y(x\text{sin}x +1) + h(x).\]
+		
 		In order to determine $h(x)$, we differentiate with
 		respect to $x$ to obtain
-		\[\frac{\partial f(x,y)}{\partial x} = y(\text{sin}x+x\text{cos}x) + h'(x).\]
-		This must be equal $M(x,y)$, so:
+		\[\frac{\partial f(x,y)}{\partial x} = y(\text{sin}x+x\text{cos}x) + h'(x),\]
+		this must be equal $M(x,y)$, so:
 		\[y(\text{sin}x+x\text{cos}x) + h'(x) = y\text{sin}x + xy\text{cos}x,\]
 		this implies that $h'(x)=0$, which means that $h(x) = c_1$.
 		
@@ -106,6 +107,7 @@
 		%\end{align*}
 %Change some detail
 		\[ f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \implies y(x\text{sin}x +1) = c.\]
+		
 		In order to verify that this function solves the equation we calculate the differential,
   %change layout     
 		\begin{equation*}
@@ -119,6 +121,7 @@
 		
 		So when we calculate $df$, we get:
 		\[ df = (y\text{sin}x + xy\text{cos}x)dx + (x\text{sin}x + 1)dy =0.\]
+		
 		Hence, this solves the equation.
 		
 \subsection{$y' + (2/x)y = x$; initial condition $y(1)=0$}
@@ -159,16 +162,19 @@
 	        	&=\frac{1}{x^2}u'(x)
 	         \end{aligned}
        \end{equation*}
-    Therefore, $u'(x) = x^3, $ intergrating $u'(x)$ about x, we obtain:
+   
+	   Therefore, $u'(x) = x^3, $ intergrating $u'(x)$ about x, we obtain:
         \begin{equation}\label{u(x)}
         	u(x) = \frac{x^4}{4} + c .
         \end{equation} 
+		
 		Since we know $q(x)$, we can sustitute (\ref{u(x)}) into (\ref{sol_homo}) to get:
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} + \frac{c}{x^2}.\]
 
 		The initial condition is $y(1)=0$, thus \[ y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4},\]
 		therefore,
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} - \frac{1}{4x^2}.\]
+		
 		Now we check that the function found is a solution.
 
 		Firstly, the initial condition:
@@ -176,6 +182,7 @@
 
 		Secondly, we check that it satisfies the equation.
 		\[y'+(2/x)y = \left(\frac{x}{2} + \frac{1}{2x^3}\right) +(2/x)\left(\frac{x^2}{4} - \frac{1}{4x^2}\right) = x.\]
+		
 		Hence, the function solves the equation.
 
 % \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
@@ -196,6 +203,7 @@
 			so $f(x)=\text{sin}\left(\frac{x}{2}\right)$.
 			Finally we have:
 			\[u(t,x)=\text{sin}\left(x-\frac{3}{2}t\right).\]
+			
 			We check it by differentiating,
 %Yingli changes the layout
 			\begin{equation*}
@@ -232,6 +240,7 @@
 			%\end{align*}
 %change as another writing way
 			\[3v+v_x=0.\]
+			
 			By seperating variables, we get \[\frac{\partial v}{v}=-3\partial x.\]
 			Intergraling both sides simultaneously, the equation is \[ ln(v) = -3x + f(y),  \]
 			Therefore, \[ v = g(y)e^{-3x},\]
@@ -305,7 +314,7 @@
 		\begin{equation*}
 			\begin{aligned}
 			au_x+bu_y+cu&=
-			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)\\
+			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)+cu\\
 			&=\left(a^2+b^2\right)u_{x'}+cu\\
 			&=0.
 			\end{aligned}
@@ -330,8 +339,8 @@
 		\begin{equation*}
 			\begin{aligned}
 				au_x+bu_y+cu&= 
-				ab f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{a^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay)\\
-				&-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}-\frac{b^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
+				[ab f'(bx-ay) -\frac{a^2c}{a^2+b^2} f(bx-ay)]\cdot e^{-\frac{c}{a^2+b^2}(ax+by)}\\
+				&-[b a f'(bx-ay)+\frac{b^2c}{a^2+b^2}  f(bx-ay)]\cdot e^{-\frac{c}{a^2+b^2}(ax+by)} \\
 				& +cf(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
 				&=0.
 			\end{aligned}
@@ -442,7 +451,15 @@
 
 			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{\mathrm{i}e^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{\mathrm{i}e^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
 			Since, \[\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^*=\triangle u \cdot u^*-u\cdot\triangle u^*,\]
-			Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }\]
+			Therefore,
+		    \begin{equation*}
+				\begin{aligned}
+					\frac{d}{dt}\int \left | u^2 \right | d \vec{x }&=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }\\
+					&=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }
+				\end{aligned}
+			\end{equation*}
+					
+			%\[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }\]
             In $\mathrm{R}^3$ space, let $B(r)$ be a ball with origin center and radius r.
 			Then \[ \frac{d}{dt}\int_{\mathrm{R^3} }^{}  \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\int_{B(r)}\frac{d}{dt} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
 			From divergence theorem,
@@ -512,7 +529,7 @@ Show that the three-dimensional version of (a) (insulated solid) or (b) (imperme
 		
 		Solution: We will choose (a) insulated solid to show the boundary condition in three-dimensional version.
 	    
-		Assume $D$ be a insulated solid.
+		Assume $D$ be an insulated solid.
 		 
 		By Fourier's law, we have 
 		 \[0= H_{t}|_{S}= k\vec{n}\cdot \nabla u |_{S}=k\cdot \frac{\partial u}{\partial n}|_{S}, \]
@@ -555,7 +572,7 @@ Consider the problem
 		%	c_2\text{sin}x
 		%\end{align*}
 % I want to merge them
-\[u = d_1e^{ix} + d_2e^{-ix} =u = c_1\text{cos}x +	c_2\text{sin}x.\]
+\[u = d_1e^{ix} + d_2e^{-ix} = c_1\text{cos}x +	c_2\text{sin}x.\]
 		Now we use the first boundary condition:
 		\[
 			u(0)=0 \iff c_1\text{cos}(0) +
@@ -629,19 +646,19 @@ Consider the problem
 	Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
 		
 		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
-		where $k$ is a propoetionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
+		where $k$ is a proportionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
         
 		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the heat flow won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the heat flow of this system will be steady at any time. 
 		
 		Also from Fourier's law, heat flows from hot to cold regions proportionately to the temperature gradient, therefore, the heat flow would only depend on the region of temperature.
          
-		For (a), when we increase a certain temperature everywhere, the system is still stable, which means heat flow is the same as before. 
+		For (a), when we increase a certain temperature uniformly, the system is still stable, which means heat flow is the same as before. 
 
 		Also, for (b), the Neumann boundary condition means that the whole system is insulated. From Frouier's theorem, it also means that there are no heat flow out and flow in at the boundary, therefore, heat won't be loss from $D$ with time changes.
 
-		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a propoetionality constant, but from here, $u(t,x)$ means the concentration of object.
+		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a proportionality constant, but from here, $u(t,x)$ means the concentration of object.
 		
-		For (a), the diffusion of object won't change if add a certain mass everywhere. And the diffusion only depends on the difference of different concentration regions.
+		For (a), the diffusion of object won't change if add a certain mass uniformly. And the diffusion only depends on the difference of different concentration regions.
 
 		For (b), since Neumann problem is achieved, on the boundary D, there are no mass flow in or flow out, therefore, this is a closed off system, and the mass $M(t)$ won't change with time goes by.  
 
