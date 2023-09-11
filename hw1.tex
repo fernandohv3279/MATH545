@@ -2,13 +2,14 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{titlesec}
-\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
-\titleformat{\section}{\normalfont\Large}{\thesubsection}{1em}{}
-\titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}[runin]{\normalfont\normalsize}{\thesubsubsection}{1em}{}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}} %Follow hw's notation
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}} %Follow book's notation
+\titleformat{\section}{\normalfont\Large}{\thesection}{1em}{} %Remove bold font
+\titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{} %Remove bold font
+\titleformat{\subsubsection}[runin]{\normalfont\normalsize}{\thesubsubsection}{1em}{} %Remove bold font and make it runin
 \title{MATH 545: Homework 1}
 \author{Yingli, Laurette, Fernando}
+% TODO: add the correct date
 \date{September (ADD THE DATE!!!!), 2023}
 \begin{document}
 \maketitle
