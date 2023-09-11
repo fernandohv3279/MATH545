@@ -1,6 +1,10 @@
 % TODO: check spelling!!!
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{titlesec}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+\titleformat{\subsubsection}[runin]{\bfseries}{\thesubsubsection}{0.333em}{}
 \title{MATH 545: Homework 1}
 \author{Yingli, Laurette, Fernando}
 \date{September (ADD THE DATE!!!!), 2023}
@@ -168,7 +172,7 @@
 		Hence, the function solves the equation.
 
 \section{Strauss section 1.2}
-\subsection{Exercise 1.}
+\subsection{Exercise 1}
 			Solve the first-order equation
 			$2u_t +3u_ x =0$ with the auxiliary condition $u=\text{sin}x$ when $t=0.$
 
@@ -202,7 +206,7 @@
 
 			Hence $u(t,x)$ is in fact a solution to the PDE.
 
-		\subsection{Exercise 2.}
+		\subsection{Exercise 2}
 		Solve the equation $3u_y + u_{xy} =0.$
 
 			Solution:
@@ -241,7 +245,7 @@
             Hence $u(t,x)$ is the solution of the PDE.
 
 
-    \subsection{Exercise 6.}
+    \subsection{Exercise 6}
 	Solve the equation $\sqrt{1-x^2}u_x+u_y=0$ with the condition $u(0, y)=y.$
 		
             Solution: The charecteristic curve satisfies the ODE: 
@@ -268,7 +272,7 @@
 			Hence, $u(t,x)$ is in fact a solution to the PDE.
 
 
-		\subsection{Exercise 8.}
+		\subsection{Exercise 8}
 		Solve $au_x+bu_y+cu=0.$
 		
 		Solution:
@@ -335,7 +339,7 @@
 		%\end{align*}
 
 \section{Strauss section 1.3}
-\subsection{Exercise 4.}
+\subsection{Exercise 4}
 		Suppose that some particles which are
 			suspended in a liquid medium would be pulled down
 			at a constant velocity $V > 0$ by gravity in the
@@ -401,7 +405,7 @@
 				u_t=ku_{zz}+Vu_z.
 			\]
 
-		\subsection{Exercise 8.}
+		\subsection{Exercise 8}
 	For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
 		
 		Solution: If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
@@ -456,11 +460,12 @@ By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with 
 
 		\[u_{t}-u_{xx}=2-2=0,\] and it also satisfies the initial condition: $u(x,0)=x^2$, hence, the solution is $u(t,x)=x^2+2t$.
 
-		\subsection{Excercise 2}
-			\subsubsection{Exercise 2.a: Show that the temperature of a metal rod,
+		\subsection{Exercise 2}
+		\subsubsection{}
+		Show that the temperature of a metal rod,
 			insulated at the end $x=0$, satisfies the boundary
 			condition $\frac{\partial u}{\partial x} =0$. (Use
-		Fourier's law.)}
+		Fourier's law.)
 
 			Solution:
 
@@ -478,7 +483,8 @@ By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with 
 			\[
 				\frac{\partial u}{\partial x} =0.
 			\]
-			\subsubsection{Exercise 2.b: Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$.}
+		\subsubsection{}
+		Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$. (Use Fick's law.)
 		
 		Solution: $u(t,x)$ be the concentration of gas at position $x$ of the pipe at $t$.
         The mass of gas is $M(t)= \int_{x_0}^{x_1} u(t,x)dx$.
@@ -493,7 +499,8 @@ By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with 
 
 	   Therefore, the diffusion of gas along a tube that is closed off at the end $x=0$ satisfies the boundary condition $ \frac{\partial u}{\partial x}(0,t)=0.$
 
-	   \subsubsection{Exercise 2.c:  Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.}
+	\subsubsection{}
+Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.
 		
 		Solution: We will choose (a) insulated solid to show the boundary condition in three-dimensional version.
 	    
@@ -507,7 +514,7 @@ By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with 
 		where $S$ is boundary of $D$.
 
 \section{Strauss section 1.5}
-\subsection{ Exercise 1.}
+\subsection{Exercise 1}
 Consider the problem
 		%\begin{align*}
 		%	\frac{d^2u}{dx^2}+u = 0 \\
@@ -562,7 +569,7 @@ Consider the problem
 		\equiv 0$.
 		
 		\subsection{Exercise 4}
-		Exercise 4: Consider the Neumann problem:
+		Consider the Neumann problem
 		\begin{equation*}
 			\begin{cases}
 				\triangle u = f(x,y,z), \text{ in D, }
@@ -571,9 +578,10 @@ Consider the problem
 			\end{cases}
 		\end{equation*}
 	
-		\subsubsection{Exercise 4.a: What can we surely add to any
+		\subsubsection{}
+		What can we surely add to any
 		solution to get another solution? So we
-	don't have uniqueness}
+	don't have uniqueness.
 
 		Solution:
 
@@ -594,7 +602,12 @@ Consider the problem
 	%	(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
 		So $u+c$ is also a solution.
 
-		\subsubsection{Exercise 4.b: Use the divergence theorem and the PDE to show that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.}
+	\subsubsection{}
+	Use the divergence theorem and the PDE to show that
+\[
+\iiint\limits_{D}^{} f(x,y,z)dxdydz=0
+\]
+	is a necessary condition for the Neumann problem to have a solution.
 		
 		Solution: Integrating $\triangle u = f(x,y,z)$ in D, we obtain
 		\[0= \iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz
@@ -604,7 +617,8 @@ Consider the problem
 			\]
 
 			Therefore, if we want to have a solution of the Neumann problem, we have to satisfy the boundary condition, which also means $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
-			\subsubsection{ Exercise 4.c: Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?}
+		\subsubsection{}
+	Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
 		
 		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
 		where $k$ is a propoetionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
