@@ -25,12 +25,6 @@
 		\end{align*}
 		This means that we have two options for $y'$, namely:
 		\[y' = \pm 2\sqrt{y-1}.\]
-		%Then:
-		%\begin{align*}
-		%	y' = \pm 2\sqrt{y-1} \\
-		%	\iff \frac{dy}{dx} = \pm 2\sqrt{y-1} \\
-		%	\iff \frac{dy}{\pm 2\sqrt{y-1}} = dx.
-		%\end{align*}
 %Change an expression
 	Then, we seperate variables,
 	\[ \frac{dy}{dx} = \pm 2\sqrt{y-1} \implies \pm\frac{dy}{ 2\sqrt{y-1}} = dx.\]
@@ -302,7 +296,7 @@
 		\begin{equation*}
 			\begin{aligned}
 			au_x+bu_y+cu&=
-			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)\\
+			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right) +cu\\
 			&=\left(a^2+b^2\right)u_{x'}+cu\\
 			&=0.
 			\end{aligned}
@@ -313,34 +307,40 @@
 %			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)=\left(a^2+b^2\right)u_{x'}+cu=0.
 %		\end{align*}
 		We seperate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial x'.\]
-%Little change, add some describe sentence.
-		Intergrating both sides simultaneously, \[\ln u = -\frac{c}{a^2+b^2}x' +g(y'),\] so that \[ u = f(y')e^{-\frac{c}{a^2+b^2}x'}, \]
-		where $f(y')=e^{g(y')}$.
-		Thus, the solution is  \[ u = f(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}.\]
+		At this point we will introduce the value $k=\frac{c}{a^2+b^2}$ just for convenience.
 
+%Little change, add some describe sentence.
+		Intergrating both sides we get
+		\[
+			\ln u = -kx' +g(y'),
+		\]
+		then
+		\[
+		u = f(y')e^{-kx'},
+		\]
+		where $f(y')=e^{g(y')}$.
+		Thus, the solution is
+		\[
+		u = f(bx-ay)e^{-k(ax+by)}.
+		\]
 		We check our solution by differentiating:
-				\[u_x= b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay),\]
-				\[u_y= -a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay).\]	
+		\[
+		u_x= b f'(bx-ay)e^{-k(ax+by)} -ak \cdot e^{-k(ax+by)}f(bx-ay),
+		\]
+		and
+		\[
+		u_y= -a f'(bx-ay)e^{-k(ax+by)} -bk \cdot e^{-k(ax+by)}f(bx-ay).
+		\]	
 		% TODO: Improve this!!
 %Yingli rewrite this part
 		Therefore,
-		% TODO: use k instead of c/(a^2+b^2)
 			\begin{multline*}
 				au_x+bu_y+cu= \\
-				ab f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} -\frac{a^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay)\\
-				-ba f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)}-\frac{b^2c}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
-				+cf(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
+				ab f'(bx-ay)e^{-k(ax+by)} -a^2k \cdot e^{-k(ax+by)}f(bx-ay)\\
+				-ba f'(bx-ay)e^{-k(ax+by)}-b^2k \cdot e^{-k(ax+by)}f(bx-ay) \\
+				+cf(bx-ay)e^{-k(ax+by)} \\
 				=0.
 			\end{multline*}
-		% TODO: ask Yingli if we should keep the e^f instead of just f
-		%\begin{align*}
-		%	au_x+bu_y+cu= \\
-		%	a\cdot b f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
-		%	-\frac{ac}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
-		%	-b a f'(bx-ay)e^{-\frac{c}{a^2+b^2}(ax+by)} \\
-		%	-\frac{bc}{a^2+b^2} \cdot e^{-\frac{c}{a^2+b^2}(ax+by)}f(bx-ay) \\
-		%	= 0
-		%\end{align*}
 
 \section{Strauss section 1.3}
 \subsection{Exercise 4}
