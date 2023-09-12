@@ -442,7 +442,13 @@
 
 			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{\mathrm{i}e^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{\mathrm{i}e^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
 			Since, \[\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^*=\triangle u \cdot u^*-u\cdot\triangle u^*,\]
-			Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } = \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x }=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }\]
+			Therefore,
+	\begin{align*}
+		\frac{d}{dt}\int \left | u^2 \right | d \vec{x }&=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } \\
+		&= \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x } \\
+		&=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }
+	\end{align*}
+
             In $\mathrm{R}^3$ space, let $B(r)$ be a ball with origin center and radius r.
 			Then \[ \frac{d}{dt}\int_{\mathrm{R^3} }^{}  \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\int_{B(r)}\frac{d}{dt} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
 			From divergence theorem,
