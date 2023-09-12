@@ -1,6 +1,5 @@
 % TODO: check spelling!!!
 % TODO: fix indentation
-% TODO: ask Yingli about commented parts
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{titlesec}
@@ -124,8 +123,6 @@
 
 		\[\frac{dy}{y} = -2\frac{dx}{x} \implies ln(y) = -2ln(x) + c_1 \implies y = \frac{c_2}{x^2}.\]
 
-		% TODO: FIX THIS!!!!
-		% This can be simplified !!
 		Now we set
 
 		\begin{equation} \label{sol_homo}
@@ -133,15 +130,6 @@
 		\end{equation}
 
 		where $q(x) = \frac{1}{x^2}$. Then, we substitute (\ref{sol_homo}) into the original equation,
-		%\begin{align}
-		%	y' + (2/x)y = x \nonumber \\
-		%	\iff q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) = x \nonumber \\
-		%	\iff \frac{-2}{x^3}	u(x) +\frac{1}{x^2}u'(x) + (2/x)\frac{1}{x^2}u(x) = x \nonumber \\
-		%	\iff \frac{1}{x^2}u'(x) = x \nonumber \\
-		%	\iff u'(x) = x^3 \nonumber \\
-		%	\implies u(x) = \frac{x^4}{4} + c \label{ux}.
-		%\end{align}
-%Yingli changes the layout
        \begin{equation*}
 	         \begin{aligned}
 	        	x&=y' + (2/x)y \\
@@ -208,19 +196,8 @@
 		Solve the equation $3u_y + u_{xy} =0.$
 
 			Solution:
-			% TODO: Maybe we should frame this in terms of antiderivaties!!!
 
 			Let $v=u_y$, then the equation becomes:
-			% TODO this align looks ugly, make it nicer if time allows
-			%\begin{align*}
-			%	 3v+v_x=0 \\
-			%	 \iff 3v+\frac{\partial v}{\partial x}=0 \\
-			%	 \iff \frac{\partial v}{\partial x}=-3v \\
-			%	 \iff \frac{\partial v}{v}=-3\partial x \\
-			%	 \iff ln(v) = -3x + f(y) \\
-			%	 \iff v = g(y)e^{-3x}
-			%\end{align*}
-%change as another writing way
 			\[3v+v_x=0.\]
 			By seperating variables, we get \[\frac{\partial v}{v}=-3\partial x.\]
 			Intergraling both sides simultaneously, the equation is \[ ln(v) = -3x + f(y),  \]
@@ -277,8 +254,7 @@
 		By using coordinate method. Let 
 		\begin{equation*}
 			\begin{cases}
-				x'=ax+by,
-				\\
+				x'=ax+by, \\
 				y'=bx-ay.
 			\end{cases}
 		\end{equation*}
@@ -289,9 +265,6 @@
 		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial x}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial x}=au_{x'}+bu_{y'},\]
 		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial y}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial y}=bu_{x'}-au_{y'}.\]
 		Hence,
-		% TODO: Improve this!!!
-
-%Yingli changes layout
 		\begin{equation*}
 			\begin{aligned}
 			au_x+bu_y+cu&=
@@ -301,10 +274,6 @@
 			\end{aligned}
 		\end{equation*}
 
-%	\begin{align*}
-%			au_x+bu_y+cu=\\
-%			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right)=\left(a^2+b^2\right)u_{x'}+cu=0.
-%		\end{align*}
 		We seperate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial x'.\]
 		At this point we will introduce the value $k=\frac{c}{a^2+b^2}$ just for convenience.
 
@@ -330,8 +299,6 @@
 		\[
 		u_y= -a f'(bx-ay)e^{-k(ax+by)} -bk \cdot e^{-k(ax+by)}f(bx-ay).
 		\]	
-		% TODO: Improve this!!
-%Yingli rewrite this part
 		Therefore,
 			\begin{multline*}
 				au_x+bu_y+cu= \\
@@ -353,8 +320,6 @@
 
 			Solution:
 
-			% TODO: Add a drawing if time allows
-
 			Since we are assuming homogeneity in the horizontal
 			directions, the concentration $u$ depends only on $z$.
 			Let $u(z,t)$ be the concentration. We proceed as the
@@ -362,18 +327,13 @@
 
 			The mass in the region of the fluid contained between
 			$z_0$ and $z_1$ is given by:
-%Yingli lets dM/dt as a single line
             \begin{equation*}
 				M(t) = \int_{z_0}^{z_1} u(z,t)dz.
 			\end{equation*}
-			Differential the former equation about t,
+			Differentiating the former equation with respect to $t$,
 			\begin{equation}\label{change_of_mass}
 				\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
 			\end{equation}
-			%\begin{equation} \label{change_of_mass}
-			%	M(t) = \int_{z_0}^{z_1} u(z,t)dz, \text{ so }
-			%\frac{dM}{dt}=\int_{z_0}^{z_1}u_t(z,t)dz.
-			%\end{equation}
 
 			The mass in this section of the fluid cannot change
 			except by flowing in or out if its ends.
@@ -393,12 +353,7 @@
 
 			Now the total change in the mass per unit of time is
 			the sum of this two componenets.
-%Yingli seperates them with some explanation.
 			\[\frac{dM}{dt}=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt}.\]
-			%\begin{align*}
-			%	\frac{dM}{dt}&=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt} \\
-				%\frac{dM}{dt}&=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t)
-			%\end{align*}
 			Inputing equations of $\frac{dM_{diffusion}}{dt} $ and $\frac{dM_{gravity}}{dt} $, we have
             \[\frac{dM}{dt}=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t). \]			
 			Combinating equation (\ref{change_of_mass}), we get:
