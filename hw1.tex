@@ -369,7 +369,7 @@
 		
 	\textbf{Solution:}
 
-		If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
+		If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we can show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
                   
 		Since
 		\begin{align*}
@@ -379,7 +379,7 @@
 			 \int\left(  u_{t}u^*+uu_{t}^*\right) d \vec{x }
 		\end{align*}
 
-		According to Schr$\ddot{o}$dinger equation: 
+		According to Schr\"{o}dinger's equation:
 		\[-\mathrm{i}hu_{t}=\frac{h^2}{2m}\triangle u+ \frac{e^2}{r}u,\]
 		we will obtain that
 		\begin{equation*}
@@ -402,11 +402,11 @@
 		&=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }
 	\end{align*}
 
-            In $\mathrm{R}^3$ space, let $B(r)$ be a ball with origin center and radius r.
-			Then \[ \frac{d}{dt}\int_{\mathrm{R^3} }^{}  \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\int_{B(r)}\frac{d}{dt} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
+            In $\mathrm{R}^3$ space, let $B(r)$ be a ball with the origin as center and radius $r$.
+			Then \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\frac{d}{dt}\int_{B(r)} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{B(r)}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
 			From divergence theorem,
-			\[\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)dx dy dz= \iint_{\partial B(r)}^{}(\nabla u \cdot u^* -u\cdot \nabla u^*) \cdot \bar{n} dS.	\]
-			Assume that $u$ and $\nabla u \to 0$ fast enough as $\left | \vec{x} \right | \to 0$, then we get
+			\[\iiint_{B(r)} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}= \iint_{\partial B(r)}^{}(\nabla u \cdot u^* -u\cdot \nabla u^*) \cdot \bar{n} dS.	\]
+			Assume that $u \to 0$ and $\nabla u \to 0$ fast enough as $\left | \vec{x} \right | \to \infty$, then we get
 		
 		\[ \lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x } =0,\]
 
