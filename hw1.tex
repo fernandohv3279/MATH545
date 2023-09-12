@@ -120,19 +120,19 @@
 
 		\[ \frac{dy}{dx} + \frac{2y}{x} = 0.\]
 
-		By separating variables  %original version is by seperatation variables
+		By separating variables
 
 		\[\frac{dy}{y} = -2\frac{dx}{x} \implies ln(y) = -2ln(x) + c_1 \implies y = \frac{c_2}{x^2}.\]
 
 		% TODO: FIX THIS!!!!
 		% This can be simplified !!
-		Now we solve the equation:
+		Now we set
 
 		\begin{equation} \label{sol_homo}
 			y(x) = q(x)u(x),
 		\end{equation}
 
-		where $q(x) = \frac{1}{x^2}$. For this, we substitute (\ref{sol_homo}) into the original equation,
+		where $q(x) = \frac{1}{x^2}$. Then, we substitute (\ref{sol_homo}) into the original equation,
 		%\begin{align}
 		%	y' + (2/x)y = x \nonumber \\
 		%	\iff q'(x)u(x) +q(x)u'(x) + (2/x)q(x)u(x) = x \nonumber \\
@@ -150,13 +150,12 @@
 	        	&=\frac{1}{x^2}u'(x)
 	         \end{aligned}
        \end{equation*}
-    Therefore, $u'(x) = x^3, $ intergrating $u'(x)$ about x, we obtain:
+    Therefore, $u'(x) = x^3$, intergrating $u'(x)$ with respect to $x$, we obtain:
         \begin{equation}\label{u(x)}
         	u(x) = \frac{x^4}{4} + c .
         \end{equation} 
 		Since we know $q(x)$, we can sustitute (\ref{u(x)}) into (\ref{sol_homo}) to get:
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} + \frac{c}{x^2}.\]
-
 		The initial condition is $y(1)=0$, thus \[ y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4},\]
 		therefore,
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} - \frac{1}{4x^2}.\]
