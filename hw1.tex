@@ -1,4 +1,3 @@
-% TODO: check spelling!!!
 % TODO: fix indentation
 \documentclass{article}
 \usepackage{amsmath}
@@ -25,7 +24,7 @@
 		This means that we have two options for $y'$, namely:
 		\[y' = \pm 2\sqrt{y-1}.\]
 %Change an expression
-	Then, we seperate variables,
+	Then, we separate variables,
 	\[ \frac{dy}{dx} = \pm 2\sqrt{y-1} \implies \pm\frac{dy}{ 2\sqrt{y-1}} = dx.\]
 		Integrating both sides simultaneously, we get:
 		\[\pm \sqrt{y-1} = x+c,\]
@@ -89,7 +88,7 @@
 		\[y(\text{sin}x+x\text{cos}x) + h'(x) = y\text{sin}x + xy\text{cos}x,\]
 		this implies that $h'(x)=0$, which means that $h(x) = c_1$.
 		
-		So the solution is implicitely given by:
+		So the solution is implicitly given by:
 		%\begin{align*}
 		%	f(x,y) = y(x\text{sin}x +1) + c_1 = c_2 \\
 		%	\iff y(x\text{sin}x +1) = c. \\
@@ -138,11 +137,11 @@
 	        	&=\frac{1}{x^2}u'(x)
 	         \end{aligned}
        \end{equation*}
-    Therefore, $u'(x) = x^3$, intergrating $u'(x)$ with respect to $x$, we obtain:
+    Therefore, $u'(x) = x^3$, integrating $u'(x)$ with respect to $x$, we obtain:
         \begin{equation}\label{u(x)}
         	u(x) = \frac{x^4}{4} + c .
         \end{equation} 
-		Since we know $q(x)$, we can sustitute (\ref{u(x)}) into (\ref{sol_homo}) to get:
+		Since we know $q(x)$, we can substitute (\ref{u(x)}) into (\ref{sol_homo}) to get:
 		\[y(x) = \frac{1}{x^2}\left(\frac{x^4}{4}+c\right) = \frac{x^2}{4} + \frac{c}{x^2}.\]
 		The initial condition is $y(1)=0$, thus \[ y(1)=\frac{1}{4} + c= 0 \implies c=-\frac{1}{4},\]
 		therefore,
@@ -199,8 +198,8 @@
 
 			Let $v=u_y$, then the equation becomes:
 			\[3v+v_x=0.\]
-			By seperating variables, we get \[\frac{\partial v}{v}=-3\partial x.\]
-			Intergraling both sides simultaneously, the equation is \[ ln(v) = -3x + f(y),  \]
+			By separating variables, we get \[\frac{\partial v}{v}=-3\partial x.\]
+			Integrating both sides simultaneously, the equation is \[ ln(v) = -3x + f(y),  \]
 			Therefore, \[ v = g(y)e^{-3x},\]
 			where $g(y)=e^{f(y)}$.
 			Since $v=u_y$, we have:
@@ -223,11 +222,13 @@
     \subsection{Exercise 6}
 	Solve the equation $\sqrt{1-x^2}u_x+u_y=0$ with the condition $u(0, y)=y.$
 		
-            Solution: The charecteristic curve satisfies the ODE: 
+            Solution: 
+
+	    The characteristic curve satisfies the ODE:
             \[ \frac{dy}{dx}=\frac{1}{\sqrt{1-x^2}}.\]
 			To solve the solution, we separate variables: 		
 			\[ dy=\frac{1}{\sqrt{1-x^2}}dx.\]
-			By intergrating, \[y= arcsinx + c .\]
+			By integrating, \[y= arcsinx + c .\]
 			Since $u(x,y)$ is a constant on each such curve, so
 			\[ u(x,y)=f(c)=f(y - arcsinx).\]
 			And the initial condition is $u(0,y)=y$, then $u(0,y)=f(y)=y.$
@@ -254,39 +255,38 @@
 		By using coordinate method. Let 
 		\begin{equation*}
 			\begin{cases}
-				x'=ax+by, \\
-				y'=bx-ay.
+				\tilde{x}=ax+by, \\
+				\tilde{y}=bx-ay.
 			\end{cases}
 		\end{equation*}
 
-		% TODO: Change the variable to something else, like \tilda to avoid confusion with derivative
-		Replace all $x$ and $y$ derivatives by $x'$ and $y'$ derivatives.
+		Replace all $x$ and $y$ derivatives by $\tilde{x}$ and $\tilde{y}$ derivatives.
 
-		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial x}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial x}=au_{x'}+bu_{y'},\]
-		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x'}\cdot\frac{\partial x'}{\partial y}+\frac{\partial u}{\partial y'}\cdot\frac{\partial y'}{\partial y}=bu_{x'}-au_{y'}.\]
+		By the chain rule, \[u_x=\frac{\partial u}{\partial x}=\frac{\partial u}{\partial \tilde{x}}\cdot\frac{\partial \tilde{x}}{\partial x}+\frac{\partial u}{\partial \tilde{y}}\cdot\frac{\partial \tilde{y}}{\partial x}=au_{\tilde{x}}+bu_{\tilde{y}},\]
+		\[u_y=\frac{\partial u}{\partial y}=\frac{\partial u}{\partial \tilde{x}}\cdot\frac{\partial \tilde{x}}{\partial y}+\frac{\partial u}{\partial \tilde{y}}\cdot\frac{\partial \tilde{y}}{\partial y}=bu_{\tilde{x}}-au_{\tilde{y}}.\]
 		Hence,
 		\begin{equation*}
 			\begin{aligned}
 			au_x+bu_y+cu&=
-			a\left(au_{x'}+bu_{y'} \right)+b\left(bu_{x'}-au_{y'}\right) +cu\\
-			&=\left(a^2+b^2\right)u_{x'}+cu\\
+			a\left(au_{\tilde{x}}+bu_{\tilde{y}} \right)+b\left(bu_{\tilde{x}}-au_{\tilde{y}}\right) +cu\\
+			&=\left(a^2+b^2\right)u_{\tilde{x}}+cu\\
 			&=0.
 			\end{aligned}
 		\end{equation*}
 
-		We seperate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial x'.\]
+		We separate variables, \[\frac{\partial u}{u}=-\frac{c}{a^2+b^2}\partial \tilde{x}.\]
 		At this point we will introduce the value $k=\frac{c}{a^2+b^2}$ just for convenience.
 
 %Little change, add some describe sentence.
-		Intergrating both sides we get
+		Integrating both sides we get
 		\[
-			\ln u = -kx' +g(y'),
+			\ln u = -k\tilde{x} +g(\tilde{y}),
 		\]
 		then
 		\[
-		u = f(y')e^{-kx'},
+		u = f(\tilde{y})e^{-k\tilde{x}},
 		\]
-		where $f(y')=e^{g(y')}$.
+		where $f(\tilde{y})=e^{g(\tilde{y})}$.
 		Thus, the solution is
 		\[
 		u = f(bx-ay)e^{-k(ax+by)}.
@@ -352,11 +352,11 @@
 			\[\frac{dM_{gravity}}{dt} = Vu(z_1,t) - Vu(z_0,t).\]
 
 			Now the total change in the mass per unit of time is
-			the sum of this two componenets.
+			the sum of this two components.
 			\[\frac{dM}{dt}=\frac{dM_{diffusion}}{dt}+\frac{dM_{gravity}}{dt}.\]
-			Inputing equations of $\frac{dM_{diffusion}}{dt} $ and $\frac{dM_{gravity}}{dt} $, we have
+			Inputting equations of $\frac{dM_{diffusion}}{dt} $ and $\frac{dM_{gravity}}{dt} $, we have
             \[\frac{dM}{dt}=ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t). \]			
-			Combinating equation (\ref{change_of_mass}), we get:
+			Combining equation (\ref{change_of_mass}), we get:
 			\[\int_{z_0}^{z_1}u_t(z,t)dz= ku_z(z_1,t)-ku_z(z_0,t) + Vu(z_1,t) - Vu(z_0,t).\]
 			Differentiating with respect to $z_1$, we obtain:
 			\[
@@ -364,7 +364,7 @@
 			\]
 
 		\subsection{Exercise 8}
-	For the hydrigen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
+	For the hydrogen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
 		
 		Solution: If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we should show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
                   
@@ -416,9 +416,9 @@ By trial and error, find a solution of the diffusion equation $u_t=u_{xx}$ with 
 		
 		Solution: From the initial condition $u(x,0)=x^2$, we know that $u_{xx}=2=u_t$. 
 		
-		Then, intergral $u_{t}$ about $t$, we obtain that $\int u_{t} dt= \int 2 dt = 2t$,
+		Then, integral $u_{t}$ about $t$, we obtain that $\int u_{t} dt= \int 2 dt = 2t$,
 
-		Therefore, we can constrcut $u(t,x)=x^2+2t$.
+		Therefore, we can construct $u(t,x)=x^2+2t$.
 
 		Let's check it, since $u_{t}=2, u_{xx}=2$,
 
@@ -480,11 +480,6 @@ Show that the three-dimensional version of (a) (insulated solid) or (b) (imperme
 \section{Strauss section 1.5}
 \subsection{Exercise 1}
 Consider the problem
-		%\begin{align*}
-		%	\frac{d^2u}{dx^2}+u = 0 \\
-		%	u(0)=0 \text{ and } u(L)=0,
-		%\end{align*}
-%Change as a group
 		\begin{equation*}
 			\begin{cases}
 				\frac{d^2u}{dx^2}+u = 0,
@@ -493,7 +488,7 @@ Consider the problem
 			\end{cases}
 		\end{equation*}
 		consisting of an ODE and a pair of boundary
-		conditions. Clearly, the functino $u(x) \equiv 0$ is a
+		conditions. Clearly, the function $u(x) \equiv 0$ is a
 		solution. Is the solution \textit{unique}, or \textit{not}?
 	Does the answer depend on L?
 
@@ -559,11 +554,6 @@ Consider the problem
 			\end{cases}
 		\end{equation*}
 		
-		%divided them
-
-
-	%	$\Delta(u+c)= \Delta u$ and $\frac{\partial
-	%	(u+c)}{\partial n}=\frac{\partial u}{\partial n}$.
 		So $u+c$ is also a solution.
 
 	\subsubsection{}
@@ -585,7 +575,7 @@ Consider the problem
 	Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
 		
 		Solution: We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
-		where $k$ is a propoetionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
+		where $k$ is a proportionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
         
 		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the heat flow won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the heat flow of this system will be steady at any time. 
 		
@@ -593,9 +583,9 @@ Consider the problem
          
 		For (a), when we increase a certain temperature everywhere, the system is still stable, which means heat flow is the same as before. 
 
-		Also, for (b), the Neumann boundary condition means that the whole system is insulated. From Frouier's theorem, it also means that there are no heat flow out and flow in at the boundary, therefore, heat won't be loss from $D$ with time changes.
+		Also, for (b), the Neumann boundary condition means that the whole system is insulated. From Fourier's theorem, it also means that there are no heat flow out and flow in at the boundary, therefore, heat won't be loss from $D$ with time changes.
 
-		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a propoetionality constant, but from here, $u(t,x)$ means the concentration of object.
+		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a proportionality constant, but from here, $u(t,x)$ means the concentration of object.
 		
 		For (a), the diffusion of object won't change if add a certain mass everywhere. And the diffusion only depends on the difference of different concentration regions.
 
