@@ -469,20 +469,20 @@ From the initial condition $u(x,0)=x^2$, we know that $u_{xx}=2=u_t$.
 		Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$. (Use Fick's law.)
 		
 		\textbf{Solution:}
-
-		$u(t,x)$ be the concentration of gas at position $x$ of the pipe at $t$.
-        The mass of gas is $M(t)= \int_{x_0}^{x_1} u(t,x)dx$.
-		
-		From Fick's flow, 
-        \[ \frac{dM}{dt}=ku_{x}(x_{1},t)- ku_{x}(x_{0},t),\]
-		where $k$ is a proportionality constant.
-
-		Since the diffusion of gas along a tube is closed off at the end $x=0$,
-
-       \[0= \frac{dM}{dt}|_ {x=0}= ku_{x}(0,t),\]
-
-	   Therefore, the diffusion of gas along a tube that is closed off at the end $x=0$ satisfies the boundary condition $ \frac{\partial u}{\partial x}(0,t)=0.$
-
+			By Ficks's law we have:
+			\[
+				M_t = ku_x
+			\]
+			The tube being closed off at the $x=0$ means that there is no
+			change in the mass of gas at that point, so we have:
+			\[
+				0 = M_t(0,t) = ku_x(0,t) \implies u_x(0,t) =0
+			\]
+			This shows what we wanted, namely that the concentration
+			satisfies the boundary condition:
+			\[
+				\frac{\partial u}{\partial x} =0.
+			\]
 	\subsubsection{}
 Show that the three-dimensional version of (a) (insulated solid) or (b) (impermeable container) leads to the boundary condition $\partial u/ \partial n=0$.
 		
