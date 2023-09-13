@@ -365,19 +365,16 @@
 			\]
 
 		\subsection{Exercise 8}
-	For the hydrogen atom, if $ \int \left | u^2 \right | d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
+	For the hydrogen atom, if $ \int \left | u \right |^2 d \vec{x } =1$, at $t=0$, show that the same is true at all later times.
 		
 	\textbf{Solution:}
 
-		If we want to show that $ \int \left | u^2 \right | d \vec{x } =1$ is true at all times, we can show that $\frac{d}{dt}\int \left | u^2 \right | d \vec{x } =0$.
+		If we want to show that $ \int \left | u \right |^2 d \vec{x } =1$ at all later times, we can show that $\frac{d}{dt}\int \left | u \right |^2 d \vec{x } =0$.
                   
-		Since
-		\begin{align*}
-			 \frac{d}{dt}\int \left | u^2 \right | d \vec{x } =&
-			 \int \frac{d}{dt} \left | u^2 \right | d \vec{x }=
-			 \int \frac{d}{dt} \left(uu^* \right)d \vec{x }=
-			 \int\left(  u_{t}u^*+uu_{t}^*\right) d \vec{x }
-		\end{align*}
+		We begin by noticing that:
+		\begin{equation} \label{d|u|^2/dt}
+			 \frac{d}{dt} \left | u \right |^2= \frac{d}{dt} \left(uu^* \right)= u_{t}u^*+uu_{t}^*.
+		\end{equation}
 
 		According to Schr\"{o}dinger's equation:
 		\[-\mathrm{i}hu_{t}=\frac{h^2}{2m}\triangle u+ \frac{e^2}{r}u,\]
@@ -389,29 +386,45 @@
 				u_{t}^*=-\frac{\mathrm{i}h}{2m}\triangle u^*-\frac{\mathrm{i}e^2}{hr}u^*,
 			\end{cases}
 		\end{equation*}
-		
 
 		Therefore,
 
-			\[u_{t}u^*+uu_{t}^*=(\frac{\mathrm{i}h}{2m}\triangle u+\frac{\mathrm{i}e^2}{hr}u)u^*-u(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{\mathrm{i}e^2}{hr}u^*)= \frac{\mathrm{i}h}{2m} (u^*\triangle u -u\triangle u^*) \]
-			Since, \[\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^*=\triangle u \cdot u^*-u\cdot\triangle u^*,\]
-			Therefore,
+		\begin{align} \label{derivative_plus_schrodinger}
+				u_{t}u^*+uu_{t}^*&=\left(\frac{\mathrm{i}h}{2m}\triangle u+\frac{\mathrm{i}e^2}{hr}u\right)u^*-u\left(\frac{\mathrm{i}h}{2m}\triangle u^*+\frac{\mathrm{i}e^2}{hr}u^*\right) \nonumber \\
+			&= \frac{\mathrm{i}h}{2m}(u^*\triangle u -u\triangle u^*).
+			\end{align}
+
+		We also have:
+		\begin{align} \label{laplacian_as_dot_w_gradient}
+		\triangle u \cdot u^*-u\cdot\triangle u^*&= \triangle u \cdot u^*+ \nabla u\cdot \nabla u^*- \nabla u\cdot \nabla u^*- u\cdot\triangle u^* \nonumber \\
+		&=\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*),
+		\end{align}
+		putting together (\ref{d|u|^2/dt}), (\ref{derivative_plus_schrodinger}) and (\ref{laplacian_as_dot_w_gradient}) we have:
 	\begin{align*}
-		\frac{d}{dt}\int \left | u^2 \right | d \vec{x }&=\int(u_{t}u^*+uu_{t}^*)  d \vec{x } \\
-		&= \frac{\mathrm{i}h}{2m}\int(u^*\triangle u -u\triangle u^*)d \vec{x } \\
-		&=\frac{\mathrm{i}h}{2m}\int \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }
+		\frac{d}{dt}\left | u \right |^2 =\frac{\mathrm{i}h}{2m}\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*).
 	\end{align*}
 
-            In $\mathrm{R}^3$ space, let $B(r)$ be a ball with the origin as center and radius $r$.
-			Then \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }= \lim_{r \to \infty}\frac{d}{dt}\int_{B(r)} \left | u^2 \right | d \vec{x }= \frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{B(r)}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }.\]
+	Then:
+	\[
+		\frac{d}{dt}\int \left | u \right |^2d\vec{x} = \int \left(\frac{d}{dt}\left | u \right |^2\right)d\vec{x} =\frac{\mathrm{i}h}{2m}\int\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x},
+	\]
+	So in order to prove $\frac{d}{dt}\int|u|^2d\vec{x}=0$ it sufices to show that:
+	\[
+		\int\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}=0.
+	\]
+            In $\mathrm{R}^3$ space, let $B(r)$ be a ball centered at the origin with radius $r$.
+		Then
+		\[
+			\int\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x} = \lim_{r \to \infty}\int_{B(r)}\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}.
+		\]
 			From divergence theorem,
-			\[\iiint_{B(r)} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}= \iint_{\partial B(r)}^{}(\nabla u \cdot u^* -u\cdot \nabla u^*) \cdot \bar{n} dS.	\]
+			\[\int_{B(r)} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}= \int_{\partial B(r)}^{}(\nabla u \cdot u^* -u\cdot \nabla u^*) \cdot \bar{n} dS.	\]
 			Assume that $u \to 0$ and $\nabla u \to 0$ fast enough as $\left | \vec{x} \right | \to \infty$, then we get
 		
-		\[ \lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x } =0,\]
+		\[ \lim_{r \to \infty}\int_{B(r)}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x } =0,\]
+		which is what we wanted to prove.
 
-		Therefore, \[ \frac{d}{dt}\int \left | u^2 \right | d \vec{x }=\frac{\mathrm{i}h}{2m}\lim_{r \to \infty}\iiint_{r}^{} \nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d \vec{x }=0,\]
-			which means that at all later times, $ \int \left | u^2 \right | d \vec{x } =1$.
+		In conclusion: at all later times, $ \int \left | u^2 \right | d \vec{x } =1$.
 		
 \section{Strauss section 1.4}
 \subsection{Exercise 1}
