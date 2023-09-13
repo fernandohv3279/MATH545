@@ -408,7 +408,7 @@
 	\[
 		\frac{d}{dt}\int \left | u \right |^2d\vec{x} = \int \left(\frac{d}{dt}\left | u \right |^2\right)d\vec{x} =\frac{\mathrm{i}h}{2m}\int\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x},
 	\]
-	So in order to prove $\frac{d}{dt}\int|u|^2d\vec{x}=0$ it sufices to show that:
+	So in order to prove $\frac{d}{dt}\int|u|^2d\vec{x}=0$ it suffices to show that:
 	\[
 		\int\nabla \cdot (\nabla u \cdot u^* -u\cdot \nabla u^*)d\vec{x}=0.
 	\]
@@ -469,7 +469,7 @@ From the initial condition $u(x,0)=x^2$, we know that $u_{xx}=2=u_t$.
 		Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$. (Use Fick's law.)
 		
 		\textbf{Solution:}
-			By Ficks's law we have:
+			By Fick's law we have:
 			\[
 				M_t = ku_x
 			\]
@@ -500,7 +500,7 @@ which implies
 	\vec{n}\cdot H_{t}= k \vec{n}\cdot\nabla u.
 \]
 Since $D$ is insulated there cannot
-be exchage of heat in the direction of $\vec{n}$, otherwise there would be heat
+be exchange of heat in the direction of $\vec{n}$, otherwise there would be heat
 flowing in or out of the boundary.
 
 Now let $x_b$ be any point on $\partial D$. By the explanation above we see that:
@@ -617,7 +617,7 @@ Part (a) using the heat equation as example:
 
 This PDE tries to model the temperature of an isolated body in the
 presence of a heat source after a very long time. We know from experience with
-the real world that in this senario we will get a unique function $u$ that
+the real world that in this scenario we will get a unique function $u$ that
 describes the temperature at each point of the object.
 The fact that there are multiple solutions means that more information needs to
 be provided in order for the PDE to represent a real world phenomenon.
@@ -625,9 +625,9 @@ be provided in order for the PDE to represent a real world phenomenon.
 Part (b) using the diffusion equation as example:
 
 This PDE models de diffusion of a fluid(e.g. ink) inside another(e.g. water)
-(both incompresible), in an enclosed domain after a very long time.
+(both incompressible), in an enclosed domain after a very long time.
 The fact that the integral of the source $f$ on the entire domain $D$ is 0
 means that for any volume of ink you inject into $D$, an equal volume of
 fluid(ink and/or water) must come out of $D$. This is because the volume of $D$
-is constant and liquids are not compresible.
+is constant and liquids are not compressible.
 \end{document}
