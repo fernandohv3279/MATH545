@@ -600,13 +600,14 @@ Consider the problem
 	\textbf{Solution:}
 
 	Integrating $\triangle u = f(x,y,z)$ in D, we obtain
-		\[0= \iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz
+		\[\iiint\limits_{D}^{} f(x,y,z)dxdydz=\iiint\limits_{D}^{} \triangle u dxdydz=\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz.
 		\]
-		From divergence theorem,
-		\[\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz=\iint_{S}^{} \nabla u \cdot \vec{n}dS=\iint_{S}^{} \frac{\partial u}{\partial n}dS,
-			\]
+		By the divergence theorem,
+		\[
+			\iiint\limits_{D}^{} \nabla \cdot \nabla u dxdydz=\iint_{S}^{} \nabla u \cdot \vec{n}dS=\iint_{S}^{} \frac{\partial u}{\partial n}dS,
+		\]
 
-			Therefore, if we want to have a solution of the Neumann problem, we have to satisfy the boundary condition, which also means $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
+			If we want to have a solution to the Neumann problem, we have to satisfy the boundary condition $\partial u /\partial n=0$, which also means that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
 		\subsubsection{}
 	Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
 		
