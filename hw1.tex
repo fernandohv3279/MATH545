@@ -610,24 +610,24 @@ Consider the problem
 			If we want to have a solution to the Neumann problem, we have to satisfy the boundary condition $\partial u /\partial n=0$, which also means that $ \iiint\limits_{D}^{} f(x,y,z)dxdydz=0$ is a necessary condition for the Neumann problem to have a solution.
 		\subsubsection{}
 	Can you give a physical interpretation of part (a) and/or (b) for either heat flow or diffusion?
-		
+
 	\textbf{Solution:}
 
-	We will consider heat flow at first. For heat flow, \[f(x,y,z)=ku_{t},\]
-		where $k$ is a proportionality factor (the "heat conductivity"), $u(t,x)$ is the temperature.
-        
-		Since in $D$, \[\triangle u = f(x,y,z),\] function $f$ doesn't contain variable $t$, this means the equation is independent to $t$, which shows that the heat flow won't change with time goes by, therefore, if there is a heat source $f(x,y,z)$, the heat flow of this system will be steady at any time. 
-		
-		Also from Fourier's law, heat flows from hot to cold regions proportionately to the temperature gradient, therefore, the heat flow would only depend on the region of temperature.
-         
-		For (a), when we increase a certain temperature everywhere, the system is still stable, which means heat flow is the same as before. 
+Part (a) using the heat equation as example:
 
-		Also, for (b), the Neumann boundary condition means that the whole system is insulated. From Fourier's theorem, it also means that there are no heat flow out and flow in at the boundary, therefore, heat won't be loss from $D$ with time changes.
+This PDE tries to model the temperature of an isolated body in the
+presence of a heat source after a very long time. We know from experience with
+the real world that in this senario we will get a unique function $u$ that
+describes the temperature at each point of the object.
+The fact that there are multiple solutions means that more information needs to
+be provided in order for the PDE to represent a real world phenomenon.
 
-		Then we consider diffusion, similar, $f(x,y,z)=ku_{t},$ where $k$ is a proportionality constant, but from here, $u(t,x)$ means the concentration of object.
-		
-		For (a), the diffusion of object won't change if add a certain mass everywhere. And the diffusion only depends on the difference of different concentration regions.
+Part (b) using the diffusion equation as example:
 
-		For (b), since Neumann problem is achieved, on the boundary D, there are no mass flow in or flow out, therefore, this is a closed off system, and the mass $M(t)$ won't change with time goes by.  
-
+This PDE models de diffusion of a fluid(e.g. ink) inside another(e.g. water)
+(both incompresible), in an enclosed domain after a very long time.
+The fact that the integral of the source $f$ on the entire domain $D$ is 0
+means that for any volume of ink you inject into $D$, an equal volume of
+fluid(ink and/or water) must come out of $D$. This is because the volume of $D$
+is constant and liquids are not compresible.
 \end{document}
