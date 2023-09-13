@@ -488,16 +488,28 @@ Show that the three-dimensional version of (a) (insulated solid) or (b) (imperme
 		
 \textbf{Solution:}
 
-We will choose (a) insulated solid to show the boundary condition in three-dimensional version.
+We will choose (a) insulated solid to show the boundary condition in the three-dimensional version.
 	    
-		Assume $D$ be a insulated solid.
-		 
-		By Fourier's law, we have 
-		 \[0= H_{t}|_{S}= k\vec{n}\cdot \nabla u |_{S}=k\cdot \frac{\partial u}{\partial n}|_{S}, \]
-        where $S$ is boundary of $D$.
+Assume $D$ is an insulated solid and let $\vec{n}$ be the unit normal vector on $\partial D$.
+By Fourier's law, we have
+\[
+H_{t}= k \nabla u,
+\]
+which implies
+\[
+	\vec{n}\cdot H_{t}= k \vec{n}\cdot\nabla u.
+\]
+Since $D$ is insulated there cannot
+be exchage of heat in the direction of $\vec{n}$, otherwise there would be heat
+flowing in or out of the boundary.
 
-		Therefore, the boundary condition is \[ \frac{\partial u}{\partial n}|_{S}=0,\]
-		where $S$ is boundary of $D$.
+Now let $x_b$ be any point on $\partial D$. By the explanation above we see that:
+\[
+	0=(\vec{n}\cdot H_t)(x_b,t)=(k \vec{n}\cdot\nabla u)(x_b,t)
+\]
+Given that $k\neq 0$ and because $\vec{n}\cdot \nabla u=\partial u /\partial n$
+we conclude that for any point on $\partial D$ the boundary condition
+$\partial u/\partial n=0$ is satisfied.
 
 \section{Strauss section 1.5}
 \subsection{Exercise 1}
