@@ -1,0 +1,283 @@
+\documentclass[12pt]{article}%
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\begin{document}
+
+\title{Math 545 - PDEs - Homework 1}
+\author{YingLi Li, Fernando Herrera Valverde, Laurette Hamlin}
+\date{\today}
+\maketitle
+
+\section{Solve the following ODEs.} 
+
+\subsection{$\left(y'\right)^2 -4y +4 = 0$}
+   
+\begin{solution} 
+We seek solutions $y=f\left(t,y\right)$.  This is a first order homogeneous differential equation and will have one constant in the solution.  Since the derivative is squared, the ODE is non-linear.  It can be easily solved with separation of variables.
+    \begin{align*}
+        &\left(\frac{dy}{dt}\right)^2 -4y +4 = 0  \\
+        &\frac{dy}{dt} = \pm 2 \sqrt{y-1} \\
+        &\frac{dy}{\pm 2 \sqrt{y-1}} =  dt && \text{question: do we care about y=1?} \\
+        & \pm \int_{}^{} \frac{1}{2}\left(y-1\right)^{-\frac{1}{2}}dy =  \int_{}^{} dt  && \text{note: $dy = y'dt$}\\
+        &\pm  \left(y-1\right)^\frac{1}{2} + C = t  && \text{note: combining constants} \\
+        & \left(y-1\right)^\frac{1}{2}  = t \pm C \\
+        & \boxed{y = t^2 \pm 2Ct + \left(C^2 +1\right)}  && \checkmark \\
+    \end{align*} 
+    Check: 
+    We have
+    \begin{align*}
+        & y = t^2 \pm 2Ct + \left(C^2 +1\right) \\
+        & y' = 2t \pm 2C \\
+        & \left(y'\right)^2=4t^2 \pm 8Ct + 4C^2 \\
+        & \text{Hence } \\
+        & \left(y'\right)^2 -4y +4 = \left(4t^2 \mp 8Ct + 4C^2\right) -4\left(t^2 \pm 2Ct + C^2 +1\right) +4 \\
+        &=0   && \checkmark \\
+    \end{align*}
+\end{solution}
+
+\pagebreak
+
+\subsection{ $\left(y\sin{x}+xy\cos{x}\right)dx + \left(x\sin{x}+1\right)dy = 0$ }
+   
+\begin{solution} 
+We seek solutions $y=f\left(x,y\right)$.  This is also a first order homogeneous differential equation which will have one constant in the solution.  This ODE is linear.  It can be solved with the integrating factor method.
+    \begin{align*}
+        & \left(x\sin{x}+1\right)dy = -\left(y\sin{x}+xy\cos{x}\right)dx \\
+        & \frac{dy}{dx}=-\frac{\left(y\sin{x}+xy\cos{x}\right)}{\left(x\sin{x}+1\right)} \\
+        & \frac{dy}{dx} + \frac{\left(y\sin{x}+xy\cos{x}\right)}{\left(x\sin{x}+1\right)} =0 \\
+        & \text{The integrating factor is } \\
+        & u\left(x\right) = e^{\int_{}^{}\frac{\left(y\sin{x}+xy\cos{x}\right)}{\left(x\sin{x}+1\right)}dx} 
+        = e^{\int_{}^{}\frac{1}{v}dv} && \text{ note: by substitution} \\
+        & \text{Hence, $u\left(x\right) = x\sin{x}+1 $ and the general solution is }\\
+        & y = \frac{1}{x\sin{x}+1}\int_{}^{}0*\left(x\sin{x}+1\right)dx \\
+        & \boxed{y = \frac{C}{x\sin{x}+1}}  && \checkmark \\
+    \end{align*} 
+\end{solution}
+
+\subsection{ $y' + \left(\frac{2}{x}\right)y= x$; initial condition $y\left(1\right)=0$}
+
+\begin{solution} 
+We seek solutions $y=f\left(x,y\right)$.  Again, this is a first order linear differential equation.   It can be made homogeneous.  It will also have one constant in the solution. It can be easily solved with the integrating factor method.
+    \begin{align*}
+        & \text{The integrating factor is } \\
+        & u\left(x\right) = e^{\int_{}^{}\frac{2}{x}dx} = e^{\frac{2}{ln{x}}}  \\
+        & \text{Hence, $ u\left(x\right) = x^2 $ and the general solution is } \\
+        & y = \frac{1}{x^2}\int_{}^{}x x^2dx  && \text{note: consider $\lim_{x \to 0}$ here} \\
+        & \underline{y = \frac{x^2}{4} + \frac{C}{x^2}} \\
+    \end{align*} 
+The exact solution is found by
+    \begin{align*}
+        & y\left(1\right) = \frac{1}{4} + C = 0 \\
+        & C = \frac{-1}{4} && \text{ and so } \\
+        & \boxed{y = \frac{x^2}{4} - \frac{1}{4x^2}} && \checkmark \\
+    \end{align*}
+\end{solution}
+   
+\pagebreak
+
+\section{Strauss Section 1.2} 
+
+\subsection{Exercise 1. Solve the first-order equation $2u_t+3u_x=0$ with the auxiliary condition $u=\sin{x}$ when $t=0$.}
+   
+\begin{solution} 
+This is a constant coefficient equation with $a=2$ and $b=3$. Using the Change of Coordinates Method, we define
+\begin{align*}
+    &t' = 2t + 3x \text{ ; } 
+    &x' = 3t - 2x \text{.}\\
+\end{align*}
+Then
+\begin{align*}
+    & u_t = 2u_{t'} + 3u_{x'} \text{ ; }
+    & u_x = 3u_{t'} - 2u_{x'} \text{.}\\
+\end{align*}
+Hence 
+\begin{align*}
+    2u_t+3u_x = 2\left( 2u_{t'} + 3u_{x'} \right) +3\left( 3u_{t'} - 2u_{x'}\right)
+    =\left(2^2+3^2\right)u_{t'} &= 0 \\
+    u_{t'} &= 0 \\
+    u_t &= f\left(x'\right) \text{.}\\
+\end{align*}
+The general solution is $$\underline{u_t = f\left(3t-2x\right)}\text{.}$$
+When $t=0$, $u_0 = f\left(-2x\right) = \sin{x}$.  Letting $w=-2x$ (so that $x=\frac{-w}{2}$), we have 
+$f\left(w\right)=\sin{\frac{-w}{2}}$.  Therefore, the exact solution is
+
+$$ \boxed{u\left(t,x\right) = \sin{x-\frac{3}{2}t}}  \text{    } \checkmark  $$
+\end{solution}
+
+\subsection{Exercise 2. Solve the equation $3u_y+ u_{xy} = 0$. (\emph{Hint}: Let $v=u_y$.)}
+   
+\begin{solution} 
+The challenge in this problem is the mixed second-order partial.  The hint shows us to remove it as an obstacle by using $v=u_y$ so that $\int_{}^{}vdv = u_y$. This will allow us to regard it as fixed for purposes of solving the PDE. This gives us a first-order equation linear equation with constant coefficients.
+\begin{align*}
+    &3u_y + u_{xy} = 0 \\
+    &3v + \frac{\partial{v}}{\partial{x}} = 0 \\
+    &3v + v' = 0 \\
+    & \text{thus} \\
+    &\underline{v = f\left(y\right)e^{-3x}} \text{ where } f\left(y\right) \text{ is a constant function.}\\
+\end{align*}
+But $v$  is a derivative in $y$, so we can just integrate with respect to $y$, then again with respect to $x$, to find the general solution.
+\begin{align*}
+    &v = f\left(y\right)e^{-3x} \\
+    &\int_{}^{}u_y dy = e^{-3x}\int_{}^{}f\left(y\right)dy \\
+    &\boxed{u\left(x,y\right) = F\left(y\right)e^{-3x} + G\left(x\right)} && \checkmark \\
+\end{align*}
+
+\end{solution}
+
+
+\subsection{Exercise 6. Solve the equation $\sqrt{1-x^2}u_x+ u_y=0$ with the condition $u\left(0,y\right)=y$.}
+   
+\begin{solution} 
+This is a variable coefficient first order equation. The characteristic curves satisfy the ODE 
+\begin{align*}
+    & \frac{dy}{dx}=\frac{1}{\sqrt{1-x^2}} \\
+    & y = \arcsin{x} + C \\
+    & \text{and} \\
+    & C = y - \arcsin{x} \\
+\end{align*} 
+The solution will be constant on each of these characteristic line curves.  Therefore, the general solution is 
+$$\underline{u\left(x,y\right) = f\left(y - \arcsin{x}\right)}\cdot$$
+\\
+To find the exact solution, we walk backward along the characteristic to $u\left(0,y\right)=y$. 
+
+$$u\left(0,y\right) = f\left(y - \arcsin{0}\right) = f\left(y\right)$$
+so that $f\left(y\right) = y$. 
+\\
+Therefore $$\boxed{u\left(x,y\right) = y - \arcsin{x}} \text{    } \checkmark$$
+\end{solution}
+
+
+\subsection{Exercise 8. Solve $au_x + bu_y + cu = 0$.}
+   
+\begin{solution} 
+This is a constant coefficient first order linear equation in three variables, perhaps for length, width, height or perhaps for latitude/longitude over time. It can be reduced to an ODE by extending the change of coordinates method so that $x$ and $y$ are replaced by $x' = ax + by$ and $y' = bx - ay$.  We can then substitute all of the derivatives of $x$ with derivatives of $x'$ and derivatives of $y$ with derivatives of $y'$ to reduce the problem down to an ODE. 
+\begin{align*}
+    &au_x + bu_y + cu = 0 \\
+    &a\left(au_{x'}+bu_{y'}\right) + b\left(bu_{x'}-au_{y'}\right) + cu = 0 \\
+    &\underline{(a^2 + b^2)u_{x'} + cu = 0} \\
+\end{align*}
+
+This is a separable ODE solved by
+\begin{align*}
+    &\frac{u_{x'}}{u} = \frac{-c}{a^2 + b^2} \\
+    &\ln{u} = \frac{cu + k_1}{-\left(a^2 + b^2\right)} \text{ ,where $k_1$ is an arbitrary constant} \\
+    &u = e^{\frac{cu + k_1}{-\left(a^2 + b^2\right)}}
+\end{align*}
+Thus, the general solution in term of $x'$ and $y'$ is 
+$$u\left(x',y'\right) = f\left(y'\right)e^{\frac{-cu}{a^2 + b^2}} \text{ , where $f$ is an arbitrary function.} $$
+Converting back to the original variables, the final general solution is
+$$ \boxed{u\left(x,y\right) = f\left(bx-ay\right)e^{\frac{-cu}{a^2 + b^2}}} \text{   } \checkmark $$
+\end{solution}
+
+\pagebreak
+
+\section{Strauss Section 1.3} 
+
+\subsection{Exercise 4. Suppose that some particles which are suspended in a liquid medium would be pulled down at the constant velocity $V > 0$ by gravity in the absence of diffusion.  Taking account of the diffusion find the equation for the concentration of particles.  Assume homogeneity in the horizontal directions $x$ and $y$. Let the $z$ axis point upwards.}
+   
+\begin{solution} 
+It is quite sensible to consider diffusion with gravity.  Applications could include a precipitant in solution for a biochemistry experiment or a passive heated source at the top of a (soon to be cold) classroom. \\
+
+Letting $u(z,t)$ be the concentration at time $t$, then the mass is given by
+\begin{align*}
+    &M\left(t\right)=\int_{z_0}^{z_1}udz\\
+    &\frac{dM}{dt} = \int_{z_0}^{z_1} u_tdz
+\end{align*}
+Fick's Law of Diffusion tells us that the movement from higher concentration to lower concentration is 
+\begin{align*}
+    \frac{dM}{dt} &= \int_{z_0}^{z_1}u_tdz \\
+    &= \text{ flow in - flow out } \\
+    &= ku_z\left(z_1,t\right)-ku_z\left(z_0,t\right) \text{, where $k$ is an arbitrary constant} \\
+\end{align*}
+\end{solution}
+
+\subsection{Exercise 8. For the hydrogen atom, if $\int_{}^{}|u|^2d\mathbf{x}=1$ at $t=0$, show that the same is true at all later times. (\emph{Hint}: Differentiate the integral with respect to t, taking care about the solution being complex valued.  Assume that $u$ and $\nabla u \to 0$ fast enough as $|\mathbf{x}| \to \infty$.)}
+   
+\begin{solution} 
+\end{solution}
+
+
+\pagebreak
+
+\section{Strauss Section 1.4} 
+
+\subsection{Exercise 1. By trial and error, find a solution of the diffusion equation $u_1=u_{xx}$ with the initial condition $u\left(x,0\right) =x^2$.}
+   
+\begin{solution} 
+
+
+\end{solution}
+
+
+\subsection{Exercise 2a. Show that the temperature of a metal rod, insulated at the end $x=0$, satisfies the boundary condition $\frac{\partial u}{\partial x} = 0$. (Use Fourier's Law.)}
+   
+\begin{solution} 
+\end{solution}
+
+\subsection{Exercise 2b. Do the same for the diffusion of gas along a tube that is closed off at the end $x=0$. (Use Fick's law.)}
+   
+\begin{solution} 
+\end{solution}
+
+
+\pagebreak
+
+\section{Strauss Section 1.5} 
+
+\subsection{Exercise 1. Consider the problem
+$$ \frac{d^2u}{dx^2}+u=0\\u\left(0\right)=0 \text{ and } u\left(L\right)=0 \text{,}$$ consisting of an ODE and a pair of boundary conditions.  Clearly, the function $u\left(x\right) \equiv 0$ is a solution.  Is this solution \emph{unique, or not}? Does the answer depend on $L$?}
+   
+\begin{solution} 
+\end{solution}
+
+\subsection{Exercise 4. Consider the Neumann problem
+$$ \delta u = f\left(x,y,z\right) \text{ in } D \\ \frac{\partial u}{\partial n} = 0 \text{ on bdy } D \text{.}$$
+a) What can we surely add to any solution to get another solution? So we don't have uniqueness. \\
+b) Use the divergence theorem and the PDE to show that $$\iiint_D f(x,y,z) \,dx\,dy\,dz = 0 $$ is a necessary condition for the Neumann problem to have a solution. \\
+c) Can you give a physical interpretation of part a) and/or b) for either heat flow or diffusion?}
+   
+\begin{solution} 
+\end{solution}
+
+\end{document}
