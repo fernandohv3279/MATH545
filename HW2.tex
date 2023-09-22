@@ -55,14 +55,53 @@
         \item Exercise 2 \smallskip \\
         Consider the problem
         \begin{align*}
-            \frac{d^2u}{dx^2} + u = 0 \\
-            u\left(0\right)=0 \text{ and } u\left(L\right)=0 \text{,} \\
+            &u''\left(x\right) + u'\left(x\right) = f\left(x\right) \\
+            &u'\left(0\right)=u\left(0\right)=\frac{1}{2}\left[ u'\left(l\right) + u\left(l\right) \right] \text{,} \\
         \end{align*} 
-        consisting of an ODE and a pair of boundary conditions.  Clearly, the function $u\left(x\right) \equiv 0$ is a solution. Is this solution \emph{unique, or not}? Does the answer depend on $L$? \\
-        Solution: \\
-        Assume another solution $v$ exists.  Then $v'' + v' = 0$ 
-
-
+        with $f\left(x\right)$ a given function.
+        \begin{enumerate}
+            \item Is the solution \emph{unique}? Explain. \\
+                No, the solution is not unique. Suppose two solutions $u^{\left(i\right)}$, $i \in \{1,2\}$ exist that both satisfy the initial conditions.  Then 
+                \begin{align*}
+                    &u^{\left(i\right)}_{xx} + u^{\left(i\right)}_{x} = f\left(x\right) \\
+                    &u^{\left(i\right)}_{x}\left(x=0\right)=u^{\left(i\right)}\left(x=0\right)=\frac{1}{2}\left[ u^{\left(i\right)}_{x}\left(l\right) + u^{\left(i\right)}\left(l\right) \right]
+                \end{align*}
+                Applying a Laplacian operator with both solutions yields $\Delta u = u^1 - u^2$. By linearity,
+                \begin{align*}
+                    \Delta u &= u^1 - u^2 \\
+                    &= \left(u^{\left(1\right)}_{xx} + u^{\left(1\right)}_{x}\right)
+                    - \left( u^{\left(2\right)}_{xx} + u^{\left(2\right)}_{x}\right) \\
+                    &= \left(u^{\left(1\right)}_{xx} - u^{\left(2\right)}_{xx}\right)
+                    + \left(+ u^{\left(1\right)}_{x} - u^{\left(2\right)}_{x}\right) \\ 
+                    &= u_{xx} + u_{x}  \text{ , where $u$ is a general solution}\\
+                    &= f\left(x\right) - f\left(x\right) \\
+                    &= 0.
+                \end{align*} 
+                Hence, \underline{the general solution to $u_{xx} + u_{x} = 0$ is $C_1e^{-x} + C_2$.}  \smallskip \\ \\
+                To find the exact solution, we note that the initial conditions can also be transformed into $u^{\left(i\right)}_{x}\left(0\right)=u_{x}\left(0\right)=0$ and $u^{\left(i\right)}\left(0\right) = u\left(0\right) = 0$.  Then $u\left(0\right) = C_1 + C_2$ and $u'\left(0\right)=-C_1$.  Thus,
+                \begin{align*}
+                    &u'\left(0\right) = \frac{1}{2}\left[ u'\left(l\right) + u\left(l\right) \right] \\
+                    &-C_1 = \frac{1}{2}\left[-C_1e^{-l} + C_1e^{-l} + C2\right] \\
+                    &-C_1 = \frac{1}{2}C_2 \\
+                    &\underline{C_2 = -2C_1}. \\
+                \end{align*}
+                Substituting this in to the initial condition for $u$, 
+                \begin{align*}
+                    &u\left(0\right) =\frac{1}{2}\left[u'\left(l\right) + u\left(l\right)\right] \\
+                    &u\left(0\right) =\frac{1}{2}\left[-C_1e^{-l} + -2C_1 + C_1e^{-l}\right] \\ 
+                    &u\left(0\right) = -C_1.
+                \end{align*}
+                The exact solution thus has a parameter, namely \underline{$u = -2C_1 + C_1e^{-x}.$} Therefore, there exists more than one unique solution.  \checkmark \smallskip \\
+            
+            \item Does a solution necessarily \emph{exist}, or is there a a condition that $f\left(x\right)$ must satisfy for existence? Explain. \\
+                There are conditions $x$ to satisfy existence because the PDE is equal to a function $f$, so the domain must be considered.  Specifically,
+                \begin{align*}
+                    \int_0^l f\left(x\right)dx &= \int_0^l{u''\left(x\right) + u'\left(x\right)dx} \\
+                    &= \left(u'\left(x\right)  + u\left(x\right)\right)|_0^l \\
+                    &= u'\left(l\right)  + u\left(l\right).
+                \end{align*}
+                Hence, the existence of the solution depends upon $l$.  \checkmark
+        \end{enumerate} 
         
         \item Exercise 3 \smallskip \\
         Solve the boundary problem $u'' = 0$ for $0 < x < 1$ with $u'\left(0\right) + ku\left(0\right) = 0$ and $u'\left(1\right) \pm ku\left(1\right) = 0$.  Do the $+$ and $-$ cases separately.  What is special about the case $k=2$? \\
@@ -145,9 +184,6 @@
             
         \end{enumerate}
     \end{enumerate}
-    
-    \pagebreak
-
     \item Strauss Section 2.3 \smallskip
     \begin{enumerate}
         \item Exercise 1 \smallskip \\
