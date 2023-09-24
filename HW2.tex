@@ -54,27 +54,48 @@
     \begin{enumerate}
         \item Exercise 2 \smallskip \\
         Consider the problem
-        \begin{align*}
-            u''(x) + u(x) = f(x),\\
+        \begin{gather*}
+            u''(x) + u'(x) = f(x)\\
             u'(0)=u(0)=\frac{1}{2}[u'(l)+u(l)], 
-        \end{align*} 
+        \end{gather*}
         with $f(x)$ a given function.
+
         (a) Is the solution unique? Explain.\\
      Solution: \\
-       The solution is not unique. Since for ODE, the solution is special solution plus general solution.
-       
-       To be specific, since the ODE system is linear, inhomogeneous solution plus homogenous solution is another solution of the inhomogenous equation.
+        Suppose we have two solutions $u_1,u_2$, and let $v=u_2-u_1$, then:
+        \begin{align*}
+            v''(x) + v'(x) &=(u_2-u_1)'' + (u_2-u_1)' \\
+                           &= u_2''+u_2' - (u_1''+u_1') \\
+                           &= f(x) - f(x) \\
+                           &=0
+        \end{align*}
+        and also:
+        \begin{align*}
+            v'(0) =u_2'(0)-u_1'(0) = u_2(0)
+            -u_1(0)&=\frac{1}{2}[u_2'(l)+u_2(l)]-\frac{1}{2}[u_1'(l)+u_1(l)]\\
+                  &=\frac{1}{2}[u_2'(l)-u_1'(l) + u_2(l)-u_1(l)]\\
+                  &=\frac{1}{2}[v'(l) + v(l)].
+        \end{align*}
+        This shows that $v$ satisfies the original problem with $f(x)=0$.
 
-       For this ODE, we consider the homogenous equation: $$\frac{d^2v}{dx^2} + v = 0. $$ 
-       The solution is $v(x)=A+Be^{-x}$, where A and B are constant.
-       Plug the initial condition in $v(x)$, we obtain that $A+2B=0.$ 
-       
-       Hence, the solution can be written as $v(x)=-2B+Be^{-x},$ where $B$ is a constant.
-       Thus, $u+v$ is another solution of this problem. 
+        Now, the ODE
+        \[
+        u''(x) + u'(x) = 0\\
+        \]
+        has the solution $A+Be^{-x}$. Using the initial conditions we get:
+        \[
+        u(x)=-2B+Be^{-x}
+        \]
+        This tells us that the solution is not unique because if we start with
+        a solution we can add $-2B + Be^{-x}$ to it and get a different solution.
     
        (b) Does a solution necessarily exist, or is there a condition that $f(x)$ must satisfy for existence? Explain.\\
       Solution:\\
-      Observing the problem, let $w=u'+u$, then the problem is 
+      From the beginning we can see that $f$ is the derivative of a function,
+      namely the derivative of $u'+u$. This imposes some restrictions of $f$,
+      for example $f$ cannot have jump discontinuities. So $f$ definitely can't be any function.\\
+      Another condition for $f$ comes from the following: let $w=u'+u$, then
+      $w$ must satisfy:
       \begin{equation*}
        \begin{cases}
            w'(x)=f(x),
@@ -82,18 +103,10 @@
            w(0)=w(l).
        \end{cases}
       \end{equation*}
-      Solving this equation, 
-      \begin{equation*}
-       \begin{cases}
-           w(x)=\int_{0}^{x}f(s)ds+C
-           \\
-           w(0)=w(l)=C
-       \end{cases}
-      \end{equation*}
-Therefore, we obtain that $\int_{0}^{x}f(s)ds+C=C$, where $C$ is constant. This means that
-$\int_{0}^{x}f(s)ds=0.$
-
-Thus the necessary condition of solution existence is $\int_{0}^{x}f(s)ds=0.$
+      Which implies: $w(x)=\int_0^x f(s)ds +C$, and using the fact that
+      $w(0)=w(l)$, we get:
+      \[\int_0^0 f(s)ds+C=\int_0^l f(s)ds+C\]
+Therefore, we obtain that a necessary condition for $f$ is $\int_{0}^{l}f(s)ds=0$.
 
         \item Exercise 3 \smallskip \\
         Solve the boundary problem $u'' = 0$ for $0 < x < 1$ with $u'\left(0\right) + ku\left(0\right) = 0$ and $u'\left(1\right) \pm ku\left(1\right) = 0$.  Do the $+$ and $-$ cases separately.  What is special about the case $k=2$? \\
@@ -496,7 +509,5 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         
     \end{enumerate}
 \end{enumerate}
-
-
 
 \end{document}
