@@ -1,0 +1,502 @@
+\documentclass[12pt]{article}%
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\begin{document}
+
+\title{Math 545 - PDEs - Homework 2}
+\author{YingLi Li, Fernando Herrera Valverde, Laurette Hamlin}
+\date{\today}
+\maketitle
+
+\begin{enumerate}
+    \item Strauss Section 1.5 \smallskip
+    \begin{enumerate}
+        \item Exercise 2 \smallskip \\
+        Consider the problem
+        \begin{align*}
+            u''(x) + u(x) = f(x),\\
+            u'(0)=u(0)=\frac{1}{2}[u'(l)+u(l)], 
+        \end{align*} 
+        with $f(x)$ a given function.
+        (a) Is the solution unique? Explain.\\
+     Solution: \\
+       The solution is not unique. Since for ODE, the solution is special solution plus general solution.
+       
+       To be specific, since the ODE system is linear, inhomogeneous solution plus homogenous solution is another solution of the inhomogenous equation.
+
+       For this ODE, we consider the homogenous equation: $$\frac{d^2v}{dx^2} + v = 0. $$ 
+       The solution is $v(x)=A+Be^{-x}$, where A and B are constant.
+       Plug the initial condition in $v(x)$, we obtain that $A+2B=0.$ 
+       
+       Hence, the solution can be written as $v(x)=-2B+Be^{-x},$ where $B$ is a constant.
+       Thus, $u+v$ is another solution of this problem. 
+    
+       (b) Does a solution necessarily exist, or is there a condition that $f(x)$ must satisfy for existence? Explain.\\
+      Solution:\\
+      Observing the problem, let $w=u'+u$, then the problem is 
+      \begin{equation*}
+       \begin{cases}
+           w'(x)=f(x),
+           \\
+           w(0)=w(l).
+       \end{cases}
+      \end{equation*}
+      Solving this equation, 
+      \begin{equation*}
+       \begin{cases}
+           w(x)=\int_{0}^{x}f(s)ds+C
+           \\
+           w(0)=w(l)=C
+       \end{cases}
+      \end{equation*}
+Therefore, we obtain that $\int_{0}^{x}f(s)ds+C=C$, where $C$ is constant. This means that
+$\int_{0}^{x}f(s)ds=0.$
+
+Thus the necessary condition of solution existence is $\int_{0}^{x}f(s)ds=0.$
+
+        \item Exercise 3 \smallskip \\
+        Solve the boundary problem $u'' = 0$ for $0 < x < 1$ with $u'\left(0\right) + ku\left(0\right) = 0$ and $u'\left(1\right) \pm ku\left(1\right) = 0$.  Do the $+$ and $-$ cases separately.  What is special about the case $k=2$? \\
+        Solution: \\
+      First, we consider the $+$ case. The equation is 
+      \begin{equation*}
+        \begin{cases}
+            u'' = 0,
+            \\
+            u'\left(0\right) + ku\left(0\right) = 0,
+            \\
+            u'\left(1\right) + ku\left(1\right) = 0.
+        \end{cases}
+      \end{equation*}
+    The general soluton of $u(x)$ is $u(x)=ax+b$. From boundary conditions, 
+    \begin{equation*}
+        \begin{cases}
+            u'(0)+ku(0)=a+kb=0,
+            \\
+            u'(1)+ku(1)=a+k(a+b)=(1+k)a+kb=0.
+        \end{cases}
+    \end{equation*}
+    Thus 
+    $$
+    u(x)=\begin{cases}
+        b & \text{ if } k = 0, \\
+        0 & \text{ if } k \ne 0.
+      \end{cases}
+   $$
+   Then, consider the $-$ case. The equation is 
+   \begin{equation*}
+    \begin{cases}
+        u'' = 0,
+        \\
+        u'\left(0\right) + ku\left(0\right) = 0,
+        \\
+        u'\left(1\right) - ku\left(1\right) = 0.
+    \end{cases}
+  \end{equation*}
+  The general soluton of $u(x)$ is still $u(x)=ax+b$. From boundary conditions, 
+    \begin{equation*}
+        \begin{cases}
+            u'(0)+ku(0)=a+kb=0,
+            \\
+            u'(1)-ku(1)=a-k(a+b)=(1-k)a-kb=0.
+        \end{cases}
+    \end{equation*}
+    Thus $$
+    u(x)=\begin{cases}
+        b & \text{ if } k = 0, \\
+        -2bx+b & \text{ if } k = 2, \\
+        0 & \text{ if } k \ne 0 \text{ and } k \ne 2. 
+      \end{cases}
+   $$
+        
+For the special case $k=2$, in $+$ case, 
+\begin{equation*}
+    \begin{cases}
+        u(x)=0,
+        \\
+        u'\left(0\right) + ku\left(0\right) = a+2b = 0,
+        \\
+        u'\left(1\right) + ku\left(1\right) = 3a+2b = 0.
+    \end{cases}
+\end{equation*}
+There are two boundary conditions, the solution is unique, euqal to 0.
+
+For the special case $k=2$, in $-$ case,
+\begin{equation*}
+    \begin{cases}
+        u(x)=-2bx+b,
+        \\
+        u'\left(0\right) + ku\left(0\right) = a+2b = 0,
+        \\
+        u'\left(1\right) + ku\left(1\right) = -a-2b = 0.
+    \end{cases}
+\end{equation*}
+There's actually only one boundary condition, thus, the solution isn't unique, $u(x)=-2bx+b$.
+    \end{enumerate}
+
+    \pagebreak
+    
+    \item Strauss Section 1.6 \smallskip
+    \begin{enumerate}
+        \item Exercise 1 \smallskip \\
+        What is the type of each of the following equations?
+        \begin{enumerate}
+            \item $u_{xx} - u_{xy} + 2u_y+u_{yy}-3u_{yx} + 4u = 0$. \smallskip \\
+        Solution:\\
+        Simplifying the equation: $u_{xx} - 4u_{xy} +u_{yy}+ 2u_y + 4u = 0.$
+        
+        From the general PDE form: $a_{11}u_{xx}+2a_{12}u_{xy}+a_{22}u_{yy}+a_{1}u_{x}+a_{2}u_{y}+a_{0}u=0.$
+        
+        Since $a_{11}=1,a_{12}=-2,a_{22}=1$, thus, $a_{12}^2=4, a_{11}a_{22}=1$, $a_{12}^2>a_{11}a_{22}$, hence this equation is Hyperbolic case.
+            
+            \item $9u_{xx} + 6u_{xy} + u_{yy} + u_x = 0$. \smallskip \\
+            Since $a_{11}=9,a_{12}=3,a_{22}=1$, thus, $a_{12}^2=9, a_{11}a_{22}=9$, $a_{12}^2=a_{11}a_{22}$, hence this equation is Parabolic case.
+        
+            
+        \end{enumerate}
+        \item Exercise 6 \smallskip \\
+        Consider the equation $3u_y + u_{xy} =0$.
+        \begin{enumerate}
+            \item What is its type? \smallskip \\
+        Solution:\\
+        Since $a_{11}=0,a_{12}=\frac{1}{2},a_{22}=0$, $a_{12}>a_{11}a_{22}$, this is Hyperbolic case.
+            
+            \item Find the general solution. (\emph{Hint:} Substitute $v = u_y$.) \smallskip \\
+            Solution:\\
+            Substitute $v = u_y$, the equation is $2v+v_{x}=0$. 
+            
+            By seperating variables, we obtain $\frac{dv}{v}=-3dx$, and intergrating both sides,
+            we obtain:
+            \[v(x,y)=e^{-3x}f(y).\]
+            Then, \[u(x,y)=\int u_{y}dy= \int v(x,y) dy= F(y)e^{-3x}+g(x),\]  where $F'(y)=f(y)f(y)$ and g(x) are arbitrary functions.
+            
+            \item With the auxiliary conditions $u\left(x,0\right) = e^{-3x}$ and $u_y\left(x,0\right)$, does a solution exist? Is it unique? \smallskip \\
+            Solution:\\
+            The PDE equation is 
+            \begin{equation*}
+                \begin{cases}
+                    u(x,y)=F(y)e^{-3x}+g(x),
+                    \\
+                    u(x,0)=e^{-3x},
+                    \\
+                    u_{y}(x,0)=0
+                \end{cases}
+            \end{equation*}
+            Then, we plug initial conditions to $u(x,y)=F(y)e^{-3x}+g(x)$, we get
+            \begin{equation*}
+                \begin{cases}
+                    u(x,0)=F(0)e^{-3x}+h(x)=e^{-3x},
+                    \\
+                    u_{y}(x,0)=f(y)e^{-3x}(x,0)=f(0)e^{-3x}.
+                \end{cases}
+            \end{equation*}
+            Combinating these two equations, we solve that
+            \begin{equation*}
+                \begin{cases}
+                    F(0)=constant,
+                    \\
+                    h(x)=e^{-3x}-F(0)e^{-3x}.
+                \end{cases}
+            \end{equation*}
+            Therefore, the solution is 
+           \[u(x,y)=F(y)e^{-3x}+e^{-3x}-F(0)e^{-3x}=[F(y)-F(0)]e^{-3x}, F(0)=0.\]
+           Hence, the solution exist, as long as satisfying the former equation, and for function $F(y)$, the constrain conditions are $F(0)=0$, $f(0)=0$.
+           
+           Thus, the solution is not unique. 
+           
+           For example, $F(y)=ay^2$, $\forall a $ is a constant, there are infinite solutions $u(x,y)$ satisfying the equation.
+
+            
+        \end{enumerate}
+    \end{enumerate}
+
+    \pagebreak
+    
+    \item Strauss Section 2.1 \smallskip
+    \begin{enumerate}
+        \item Exercise 1 \smallskip \\
+        Solve $u_{tt} = c^2u_{xx}$, $u\left(x,0\right) = e^x$, $u_t\left(x,0\right) = \sin{x}$. \smallskip \\
+        Solution:\\
+        Since $\phi(x)=u\left(x,0\right) = e^x$,$\psi(x)=u_t\left(x,0\right) = \sin{x}.$
+
+        From (8), we know that
+        \begin{align*}
+            u(x,t)&=\frac{1}{2}[\phi(x+ct)+\phi(x-ct)]+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)ds\\
+                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\int_{x-ct}^{x+ct}sin(s)ds\\
+                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}cos(x-ct)-\frac{1}{2c}cos(x+ct).
+        \end{align*}
+         %\[u(x,t)=\frac{1}{2}[\phi(x+ct)+\phi(x-ct)]+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)ds\]
+        \item Exercise 8 \smallskip \\
+        A \emph{sperical wave} is a solution of the three-dimensional wave equation of the form $u\left(r,t\right)$ where $r$ is the distance to the origin (The spherical coordinate). The wave equation takes the form
+        $$u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right) \text{    ("spherical wave equation").}$$
+        \begin{enumerate}
+            \item Change variables $v= ru$ to get the equation for $v$:  $v_{tt} = c^2v_{rr}$. \smallskip \\
+            Solution:\\
+            Let $v=ru$, then $u=\frac{v}{r}$, thus, 
+            \begin{equation}\label{v-equ}
+                \begin{cases}
+                    v_{r}=u+ru_{r},
+                    \\
+                    v_{t}=ru_{t},
+                    \\
+                    v_{tt}=ru_{tt},
+                    \\
+                    v_{rr}=2u_{r}+u_{rr}.
+                \end{cases}
+            \end{equation}
+            Plug (\ref*{v-equ}) into equation $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, i.e.
+            \[ \frac{v_{tt}}{r}=c^2(\frac{v_{rr}}{r}-\frac{2}{r}\cdot\frac{v_{t}}{r})+\frac{2c^2}{r}\cdot\frac{v_{t}}{r}=c^2\frac{v_{rr}}{r}.\]
+            Therefore, $v_{tt}=r^2v_{rr}$.
+            \item Solve for $v$ using (3) and thereby solve the spherical wave equation. \smallskip \\
+            Solution:\\
+            From the general solution of wave equation, 
+            \[ru(x,t)=v(x,t)=f(r-ct)+g(r+ct). \]
+            Thus, $u(x,t)= \frac{1}{r}f(r-ct)+\frac{1}{r}g(r+ct). $
+            Differential $u(x,t)$ about $t$,
+            \begin{equation*}
+                \begin{cases}
+                    u_{t}=\frac{c}{r}g'(r+ct)-\frac{c}{r}f'(r+ct),
+                    \\
+                    u_{tt}=\frac{c^2}{r}f''(r-ct)+\frac{c^2}{r}f''(r+ct),  
+                \end{cases}
+            \end{equation*}
+            Differnetial $u(x,t)$ about $r$,
+            \[ u_{r}=-\frac{1}{r^2}f(r-ct)+\frac{1}{r}f'(r-ct)-\frac{1}{r^2}g(r+ct)+\frac{1}{r}g'(r+ct).\]
+        Differential $u(x,t)$ about $r$ again,
+            \[u_{rr}=\frac{2}{r^3}f(r-ct)-\frac{2}{r^2}f'(r-ct)+\frac{1}{r}f''(r-ct)
+        +\frac{2}{r^3}g(r+ct)-\frac{2}{r^2}g'(r+ct)+\frac{1}{r}g''(r+ct).\]
+         Thus, $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, which also menas $u(x,t)$ is a soluiton of spherical wave equation. 
+           
+            \item Use (8) to solve it with initial conditions $u\left(r,0\right) = \phi\left(r\right)$, $u_t\left(r,0\right) = \psi\left(r\right)$, taking both $\phi\left(r\right)$ and $\psi\left(r\right)$ to be even functions of $r$. \smallskip \\
+            Solution:\\
+            Since $v(r,t)$ is the solution of classical wave equation. Thus we will use (8) to help us solve spherical wave equation.
+            From the initial condition of $u(r,t)$, we wil obtain the initial condition of $v(r,t)$
+            \begin{equation*}
+                \begin{cases}
+                    v(r,0)=ru(r,0)=r\phi(r),
+                    \\
+                    v_{t}(r,0)=ru_{t}(r,0)=r\psi(r).
+                \end{cases}
+            \end{equation*}
+            And from (8), we know the form of wave equation's solution is 
+       \[v(x,t)=\frac{1}{2}[(r+ct)\phi(r+ct)+(r-ct)\phi(r-ct)]+\frac{1}{2c}\int_{r-ct}^{r+ct}s\psi(s)ds,\] therefore, the form of $u(r,t)$ is 
+          \[u(r,t)=\frac{v(r,t)}{r}=\frac{1}{2}[(1+\frac{c}{r}t)\phi(r+ct)+(r-ct)\phi(1-\frac{c}{r}t)]+\frac{1}{2cr}\int_{r-ct}^{r+ct}s\psi(s)ds\]
+          This is the solution of spherical wave equation.
+
+          Then we will check if $u(x,t)$ satisfies the initial condition:
+          \[u(r,0)=\frac{1}{2}[\phi(r)+\phi(r)]+\frac{1}{2cr}\int_{r}^{r}s\psi(s)ds=\phi(r).\]
+          Since 
+
+          \begin{align*}
+            u_{t}(r,t)&=\frac{1}{2}[\frac{c}{r}\phi+c(1+\frac{c}{r}t)\phi'-\frac{c}{r}\phi -c(1-\frac{c}{r}t)\phi']+\frac{1}{2cr}\partial_{t}\int_{r-ct}^{r+ct}s\psi(s)ds\\
+            &=\frac{1}{2cr}[c(r+ct)\psi(r+ct)+c(r-ct)\psi(r-ct)].
+          \end{align*}
+          Therefroe, \[u_{t}(r,0)=\frac{1}{2cr}[cr\psi(r)+cr\psi(r)]=\psi(r).\]
+          Hence, $u(x,t)$ also satisfies the initial condition, in summary, $u(x,t)$ is the solution of spherical wave equation.
+
+
+            
+        \end{enumerate}
+        
+        \item Exercise 9 \smallskip \\
+        Solve $u_{xx} - 3 u_{xt} - 4u_{tt} = 0$, $u\left(x,0\right) = x^2$, $u_t\left(x,0\right)$ = $e^x$. (\emph{Hint:} Factor the operator as we did for the wave equation.) \smallskip \\
+        Solution:\\
+        Using factor the operation to the wave equation: 
+        \[u_{xx} - 3 u_{xt} - 4u_{tt}=(\partial x -4\partial t)(\partial x + \partial t) u=0.\]
+
+        Then the second order wave equation will be transfered as two one order equations.
+        \begin{equation*}
+            \begin{cases}
+                (\partial x + \partial t) u=v,
+                \\
+                (\partial x -4\partial t)v=0.
+            \end{cases}
+        \end{equation*}
+        By using characteristic, $v(x,t)=f(x+\frac{1}{4}t)$, and $u(x,t)=f(x+\frac{1}{4}t)+g(x-t).$ 
+        
+        From the initial condition, 
+        \begin{equation*}
+            \begin{cases}
+                u(x,0)=f(x)+g(x)=x^2,
+                \\
+                u_{t}(x,0)=\frac{1}{4}f_{t}(x)-g_{t}(x)=e^x.  
+            \end{cases}
+        \end{equation*}
+        Intergrating $ u_{t}(x,0)=\frac{1}{4}f_{t}(x)-g_{t}(x)$ about $t$, then we get
+
+        \[u(x,0)=\int u_{t}(x,0) dt =\int (\frac{1}{4}f_{t}(x)-g_{t}(x))dt=\frac{1}{4}f(x)-g(x)=e^x.\]
+        Combinating equations:
+        \begin{equation*}
+            \begin{cases}
+                u(x,0)=f(x)+g(x)=x^2,
+                \\
+                u(x,0)=\frac{1}{4}f(x)-g(x)=e^x.
+            \end{cases}
+        \end{equation*}
+        We solve that 
+        \begin{equation*}
+            \begin{cases}
+                f(x)=\frac{4}{5}(x^2+e^x+c),
+                \\
+                g(x)=\frac{1}{5}(x^2-4e^x-4c).
+            \end{cases}
+        \end{equation*}
+        Therefore,
+        \begin{align*}
+            u(x,t)&=f(x+\frac{1}{4}t)+g(x-t)\\
+            &=\frac{4}{5}[(x+\frac{1}{4}t)^2+e^{(x+\frac{1}{4}t)}+c] + \frac{1}{5}[(x-t)^2-4e^{(x-t)}-4c]\\
+            &=\frac{4}{5}(x+\frac{1}{4}t)^2+\frac{4}{5}e^{(x+\frac{1}{4}t)}+\frac{1}{5}(x-t)^2- \frac{4}{5}e^{(x-t)}.
+        \end{align*}
+        Hence, $u(x,t)=\frac{4}{5}(x+\frac{1}{4}t)^2+\frac{4}{5}e^{(x+\frac{1}{4}t)}+\frac{1}{5}(x-t)^2- \frac{4}{5}e^{(x-t)}$ is the solution of this equation.
+         \end{enumerate}
+
+   \pagebreak
+    
+    \item Strauss Section 2.2 \smallskip
+    \begin{enumerate}
+        \item Exercise 1 \smallskip \\
+        Use the energy conservation of the wave equation to prove that the only solution with $\phi \equiv 0$ and $\psi \equiv 0$ is $u \equiv 0$. (\emph{Hint:} Use the first vanishing theorem in Section A.1.) \smallskip \\
+        Solution:\\
+         First, we should show that $u\equiv0$ is a solution of the wave equation. Actually, it is trivial. 
+        
+        Since when $u=0$, thus $u_{tt}=0=u{xx}$, therefore, $u_{tt}=c^2u_{xx}$.
+        
+        Then, we should show $u=0$ is only solution with $\phi \equiv 0$ and $\psi \equiv 0$.
+        
+        Assume there exists another solution $v(x,t)\ne 0$ also satisfying wave equation, i.e. $v_{tt}=c^2v_{xx}.$
+
+        Without loss of generalism, assume $v(x,t)> 0$, then by using energy equation
+        \[ E(x,t)=\frac{1}{2}\int_{R} \left(v_{t}^{2}(x,t)+v_{x}^{2}(x,t)\right)dx\]
+
+        Since the wave equation is energy conservation, i.e. $\frac{dE}{dt}=0.$ Therefore, $E = constant.$
+        
+        \[E(x,0)= \frac{1}{2}\int_{R}\left(v_{t}^{2}(x,0)+v_{x}^{2}(x,0)\right)dx=\frac{1}{2}\int_{R}\left(\psi^{2}+\phi_{x}^{2}\right)dx=\frac{1}{2}\int_{R}(0+0)dx =0.\]
+
+        Thus $E(x,t)=E(x,0)=0.$
+
+        And \[ 0=E(x,t)=\frac{1}{2}\int_{R} \left(v_{t}^{2}(x,t)+v_{x}^{2}(x,t)\right)dx,\] where $ v_{t}^{2}(x,t)+v_{x}^{2} (x,t)>0.$ 
+
+        From Vanishing Theorem: $v_{t}^{2}(x,t)+v_{x}^{2}(x,t)=0 \implies v_{t}=0, v_{x}=0.$
+
+        Hence, $ \nabla v(x,t)=(v_t(x,t),v_x(x,t))=(0,0),$ which means $v(x,t)=constant.$
+
+        From initial condition, $v(x,0)= \phi =0$, thus, $v(x,t)=0, \forall x\in \mathbb{R}, t\ge 0.$
+
+        Therefore, $u(x,t)=v(x,t)$, $u(x,t)\equiv 0$ is the only solution of wave equation with $\phi \equiv 0$ and $\psi \equiv 0$.
+        
+        %Let $f(x)$ be a continuous function in a finite closed interval [a,b]. Assume that $f(x)\ne 0$ in the interval and that $\int_{a}^{b}f(x)dx=0$. 
+        %Then $f(x)$ is udentically zero.
+
+        
+        \item Exercise 2 \smallskip 
+
+        For a solution $u\left(x,t\right)$ of the wave equation with $\rho = T = c = 1$, the energy density is defined as $e = \frac{1}{2}\left(u_t^2 + u_x^2\right)$ and the momentum density as $p =u_tu_x$.\smallskip 
+        \begin{enumerate}
+            \item Show that $\frac{\partial e}{\partial t} = \frac{\partial p}{\partial x}$ and $\frac{\partial p}{\partial t} = \frac{\partial e}{\partial x}$. \smallskip \\
+            Solution: \\
+            Since $e=\frac{1}{2}\left(u_{t}^{2}+u_{x}^{2}\right)$, $p=u_{t} u_{x} $.
+            \begin{equation*}
+                \begin{cases}
+                    \frac{\partial e}{\partial t}=u_{t} u_{tt}+u_{xt} u_{x},
+                    \\
+                    \frac{\partial p}{\partial x}=u_{xt} u_{x}+u_{t} u_{xx}.
+                \end{cases}
+            \end{equation*}
+            Thus, \[\frac{\partial e}{\partial t}=u_{t} u_{t t}+u_{x t} u_{x}=u_{t} u_{x x}+u_{x t} u_{x}=\frac{\partial p}{\partial x} .\]
+            
+            \begin{equation*}
+                \begin{cases}
+                    \frac{\partial p}{\partial t}=u_{tt} u_{x}+u_{t} u_{xt},
+                    \\
+                    \frac{\partial e}{\partial x}=u_{t} u_{tx}+u_{x} u_{xx}.
+                \end{cases}
+            \end{equation*}
+            Hence, \[\frac{\partial p}{\partial t}=u_{tt} u_{x}+u_{t} u_{xt}=u_{t} u_{tx}+u_{x} u_{xx}=\frac{\partial e}{\partial x} .\]
+            
+
+
+            \item Show that both $e\left(x,t\right)$ and $p\left(x,t\right)$ also satisfy the wave equation.    
+           
+            Solution:\\
+             First, we consider $e(x,t).$
+            \[e_{tt}  =\frac{\partial}{\partial t}\left(u_{t} u_{tt}+u_{x} u_{xt}\right)=u_{tt} u_{tt}+u_{t} u_{ttt}+u_{xtt} u_{x}+u_{xt} u_{xt},\]          
+            \[ e_{xx}  =\frac{\partial}{\partial x}\left(u_{t} u_{tx}+u_{x} u_{xx}\right) =u_{tx} u_{tx}+u_{t} u_{txx}+u_{xx} u_{xx}+u_{x} u_{xxx}. \]
+            
+            Since $u_{xx}=u_{tt}$, then 
+            \[ e_{tt}=u_{tt} u_{tt}+u_{t} u_{ttt}+u_{xtt} u_{x}+u_{xt} u_{xt}=u_{tx} u_{tx}+u_{t} u_{txx}+u_{xx} u_{xx}+u_{x} u_{xxx}=e_{xx}. \]
+            
+            Therefore, $e(x,t)$ satisfies the wave equation.
+            
+ 
+            Then, considerinng about $p(x,t).$
+            \[p_{tt}  =\frac{\partial}{\partial t}\left(u_{tt} u_{x}+u_{t} u_{xt}\right)=u_{ttt} u_{x}+u_{tt} u_{xt}+u_{tt} u_{xt}+u_{t} u_{xtt},\]          
+            \[ p_{xx}  =\frac{\partial}{\partial x}\left(u_{xt} u_{x}+u_{t} u_{xx}\right) =u_{xxt} u_{x}+u_{xt} u_{xx}+u_{tx} u_{xx}+u_{t} u_{xxx}. \]
+            since $u_{xx}=u_{tt}$, then 
+            \[ p_{tt}=u_{ttt} u_{x}+u_{tt} u_{xt}+u_{tt} u_{xt}+u_{t} u_{xtt}=u_{xxt} u_{x}+u_{xt} u_{xx}+u_{tx} u_{xx}+u_{t} u_{xxx}=p_{xx}. \]
+            
+            Therefore, $p(x,t)$ satisfies the wave equation.
+        \end{enumerate}
+    \end{enumerate}
+    
+    \pagebreak
+
+    \item Strauss Section 2.3 \smallskip
+    \begin{enumerate}
+        \item Exercise 1 \smallskip \\
+        Consider the solution $1 - x^2 -2kt$ of the diffusion equation.  Find the locations of its maximum and its minimum in the closed rectangle $\{0 \leq x \leq 1, 0 \leq t \leq T\}$. \smallskip \\
+          Solution:\\
+          Let $u(x,t)=1 - x^2 -2kt$, since $u_{t}=-2k$, $u_{xx}=-2$, thus $u_{t}=ku_{xx}$, where $k>0$ is a constant. (Namely, diffusivity)
+         
+          From the maximum value theorem, the maximum and minimum value only appears in the boundary.
+          
+          And for diffusion equation, the diffusion flow will flow from high concentration to low concentration. Therefore, the maximum value appears at the initial position. 
+          
+          Comparing four sides, we obtain that 
+          the maximum value is $u(0,0)=1$, the minimum value is $u(1,T)=-2kT$.
+        
+    \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}
