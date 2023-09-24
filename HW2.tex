@@ -271,11 +271,12 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         Solution:\\
         Since $\phi(x)=u\left(x,0\right) = e^x$,$\psi(x)=u_t\left(x,0\right) = \sin{x}.$
 
-        From (8), we know that
+        From the general formula for the wave equation with initial conditions,
+        we know that
         \begin{align*}
             u(x,t)&=\frac{1}{2}[\phi(x+ct)+\phi(x-ct)]+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)ds\\
-                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\int_{x-ct}^{x+ct}sin(s)ds\\
-                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}cos(x-ct)-\frac{1}{2c}cos(x+ct).
+                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\int_{x-ct}^{x+ct}\text{sin}(s)ds\\
+                  &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\text{cos}(x-ct)-\frac{1}{2c}\text{cos}(x+ct).
         \end{align*}
          %\[u(x,t)=\frac{1}{2}[\phi(x+ct)+\phi(x-ct)]+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)ds\]
         \item Exercise 8 \smallskip \\
@@ -479,7 +480,7 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
             
             Therefore, $e(x,t)$ satisfies the wave equation.
             
- 
+
             Then, considerinng about $p(x,t).$
             \[p_{tt}  =\frac{\partial}{\partial t}\left(u_{tt} u_{x}+u_{t} u_{xt}\right)=u_{ttt} u_{x}+u_{tt} u_{xt}+u_{tt} u_{xt}+u_{t} u_{xtt},\]          
             \[ p_{xx}  =\frac{\partial}{\partial x}\left(u_{xt} u_{x}+u_{t} u_{xx}\right) =u_{xxt} u_{x}+u_{xt} u_{xx}+u_{tx} u_{xx}+u_{t} u_{xxx}. \]
