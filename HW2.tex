@@ -43,6 +43,7 @@
 \newcommand{\Cov}{\mathrm{Cov}}
 
 \begin{document}
+\setlength{\parindent}{20pt}
 
 \title{Math 545 - PDEs - Homework 2}
 \author{YingLi Li, Fernando Herrera Valverde, Laurette Hamlin}
@@ -103,13 +104,40 @@
                 Hence, the existence of the solution depends upon $l$.  \checkmark
         \end{enumerate} 
         
+        \pagebreak
+        
         \item Exercise 3 \smallskip \\
         Solve the boundary problem $u'' = 0$ for $0 < x < 1$ with $u'\left(0\right) + ku\left(0\right) = 0$ and $u'\left(1\right) \pm ku\left(1\right) = 0$.  Do the $+$ and $-$ cases separately.  What is special about the case $k=2$? \\
-        Solution: \\
 
+        This is a one-dimensional problem with homogeneous \emph{Robin} boundary conditions on two endpoints ($x = 0$ and $x = 1$). We know we have existence and uniqueness in the solution, but stability is in question. We would like to know if the change in sign in the second boundary condition causes large changes to $u$. 
 
-
-        
+        The general solution to this PDE is $u\left(x,t\right) = C_1 f\left(t\right)x + C_2 g\left(t\right)$. For the first boundary condition, we have
+        \begin{align*}
+            &u'\left(0\right) + ku\left(0\right) = 0 \\
+            &C_1 f\left(t\right) + k C_2 g\left(t\right) = 0 \\
+            &C_1 f\left(t\right) = -k C_2 g\left(t\right) \\
+        \end{align*}
+        For the second boundary condition, 
+        \begin{equation*}
+            \begin{aligned}[c]
+                u'\left(1\right) + ku\left(1\right) &= 0 \\
+                C_1 f\left(t\right) + k \left(C_1 f\left(t\right) + C_2 g\left(t\right) \right) &= 0 \\
+                C_1 f\left(t\right)\left(1+k\right)  + k C_2 g\left(t\right) &= 0 \\
+                -k C_2 g\left(t\right) \left(1+k\right)  + k C_2  g\left(t\right) &= 0 \\
+                k^2 C_2  g\left(t\right) &= 0 \\
+                C_2 &= 0. \\
+            \end{aligned}
+            \qquad\Longleftrightarrow\qquad
+            \begin{aligned}[c]
+                u'\left(1\right) - ku\left(1\right) = 0 \\
+                C_1 f\left(t\right) - k \left(C_1 f\left(t\right) + C_2 g\left(t\right) \right) &= 0 \\
+                C_1 f\left(t\right)\left(1-k\right)  - k C_2 g\left(t\right) &= 0 \\
+                -k C_2 g\left(t\right) \left(1-k\right)  - k C_2 g\left(t\right) &= 0 \\
+                k^2 C_2  g\left(t\right) - 2k C_2 g\left(t\right) &= 0 \\
+                k\left(k-2\right) &= 0. \\
+            \end{aligned}
+        \end{equation*}
+        For the negative sign case, the extra term creates a situation where $C_2$ can have multiple values.  Thus the solution is not stable at $k=2$.   \checkmark \\
     \end{enumerate}
 
     \pagebreak
@@ -119,10 +147,15 @@
         \item Exercise 1 \smallskip \\
         What is the type of each of the following equations?
         \begin{enumerate}
-            \item $u_{xx} - u_{xy} + 2u_y  u_{yx} + 4u = 0$. \smallskip \\
+            \item $\underline{u_{xx}} - \underline{u_{xy}} + 2u_y + \underline{u_{yy}} - \underline{3u_{yx}} + 4u = 0$. \smallskip \\
+            Using $\mathcal{D} = a_{12}^2 - a_{11}a_{12}$, we have
+            $$\left(-\frac{4}{2}\right)^2 - \left(1\right)\left(1\right) > 0.$$
+            Thus, the PDE is \underline{hyperbolic}. \\
 
             
-            \item $9u_{xx} + 6u_{xy} + u_{yy} + u_x = 0$. \smallskip \\
+            \item $\underline{9u_{xx}} + \underline{6u_{xy}} + \underline{u_{yy}} + u_x = 0$. \smallskip \\Again using $\mathcal{D} = a_{12}^2 - a_{11}a_{12}$, we have
+            $$\left(\frac{6}{2}\right)^2 - \left(9\right)\left(1\right) = 0.$$
+            Thus, the PDE is \underline{parabolic}. \\
 
             
         \end{enumerate}
@@ -130,15 +163,21 @@
         Consider the equation $3u_y + u_{xy} =0$.
         \begin{enumerate}
             \item What is its type? \smallskip \\
-
+            Since $a_{12}^2 - a_{11}a_{12} = \left(\frac{1}{2}\right)^2 - \left(0\right)\left(0\right) > 0$, it is \underline{hyperbolic}.
             
             \item Find the general solution. (\emph{Hint:} Substitute $v = u_y$.) \smallskip \\
+            If we substitute $v = u_y$, then $v_x = u_{xy}$ and the equation is simplified into the ODE $3v + v_x = 0$. This yields $u_y = f\left(y\right) e^{-3x}$ so that the general solution is found by
+            \begin{align*}
+                &\iint u\left(x,y\right) dydx = -\frac{e^{-3x}}{3} \int f\left(y\right) dy \\
+                &\boxed{u\left(x,y\right) = -\frac{F\left(y\right)}{3}y e^{-3x} + g\left(x\right).} \\
+            \end{align*}
 
             
-            \item With the auxiliary conditions $u\left(x,0\right) = e^{-3x}$ and $u_y\left(x,0\right)$, does a solution exist? Is it unique? \smallskip \\
-
-            
+            \item With the auxiliary conditions $u\left(x,0\right) = e^{-3x}$ and $u_y\left(x,0\right) = 0$, does a solution exist? Is it unique? \smallskip \\
+            At $u\left(x,0\right)$, we see that \underline{$g\left(x\right) = e^{-3x}.$} \\
+            At $u_y\left(x,0\right)$, we see that \underline{$f\left(y\right) = 0.$} \\            
         \end{enumerate}
+        Given that we have a general solution in $f$ and $g$, we know that \underline{a solution exists}.  However, the boundary conditions do not solve for at most one solution.  Therefore \underline{we do not have uniqueness}.
     \end{enumerate}
 
     \pagebreak
@@ -147,12 +186,28 @@
     \begin{enumerate}
         \item Exercise 1 \smallskip \\
         Solve $u_{tt} = c^2u_{xx}$, $u\left(x,0\right) = e^x$, $u_t\left(x,0\right) = \sin{x}$. \smallskip \\
+
+        This is a wave equation with general solution $u\left(x,t\right) = f\left(x+ct\right) + g\left(x-ct\right)$, indicating waves traveling to both the left and right.  To solve this wave equation with initial value functions $u\left(x,0\right)=\phi\left(x\right)$ and $u_t\left(x,0\right)=\psi\left(x\right)$, we use the solution formula from d'Alembert.
+        \begin{align*}
+            u\left(x,t\right) &= \frac{1}{2}\left[\phi\left(x+ct\right) + \phi\left(x-ct\right)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}\psi\left(s\right)ds \\
+            &= \frac{1}{2}\left[e^{x+ct} + e^{x-ct}\right] + \frac{1}{2c}\int_{x-ct}^{x+ct}\sin{s}ds \\
+            &= e^{x}\left[\frac{e^{ct} + e^{-ct}}{2}\right] + 
+                \frac{1}{2c}\left[\cos{\left(x+ct\right)} -\cos{\left(x-ct\right)}\right] \\
+            &= \boxed{e^{x}\cosh{\left(ct\right)} + 
+                \frac{1}{c}\left[\sin{\left(x\right)}\sin{\left(ct\right)}\right]}. \\
+        \end{align*}
         
         \item Exercise 8 \smallskip \\
-        A \emph{sperical wave} is a solution of the three-dimensional wave equation of the form $u\left(r,t\right)$ where $r$ is the distance to the origin (The spherical coordinate). The wave equation takes the form
+        A \emph{spherical wave} is a solution of the three-dimensional wave equation of the form $u\left(r,t\right)$ where $r$ is the distance to the origin (the spherical coordinate). The wave equation takes the form
         $$u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right) \text{    ("spherical wave equation").}$$
         \begin{enumerate}
-            \item Change variables $v= ru$ to get the equation for $v$:  $v_{tt} = c^2v_{rr}$. \smallskip \\
+            \item Change variables $v = ru$ to get the equation for $v$:  $v_{tt} = c^2v_{rr}$. \smallskip \\
+            If we redefine $u = \frac{v}{r}$, then the spherical wave equation can be transformed. 
+            \begin{align*}
+                u_{tt} &= c^2\left(u_{rr} + \frac{2}{r}u_r\right) \\
+                \left(\frac{v}{r}\right)_{tt} &= c^2\left[\left(\frac{v}{r}\right)_{rr} + \frac{2}{r}\left(\frac{v}{r}\right)_r\right] \\
+                \left(\frac{v_{tt}}{r}\right) &= c^2\left[\left(\frac{v}{r}\right)_{rr} + \frac{2}{r}\left(\frac{rv_r - v}{r^2}\right)\right] \\
+            \end{align*}
 
             \item Solve for $v$ using (3) and thereby solve the spherical wave equation. \smallskip \\
 
