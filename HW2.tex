@@ -200,12 +200,10 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         
         From the general PDE form: $a_{11}u_{xx}+2a_{12}u_{xy}+a_{22}u_{yy}+a_{1}u_{x}+a_{2}u_{y}+a_{0}u=0.$
         
-        Since $a_{11}=1,a_{12}=-2,a_{22}=1$, thus, $a_{12}^2=4, a_{11}a_{22}=1$, $a_{12}^2>a_{11}a_{22}$, hence this equation is Hyperbolic case.
+        Since $a_{11}=1,a_{12}=-2,a_{22}=1$, thus, $a_{12}^2=4, a_{11}a_{22}=1$, $a_{12}^2>a_{11}a_{22}$, hence this equation is Hyperbolic.
             
             \item $9u_{xx} + 6u_{xy} + u_{yy} + u_x = 0$. \smallskip \\
-            Since $a_{11}=9,a_{12}=3,a_{22}=1$, thus, $a_{12}^2=9, a_{11}a_{22}=9$, $a_{12}^2=a_{11}a_{22}$, hence this equation is Parabolic case.
-        
-            
+            Since $a_{11}=9,a_{12}=3,a_{22}=1$, thus, $a_{12}^2=9, a_{11}a_{22}=9$, $a_{12}^2=a_{11}a_{22}$, hence this equation is Parabolic.
         \end{enumerate}
         \item Exercise 6 \smallskip \\
         Consider the equation $3u_y + u_{xy} =0$.
@@ -217,11 +215,11 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
             \item Find the general solution. (\emph{Hint:} Substitute $v = u_y$.) \smallskip \\
             Solution:\\
             Substitute $v = u_y$, the equation is $2v+v_{x}=0$. 
-            
-            By seperating variables, we obtain $\frac{dv}{v}=-3dx$, and intergrating both sides,
+
+            By separating variables, we obtain $\frac{dv}{v}=-3dx$, and integrating both sides,
             we obtain:
             \[v(x,y)=e^{-3x}f(y).\]
-            Then, \[u(x,y)=\int u_{y}dy= \int v(x,y) dy= F(y)e^{-3x}+g(x),\]  where $F'(y)=f(y)f(y)$ and g(x) are arbitrary functions.
+            Then, \[u(x,y)=\int u_{y}dy= \int v(x,y) dy= F(y)e^{-3x}+g(x),\]  where $F'(y)=f(y)$ and $g(x)$ are arbitrary but sufficiently nice functions.
             
             \item With the auxiliary conditions $u\left(x,0\right) = e^{-3x}$ and $u_y\left(x,0\right)$, does a solution exist? Is it unique? \smallskip \\
             Solution:\\
@@ -235,25 +233,26 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                     u_{y}(x,0)=0
                 \end{cases}
             \end{equation*}
-            Then, we plug initial conditions to $u(x,y)=F(y)e^{-3x}+g(x)$, we get
+            Then, we plug in the initial conditions to $u(x,y)=F(y)e^{-3x}+g(x)$, we get
             \begin{equation*}
                 \begin{cases}
-                    u(x,0)=F(0)e^{-3x}+h(x)=e^{-3x},
+                    u(x,0)=F(0)e^{-3x}+g(x)=e^{-3x},
                     \\
-                    u_{y}(x,0)=f(y)e^{-3x}(x,0)=f(0)e^{-3x}.
+                    u_{y}(x,0)=(f(y)e^{-3x})((x,0))=f(0)e^{-3x}=0.
                 \end{cases}
             \end{equation*}
-            Combinating these two equations, we solve that
+            These two equations imply:
             \begin{equation*}
                 \begin{cases}
-                    F(0)=constant,
+                    g(x)=e^{-3x}-F(0)e^{-3x}.
                     \\
-                    h(x)=e^{-3x}-F(0)e^{-3x}.
+                    f(0)=0,
                 \end{cases}
             \end{equation*}
             Therefore, the solution is 
-           \[u(x,y)=F(y)e^{-3x}+e^{-3x}-F(0)e^{-3x}=[F(y)-F(0)]e^{-3x}, F(0)=0.\]
-           Hence, the solution exist, as long as satisfying the former equation, and for function $F(y)$, the constrain conditions are $F(0)=0$, $f(0)=0$.
+           \[u(x,y)=F(y)e^{-3x}+e^{-3x}-F(0)e^{-3x}=[F(y)-F(0)]e^{-3x}, F'(0)=0.\]
+           Hence, the solution exist, as long as it satisfies the former
+           equation, and for the function $F(y)$, $F'(0)=0$.
            
            Thus, the solution is not unique. 
            
