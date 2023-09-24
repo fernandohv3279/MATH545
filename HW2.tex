@@ -278,9 +278,8 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                   &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\int_{x-ct}^{x+ct}\text{sin}(s)ds\\
                   &=\frac{1}{2}[e^{x+ct}+e^{x-ct}]+\frac{1}{2c}\text{cos}(x-ct)-\frac{1}{2c}\text{cos}(x+ct).
         \end{align*}
-         %\[u(x,t)=\frac{1}{2}[\phi(x+ct)+\phi(x-ct)]+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)ds\]
         \item Exercise 8 \smallskip \\
-        A \emph{sperical wave} is a solution of the three-dimensional wave equation of the form $u\left(r,t\right)$ where $r$ is the distance to the origin (The spherical coordinate). The wave equation takes the form
+        A \emph{spherical wave} is a solution of the three-dimensional wave equation of the form $u\left(r,t\right)$ where $r$ is the distance to the origin (The spherical coordinate). The wave equation takes the form
         $$u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right) \text{    ("spherical wave equation").}$$
         \begin{enumerate}
             \item Change variables $v= ru$ to get the equation for $v$:  $v_{tt} = c^2v_{rr}$. \smallskip \\
@@ -290,40 +289,44 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                 \begin{cases}
                     v_{r}=u+ru_{r},
                     \\
-                    v_{t}=ru_{t},
+                    v_{rr}=2u_{r}+ru_{rr}.
                     \\
                     v_{tt}=ru_{tt},
                     \\
-                    v_{rr}=2u_{r}+u_{rr}.
+                    v_{t}=ru_{t},
                 \end{cases}
             \end{equation}
-            Plug (\ref*{v-equ}) into equation $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, i.e.
-            \[ \frac{v_{tt}}{r}=c^2(\frac{v_{rr}}{r}-\frac{2}{r}\cdot\frac{v_{t}}{r})+\frac{2c^2}{r}\cdot\frac{v_{t}}{r}=c^2\frac{v_{rr}}{r}.\]
-            Therefore, $v_{tt}=r^2v_{rr}$.
+            Plug (\ref{v-equ}) into equation $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, i.e.
+            \[ \frac{v_{tt}}{r}=c^2\left(\frac{v_{rr}-2u_r}{r}+\frac{2}{r}u_r\right)=c^2\frac{v_{rr}}{r}.\]
+            Therefore, $v_{tt}=c^2v_{rr}$.
             \item Solve for $v$ using (3) and thereby solve the spherical wave equation. \smallskip \\
             Solution:\\
             From the general solution of wave equation, 
             \[ru(x,t)=v(x,t)=f(r-ct)+g(r+ct). \]
             Thus, $u(x,t)= \frac{1}{r}f(r-ct)+\frac{1}{r}g(r+ct). $
-            Differential $u(x,t)$ about $t$,
+            Differentiating $u(x,t)$ about $t$,
             \begin{equation*}
                 \begin{cases}
-                    u_{t}=\frac{c}{r}g'(r+ct)-\frac{c}{r}f'(r+ct),
+                    u_{t}=-\frac{c}{r}f'(r-ct)+\frac{c}{r}g'(r+ct),
                     \\
-                    u_{tt}=\frac{c^2}{r}f''(r-ct)+\frac{c^2}{r}f''(r+ct),  
+                    u_{tt}=\frac{c^2}{r}f''(r-ct)+\frac{c^2}{r}g''(r+ct),  
                 \end{cases}
             \end{equation*}
-            Differnetial $u(x,t)$ about $r$,
+            Differentiating $u(x,t)$ with respect to $r$,
             \[ u_{r}=-\frac{1}{r^2}f(r-ct)+\frac{1}{r}f'(r-ct)-\frac{1}{r^2}g(r+ct)+\frac{1}{r}g'(r+ct).\]
-        Differential $u(x,t)$ about $r$ again,
-            \[u_{rr}=\frac{2}{r^3}f(r-ct)-\frac{2}{r^2}f'(r-ct)+\frac{1}{r}f''(r-ct)
-        +\frac{2}{r^3}g(r+ct)-\frac{2}{r^2}g'(r+ct)+\frac{1}{r}g''(r+ct).\]
-         Thus, $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, which also menas $u(x,t)$ is a soluiton of spherical wave equation. 
+        Differentiating $u(x,t)$ with respect to $r$ again,
+        \begin{align*}
+            u_{rr}&=\frac{2}{r^3}f(r-ct)-\frac{1}{r^2}f'(r-ct)-\frac{1}{r^2}f'(r-ct) +\frac{1}{r}f''(r-ct) \\
+               &+\frac{2}{r^3}g(r+ct)-\frac{1}{r^2}g'(r+ct)-\frac{1}{r^2}g'(r+ct) +\frac{1}{r}g''(r+ct)\\
+               &=\frac{2}{r^3}f(r-ct)-\frac{2}{r^2}f'(r-ct)+\frac{1}{r}f''(r-ct) \\
+               &+\frac{2}{r^3}g(r+ct)-\frac{2}{r^2}g'(r+ct)+\frac{1}{r}g''(r+ct).
+        \end{align*}
+         Thus, $u_{tt} = c^2\left(u_{rr} + \frac{2}{r}u_r\right)$, i.e. $u(x,t)$ is a solution of spherical wave equation.
            
             \item Use (8) to solve it with initial conditions $u\left(r,0\right) = \phi\left(r\right)$, $u_t\left(r,0\right) = \psi\left(r\right)$, taking both $\phi\left(r\right)$ and $\psi\left(r\right)$ to be even functions of $r$. \smallskip \\
             Solution:\\
-            Since $v(r,t)$ is the solution of classical wave equation. Thus we will use (8) to help us solve spherical wave equation.
-            From the initial condition of $u(r,t)$, we wil obtain the initial condition of $v(r,t)$
+            Since $v(r,t)$ is the solution of classical wave equation we will use (8) to help us solve it.
+            From the initial condition of $u(r,t)$, we will obtain the initial condition of $v(r,t)$
             \begin{equation*}
                 \begin{cases}
                     v(r,0)=ru(r,0)=r\phi(r),
@@ -331,24 +334,10 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                     v_{t}(r,0)=ru_{t}(r,0)=r\psi(r).
                 \end{cases}
             \end{equation*}
-            And from (8), we know the form of wave equation's solution is 
+            And from (8), we know:
        \[v(x,t)=\frac{1}{2}[(r+ct)\phi(r+ct)+(r-ct)\phi(r-ct)]+\frac{1}{2c}\int_{r-ct}^{r+ct}s\psi(s)ds,\] therefore, the form of $u(r,t)$ is 
-          \[u(r,t)=\frac{v(r,t)}{r}=\frac{1}{2}[(1+\frac{c}{r}t)\phi(r+ct)+(r-ct)\phi(1-\frac{c}{r}t)]+\frac{1}{2cr}\int_{r-ct}^{r+ct}s\psi(s)ds\]
+          \[u(r,t)=\frac{v(r,t)}{r}=\frac{1}{2r}[(r+ct)\phi(r+ct)+(r-ct)\phi(r-ct)]+\frac{1}{2cr}\int_{r-ct}^{r+ct}s\psi(s)ds\]
           This is the solution of spherical wave equation.
-
-          Then we will check if $u(x,t)$ satisfies the initial condition:
-          \[u(r,0)=\frac{1}{2}[\phi(r)+\phi(r)]+\frac{1}{2cr}\int_{r}^{r}s\psi(s)ds=\phi(r).\]
-          Since 
-
-          \begin{align*}
-            u_{t}(r,t)&=\frac{1}{2}[\frac{c}{r}\phi+c(1+\frac{c}{r}t)\phi'-\frac{c}{r}\phi -c(1-\frac{c}{r}t)\phi']+\frac{1}{2cr}\partial_{t}\int_{r-ct}^{r+ct}s\psi(s)ds\\
-            &=\frac{1}{2cr}[c(r+ct)\psi(r+ct)+c(r-ct)\psi(r-ct)].
-          \end{align*}
-          Therefroe, \[u_{t}(r,0)=\frac{1}{2cr}[cr\psi(r)+cr\psi(r)]=\psi(r).\]
-          Hence, $u(x,t)$ also satisfies the initial condition, in summary, $u(x,t)$ is the solution of spherical wave equation.
-
-
-            
         \end{enumerate}
         
         \item Exercise 9 \smallskip \\
