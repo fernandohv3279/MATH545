@@ -250,8 +250,8 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                 \end{cases}
             \end{equation*}
             Therefore, the solution is 
-           \[u(x,y)=F(y)e^{-3x}+e^{-3x}-F(0)e^{-3x}=[F(y)-F(0)]e^{-3x}, F'(0)=0.\]
-           Hence, the solution exist, as long as it satisfies the former
+           \[u(x,y)=F(y)e^{-3x}+e^{-3x}-F(0)e^{-3x}=[F(y)-F(0)+1]e^{-3x}, F'(0)=0.\]
+           Hence, the solution exists, as long as it satisfies the former
            equation, and for the function $F(y)$, $F'(0)=0$.
            
            Thus, the solution is not unique. 
@@ -410,8 +410,8 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         \begin{equation}\label{energy}
         E=\frac{1}{2}\int_{R} \left(\rho v_{t}^{2}(x,t)+Tv_{x}^{2}(x,t)\right)dx.
         \end{equation}
-        We saw in class that this is a constant independent of time so by
-        plugin $t=0$ in the expression above we get:
+        We saw in class that this is a constant independent of time so 
+        plug in $t=0$ in the expression above we get:
         \[E= \frac{1}{2}\int_{R}\left(\rho
         v_{t}^{2}(x,0)+Tv_{x}^{2}(x,0)\right)dx=\frac{1}{2}\int_{R}\left(\rho\psi^{2}+T\phi_{x}^{2}\right)dx=\frac{1}{2}\int_{R}(0+0)dx
     =0,\]
@@ -433,7 +433,7 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         \begin{enumerate}
             \item Show that $\frac{\partial e}{\partial t} = \frac{\partial p}{\partial x}$ and $\frac{\partial p}{\partial t} = \frac{\partial e}{\partial x}$. \smallskip \\
             Solution: \\
-            Since $e=\frac{1}{2}\left(u_{t}^{2}+u_{x}^{2}\right)$, $p=u_{t} u_{x} $.
+            Since $e=\frac{1}{2}\left(u_{t}^{2}+u_{x}^{2}\right)$, $p=u_{t} u_{x} $. And $c=1$, thus $u_{xx}=u_{tt}.$
             \begin{equation*}
                 \begin{cases}
                     \frac{\partial e}{\partial t}=u_{t} u_{tt}+u_{xt} u_{x},
@@ -470,7 +470,7 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
             Then, we check $p(x,t).$
             \[p_{tt}  =\frac{\partial}{\partial t}\left(u_{tt} u_{x}+u_{t} u_{xt}\right)=u_{ttt} u_{x}+u_{tt} u_{xt}+u_{tt} u_{xt}+u_{t} u_{xtt},\]          
             \[ p_{xx}  =\frac{\partial}{\partial x}\left(u_{xt} u_{x}+u_{t} u_{xx}\right) =u_{xxt} u_{x}+u_{xt} u_{xx}+u_{tx} u_{xx}+u_{t} u_{xxx}. \]
-            since $u_{xx}=u_{tt}$, then 
+            Since $u_{xx}=u_{tt}$, then 
             \[ p_{tt}=u_{ttt} u_{x}+u_{tt} u_{xt}+u_{tt} u_{xt}+u_{t} u_{xtt}=u_{xxt} u_{x}+u_{xt} u_{xx}+u_{tx} u_{xx}+u_{t} u_{xxx}=p_{xx}. \]
             
             Therefore, $p(x,t)$ satisfies the wave equation.
