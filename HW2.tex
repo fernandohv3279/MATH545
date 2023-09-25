@@ -487,15 +487,23 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         \item Exercise 1 \smallskip \\
         Consider the solution $1 - x^2 -2kt$ of the diffusion equation.  Find the locations of its maximum and its minimum in the closed rectangle $\{0 \leq x \leq 1, 0 \leq t \leq T\}$. \smallskip \\
           Solution:\\
-          Let $u(x,t)=1 - x^2 -2kt$, since $u_{t}=-2k$, $u_{xx}=-2$, thus $u_{t}=ku_{xx}$, where $k>0$ is a constant. (Namely, diffusivity)
-         
-          From the maximum value theorem, the maximum and minimum value only appears in the boundary.
+          By the maximum principle, the maximum and minimum values are attained
+          at the boundary.
+          We start finding for the maximum.
+
+          First we set $t=0$. And we get $1-x^2$ which has a maximum of 1, then
+          if we set $x=0$ we get $1-2kt$ which has 1 as the maximum, then
+          if we set $x=1$ we get $-2kt$ which has 0 as the maximum.
+
+          In conclusion: the maximum is 1 and it is attained at $x=0,t=0$.
           
-          And for diffusion equation, the diffusion flow will flow from high concentration to low concentration. Therefore, the maximum value appears at the initial position. 
-          
-          Comparing four sides, we obtain that 
-          the maximum value is $u(0,0)=1$, the minimum value is $u(1,T)=-2kT$.
-        
+          Now we find the minimum in the same way.
+
+          First we set $t=0$. And we get $1-x^2$ which has a minimum of 0, then
+          if we set $x=0$ we get $1-2kt$ which has $1-2kT$ as the minimum, then
+          if we set $x=1$ we get $-2kt$ which has $-2kT$ as the minimum.
+
+          In conclusion: the minimum is $-2kT$ and it is attained at $x=1,t=T$.
     \end{enumerate}
 \end{enumerate}
 
