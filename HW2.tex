@@ -343,10 +343,10 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         \item Exercise 9 \smallskip \\
         Solve $u_{xx} - 3 u_{xt} - 4u_{tt} = 0$, $u\left(x,0\right) = x^2$, $u_t\left(x,0\right)$ = $e^x$. (\emph{Hint:} Factor the operator as we did for the wave equation.) \smallskip \\
         Solution:\\
-        Using factor the operation to the wave equation: 
+        Proceeding as suggested by the hint we get:
         \[u_{xx} - 3 u_{xt} - 4u_{tt}=(\partial x -4\partial t)(\partial x + \partial t) u=0.\]
 
-        Then the second order wave equation will be transfered as two one order equations.
+        Then the second order wave equation will be transformed into two first order equations.
         \begin{equation*}
             \begin{cases}
                 (\partial x + \partial t) u=v,
@@ -354,45 +354,47 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
                 (\partial x -4\partial t)v=0.
             \end{cases}
         \end{equation*}
-        By using characteristic, $v(x,t)=f(x+\frac{1}{4}t)$, and $u(x,t)=f(x+\frac{1}{4}t)+g(x-t).$ 
+        Using the method of characteristics we get $v(x,t)=h(x+\frac{1}{4}t)$,
+        and proceeding as the book does we get $u(x,t)=f(x+\frac{1}{4}t)+g(x-t)$,
+        where $f'(s)=\frac{h(s)}{2c}$.
         
         From the initial condition, 
         \begin{equation*}
             \begin{cases}
                 u(x,0)=f(x)+g(x)=x^2,
                 \\
-                u_{t}(x,0)=\frac{1}{4}f_{t}(x)-g_{t}(x)=e^x.  
+                u_{t}(x,0)=\frac{1}{4}f'(x)-g'(x)=e^x.
             \end{cases}
         \end{equation*}
-        Intergrating $ u_{t}(x,0)=\frac{1}{4}f_{t}(x)-g_{t}(x)$ about $t$, then we get
 
-        \[u(x,0)=\int u_{t}(x,0) dt =\int (\frac{1}{4}f_{t}(x)-g_{t}(x))dt=\frac{1}{4}f(x)-g(x)=e^x.\]
-        Combinating equations:
+        Differentiating $u(x,0)$ we get:
+        \[
+        f'+g'=2x
+        \]
+        So we have:
         \begin{equation*}
             \begin{cases}
-                u(x,0)=f(x)+g(x)=x^2,
+                f'+g'=2x,
                 \\
-                u(x,0)=\frac{1}{4}f(x)-g(x)=e^x.
+                \frac{1}{4}f' - g'=e^x.
             \end{cases}
         \end{equation*}
-        We solve that 
-        \begin{equation*}
-            \begin{cases}
-                f(x)=\frac{4}{5}(x^2+e^x+c),
-                \\
-                g(x)=\frac{1}{5}(x^2-4e^x-4c).
-            \end{cases}
-        \end{equation*}
-        Therefore,
-        \begin{align*}
-            u(x,t)&=f(x+\frac{1}{4}t)+g(x-t)\\
-            &=\frac{4}{5}[(x+\frac{1}{4}t)^2+e^{(x+\frac{1}{4}t)}+c] + \frac{1}{5}[(x-t)^2-4e^{(x-t)}-4c]\\
-            &=\frac{4}{5}(x+\frac{1}{4}t)^2+\frac{4}{5}e^{(x+\frac{1}{4}t)}+\frac{1}{5}(x-t)^2- \frac{4}{5}e^{(x-t)}.
-        \end{align*}
-        Hence, $u(x,t)=\frac{4}{5}(x+\frac{1}{4}t)^2+\frac{4}{5}e^{(x+\frac{1}{4}t)}+\frac{1}{5}(x-t)^2- \frac{4}{5}e^{(x-t)}$ is the solution of this equation.
-         \end{enumerate}
 
-   \pagebreak
+        Solving this system yields: $f'=\frac{4}{5}(2x+e^x)$ and $g'=\frac{1}{5}(2x+e^x)-e^x$.
+
+        So $f(x)=\frac{4}{5}(x^2+e^x)+C_1$ and $g(x)=\frac{1}{5}(x^2+e^x)-e^x+C_2$.
+
+        Since $f(x)+g(x)=x^2$ then $C_1=-C_2$, so
+        \begin{align}
+            f(x)&=\frac{4}{5}(x^2+e^x)+C,\label{function_f}\\
+            g(x)&=\frac{1}{5}(x^2+e^x)-e^x-C.\label{function_g}
+        \end{align}
+
+        So the solution to this equation is $u(x,t)=f(x+\frac{1}{4}t)+g(x-t)$
+        where $f$ and $g$ are given in (\ref{function_f}) and
+        (\ref{function_g}) respectively.
+
+     \end{enumerate}
     
     \item Strauss Section 2.2 \smallskip
     \begin{enumerate}
