@@ -399,36 +399,31 @@ There's actually only one boundary condition, thus, the solution isn't unique, $
         \item Exercise 1 \smallskip \\
         Use the energy conservation of the wave equation to prove that the only solution with $\phi \equiv 0$ and $\psi \equiv 0$ is $u \equiv 0$. (\emph{Hint:} Use the first vanishing theorem in Section A.1.) \smallskip \\
         Solution:\\
-         First, we should show that $u\equiv0$ is a solution of the wave equation. Actually, it is trivial. 
+        First, we should show that $u\equiv0$ is a solution of the wave equation. This is trivial because
+        if $u=0$, then $u_{tt}=0=u_{xx}$, therefore, $u_{tt}=c^2u_{xx}$.
         
-        Since when $u=0$, thus $u_{tt}=0=u{xx}$, therefore, $u_{tt}=c^2u_{xx}$.
-        
-        Then, we should show $u=0$ is only solution with $\phi \equiv 0$ and $\psi \equiv 0$.
-        
-        Assume there exists another solution $v(x,t)\ne 0$ also satisfying wave equation, i.e. $v_{tt}=c^2v_{xx}.$
+        Now, let $v$ be a solution.
 
-        Without loss of generalism, assume $v(x,t)> 0$, then by using energy equation
-        \[ E(x,t)=\frac{1}{2}\int_{R} \left(v_{t}^{2}(x,t)+v_{x}^{2}(x,t)\right)dx\]
+        The energy is given by:
+        \begin{equation}\label{energy}
+        E=\frac{1}{2}\int_{R} \left(\rho v_{t}^{2}(x,t)+Tv_{x}^{2}(x,t)\right)dx.
+        \end{equation}
+        We saw in class that this is a constant independent of time so by
+        plugin $t=0$ in the expression above we get:
+        \[E= \frac{1}{2}\int_{R}\left(\rho
+        v_{t}^{2}(x,0)+Tv_{x}^{2}(x,0)\right)dx=\frac{1}{2}\int_{R}\left(\rho\psi^{2}+T\phi_{x}^{2}\right)dx=\frac{1}{2}\int_{R}(0+0)dx
+    =0,\]
+        which in conjunction with (\ref{energy}) implies:
+        \[ \int_{R} \left(\rho v_{t}^{2}(x,t)+Tv_{x}^{2}(x,t)\right)dx=0.\]
 
-        Since the wave equation is energy conservation, i.e. $\frac{dE}{dt}=0.$ Therefore, $E = constant.$
-        
-        \[E(x,0)= \frac{1}{2}\int_{R}\left(v_{t}^{2}(x,0)+v_{x}^{2}(x,0)\right)dx=\frac{1}{2}\int_{R}\left(\psi^{2}+\phi_{x}^{2}\right)dx=\frac{1}{2}\int_{R}(0+0)dx =0.\]
-
-        Thus $E(x,t)=E(x,0)=0.$
-
-        And \[ 0=E(x,t)=\frac{1}{2}\int_{R} \left(v_{t}^{2}(x,t)+v_{x}^{2}(x,t)\right)dx,\] where $ v_{t}^{2}(x,t)+v_{x}^{2} (x,t)>0.$ 
-
-        From Vanishing Theorem: $v_{t}^{2}(x,t)+v_{x}^{2}(x,t)=0 \implies v_{t}=0, v_{x}=0.$
+        Since $\rho > 0$ and $T>0$, the vanishing theorem gives us:
+        \[\rho v_{t}^{2}(x,t)+Tv_{x}^{2}(x,t)=0 \implies v_{t}=0, v_{x}=0.\]
 
         Hence, $ \nabla v(x,t)=(v_t(x,t),v_x(x,t))=(0,0),$ which means $v(x,t)=constant.$
 
         From initial condition, $v(x,0)= \phi =0$, thus, $v(x,t)=0, \forall x\in \mathbb{R}, t\ge 0.$
 
-        Therefore, $u(x,t)=v(x,t)$, $u(x,t)\equiv 0$ is the only solution of wave equation with $\phi \equiv 0$ and $\psi \equiv 0$.
-        
-        %Let $f(x)$ be a continuous function in a finite closed interval [a,b]. Assume that $f(x)\ne 0$ in the interval and that $\int_{a}^{b}f(x)dx=0$. 
-        %Then $f(x)$ is udentically zero.
-
+        Therefore, $u(x,t)\equiv 0$ is the only solution of wave equation with $\phi \equiv 0$ and $\psi \equiv 0$.
         
         \item Exercise 2 \smallskip 
 
