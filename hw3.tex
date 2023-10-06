@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\title{MATH 545: Homework 1}
+\author{Yingli, Laurette, Fernando}
+\date{October 9, 2023}
+\begin{document}
+\maketitle
+\section{Section 2.4}
+\subsection{Exercise 1}
+Solve the diffusion equation with initial condition
+\[
+\phi(x)=1\text{ for }|x|<l \quad \text{and} \quad \phi(x)=0 \text{
+for } |x|>l.
+\]
+Write your answer in terms of $\mathscr{E}$rf($x$).
+
+\textbf{Solution:}
+
+We saw in class that the solution to this problem is:
+\[
+    u(t,x)=S(t,\cdot)\ast u_0(x)
+\]
+Where $S$ is the heat kernel. So:
+\begin{align*}
+    u(t,x)
+    &=S(t,\cdot)\ast u_0(x)\\
+    &=\int S(t,x-y)u_0(y)dy\\
+    &=\int_{\infty}^{-l} S(t,x-y)u_0(y)dy\\
+    &+ \int_{-l}^lS(t,x-y)u_0(y)dy\\
+    &+ \int_l^{\infty}S(t,x-y)u_0(y)dy\\
+    &=0\\
+    &+\int_{-l}^lS(t,x-y)dy\\
+    &+0\\
+    &=\int_{-l}^lS(t,x-y)dy\\
+\end{align*}
+\subsection{Exercise 15}
+\subsection{Exercise 16}
+\subsection{Exercise 18}
+\section{Section 4.1}
+\subsection{Exercise 3}
+\section{Section 4.2}
+\subsection{Exercise 2}
+\section{Section 4.3}
+\subsection{Exercise 2}
+\end{document}
