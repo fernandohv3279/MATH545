@@ -19,20 +19,30 @@ Write your answer in terms of $\mathscr{E}$rf($x$).
 
 We saw in class that the solution to this problem is:
 \[
-    u(t,x)=S(t,\cdot)\ast u_0(x)
+    u(t,x)=S(t,\cdot)\ast u_0(x),
 \]
 Where $S$ is the heat kernel. So:
 \begin{align*}
     u(t,x)
     &=S(t,\cdot)\ast u_0(x)\\
     &=\int S(t,x-y)u_0(y)dy\\
-    &=\int_{\infty}^{-l} S(t,x-y)u_0(y)dy\\
-    &+ \int_{-l}^lS(t,x-y)u_0(y)dy\\
-    &+ \int_l^{\infty}S(t,x-y)u_0(y)dy\\
-    &=0\\
-    &+\int_{-l}^lS(t,x-y)dy\\
-    &+0\\
+    &=\int_{|x|<l} S(t,x-y)u_0(y)dy+ \int_{|x|> l} S(t,x-y)u_0(y)dy\\
+    &=\int_{|x|<l} S(t,x-y)dy\\
     &=\int_{-l}^lS(t,x-y)dy\\
+    &=\int_{-l}^l\frac{1}{\sqrt{4\pi t D}} e^{-(x-y)^2/(4tD)}dy
+\end{align*}
+Now let $p=\frac{y-x}{\sqrt{4tD}}$, then $dp=\frac{dy}{\sqrt{4tD}}\iff
+\sqrt{4tD}dp=dy$. So:
+\begin{align*}
+    u(t,x)
+    &=\frac{\sqrt{4tD}}{\sqrt{4\pi t
+    D}}\int_{\frac{-l-x}{\sqrt{4tD}}}^{\frac{l-x}{\sqrt{4tD}}} e^{-p^2}dp\\
+    &=\frac{1}{\sqrt{\pi}}\int_{\frac{-l-x}{\sqrt{4tD}}}^{\frac{l-x}{\sqrt{4tD}}} e^{-p^2}dp\\
+    &=\frac{1}{\sqrt{\pi}}\left(\int_{\frac{-l-x}{\sqrt{4tD}}}^{0}
+    e^{-p^2}dp+\int_{0}^{\frac{l-x}{\sqrt{4tD}}} e^{-p^2}dp\right)\\
+    &=\frac{1}{\sqrt{\pi}}\left(-\int_{0}^{\frac{-l-x}{\sqrt{4tD}}}
+    e^{-p^2}dp+\int_{0}^{\frac{l-x}{\sqrt{4tD}}} e^{-p^2}dp\right)\\
+    &=\frac{1}{2}\left(-\mathscr{E}\text{rf}\left(\frac{-l-x}{\sqrt{4tD}}\right)+\mathscr{E}\text{rf}\left(\frac{l-x}{\sqrt{4tD}}\right)\right).
 \end{align*}
 \subsection{Exercise 15}
 \subsection{Exercise 16}
