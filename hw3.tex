@@ -96,6 +96,24 @@ Solve the diffusion equation with variable dissipation:
     u_t-ku_{xx}+bu=0\quad \text{for }-\infty<x<\infty \quad \text{with } u(x,0)=\phi(x),
 \]
 where $b>0$ is a constant.
+
+\textbf{Solution:}
+
+As suggested by the hint we do the change of variables $u(x,t)=e^{-bt}v(x,t)$,
+notice that with this change of variables the initial condition remains the
+same, after the change we obtain:
+\begin{align*}
+-be^{-bt}v(x,t)+e^{-bt}v_t(x,t)-ke^{-bt}v_{xx}(x,t)+be^{-bt}v(x,t)=0\\
+v_t(x,t)-kv_{xx}(x,t)=0\\
+\end{align*}
+Then our solution (using the notation we saw in class) is:
+\[
+v(x,t)=S(t,\cdot)\ast \phi(x)
+\]
+Finally we multiply by $e^{-bt}$ to recover $u$:
+\[
+    u(x,t)=e^{-bt}S(t,\cdot)\ast \phi(x).
+\]
 \subsection{Exercise 18}
 \section{Section 4.1}
 \subsection{Exercise 3}
