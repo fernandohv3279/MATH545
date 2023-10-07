@@ -53,6 +53,43 @@ Prove the uniqueness of the diffusion problem with Neumann boundary conditions:
     u_x(0,t)=g(t)\quad u_x(l,t)=h(t)
 \]
 by the energy method.
+
+\textbf{Solution:}
+
+Suppose there are two solutions: $u_1$ and $u_2$, now consider their
+difference: $w=u_1-u_2$; it satisfies:
+\[
+    w_t -kw_{xx}=0 \quad \text{for } 0<x<l,t>0 \quad w(x,0)=0
+\]
+\[
+w_x(0,t)=0\quad w_x(l,t)=0
+\]
+then:
+\[
+0=w_t-kw_{xx}=w(w_t-kw_{xx})=(w^2/2)_t+(-kww_x)_x+kw_x^2.
+\]
+Now we integrate with respect to $x$ from 0 to $l$ to get:
+\[
+0=\int_0^l\left(\frac{1}{2}w^2\right)_tdx-kww_x\Big|_{x=0}^{x=l}+k\int_0^lw_x^2dx.
+\]
+Because of the Neumann boundary condition we have $w_x(0,t)=w_x(l,t)=0$. So:
+\[
+\int_0^l\left(\frac{1}{2}w^2\right)_tdx=-k\int_0^lw_x^2dx\leq 0.
+\]
+Under the appropriate conditions (which we will assume to have) we can write:
+\[
+\int_0^l\left(\frac{1}{2}w^2\right)_tdx=\frac{d}{dt}\int_0^l\frac{1}{2}w^2dx
+\]
+Then:
+\[
+\frac{d}{dt}\int_0^l\frac{1}{2}w^2dx=-k\int_0^lw_x^2dx\leq 0.
+\]
+Which means that $\int_0^lw^2dx$ is decreasing with respect to $t$, so
+\[
+\int_0^l(w(x,t))^2dx\leq\int_0^l(w(x,0))^2dx
+\]
+The right hand side of the previous inequality is 0 because $w(x,0)=0$, it then
+follows that $w(x,t)\equiv 0$, hence $u_1\equiv u_2$.
 \subsection{Exercise 16}
 \subsection{Exercise 18}
 \section{Section 4.1}
