@@ -123,7 +123,22 @@ where V is a constant.
 
 \textbf{Solution:}
 
-hola
+We proceed according to the hint and make the change $y=x-Vt$, let
+$w(y,t)=u(y+Vt,t)=u(x,t)$, then $w_y=u_x$, $w_{yy}=u_{xx}$ and $w_t=Vu_x+u_t$.
+Notice that the initial condition remains the same.
+Substituting in the original equation we get
+\begin{align*}
+w_t-Vw_y -kw_{yy}+Vw_y=0\\
+w_t-kw_{yy}=0.
+\end{align*}
+The solution to this is
+\[
+    w(y,t)=S(t,\cdot)\ast \phi(y),
+\]
+so
+\[
+    u(x,t)=S(t,\cdot)\ast \phi(x-Vt).
+\]
 \section{Section 4.1}
 \subsection{Exercise 3}
 \section{Section 4.2}
