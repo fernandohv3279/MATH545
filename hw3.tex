@@ -91,7 +91,7 @@ Which means that $\int_0^lw^2dx$ is decreasing with respect to $t$, so
 The right hand side of the previous inequality is 0 because $w(x,0)=0$, it then
 follows that $w(x,t)\equiv 0$, hence $u_1\equiv u_2$.
 \subsection{Exercise 16}
-Solve the diffusion equation with variable dissipation:
+Solve the diffusion equation with constant dissipation:
 \[
     u_t-ku_{xx}+bu=0\quad \text{for }-\infty<x<\infty \quad \text{with } u(x,0)=\phi(x),
 \]
@@ -190,13 +190,81 @@ So the final solution is:
 \section{Section 4.2}
 \subsection{Exercise 2}
 Consider the equation $u_{tt}=c^2u_{xx}$ for $0<x<l$, with the boundary
-conditions $u(0,t)=0$, $u(l,t)=0$ (Neumann at the left, Dirichlet at the right.)
+conditions $u_x(0,t)=0$, $u(l,t)=0$ (Neumann at the left, Dirichlet at the right.)
 \subsubsection{Part a}
-Show that the eigenfunctions are $\cos[(n+\frac{1}{2})nx/l]$.
+Show that the eigenfunctions are $\cos\left[\left(n+\frac{1}{2}\right)\pi x/l\right]$.
 
 \textbf{Solution:}
 
-hola
+We begin by writing $u(x,t)=X(x)T(t)$, then
+\begin{align*}
+XT_{tt}=c^2X_{xx}T\\
+\frac{T_{tt}}{c^2T}=\frac{X_{xx}}{X}
+\end{align*}
+which implies that:
+\begin{align*}
+\frac{c^2T_{tt}}{T}=\frac{X_{xx}}{X}=-\lambda
+\end{align*}
+for $\lambda$ constant.
+
+Now we analyse the sign of $\lambda$ like we did in
+class. First note that
+\[
+(X,X_{xx})=\int_0^l\overline{X}X_{xx}dx
+=[\overline{X}X_x]\Big|_0^l-\int_0^l|X_x|^2dx
+=-\int_0^l|X_x|^2dx\leq 0,
+\]
+where we used the fact that $\overline{X}(l)X_x(l)=0$ by the Dirichlet
+condition and  $\overline{X}(0)X(0)=0$ by the Neumann condition.
+
+Using the linearity of the inner product we conclude that
+\[
+    (X,X_{xx})=-\lambda(X,X)=-\lambda||X||^2\leq 0,
+\]
+i.e. $\lambda \geq 0$.
+
+Now we check if $\lambda=0$ is actually possible; in this case we have
+\[
+X_xx=0,
+\]
+then
+\[
+    X(x)=ax+b;
+\]
+but the Neumann condition on $x=0$ implies that $a=0$, so $X(x)=b$, but the
+Dirichlet boundary condition on $x=l$ implies that $b=0$.
+
+\fbox{
+\parbox{0.91\textwidth}{
+\textbf{Conclusion:} $\lambda=0$ gives us the 0 eigenvector so we are not
+interested in this case, therefore we can assume $\lambda > 0$.
+}
+}
+
+Now we write $\lambda=\mu^2$; the problem then becomes:
+\[
+    X_{xx}+\mu^2X=0
+\]
+which has the solution:
+\[
+X(x) = A\cos(\mu x)+B\sin(\mu x),
+\]
+then derivative of $X$ is
+\[
+X_x(x) = -A\mu\sin(\mu x)+B\mu\cos(\mu x),
+\]
+Now we use the Neumann condition to get
+\[
+    X_x(x)=B\mu=0.
+\]
+so $B=0$. From the Dirichlet condition we obtain
+\[
+X(l)=A\cos(\mu l)=0,
+\]
+so $\mu = (n+\frac{1}{2})\pi/l$, then the eigenfunctions are indeed
+\[
+\cos\left[\left(n+\frac{1}{2}\right)\pi x/l\right].
+\]
 \subsubsection{Part b}
 Write the series expansion for a solution $u(x,t)$.
 
