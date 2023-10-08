@@ -288,4 +288,31 @@ x/l\right].
 \]
 \section{Section 4.3}
 \subsection{Exercise 2}
+Consider the eigenvalue problem with Robin BCs at both ends:
+\[
+    -X''=\lambda X
+\]
+\[
+    X'(0)-a_0X(0)=0, \quad X'(l)+a_lX(l)=0.
+\]
+\subsubsection{part a}
+Show that $\lambda = 0$ is an eigenvalue if and only if $a_0+a_l=-a_0a_ll$.
+
+\textbf{Solution:}
+
+If $\lambda=0$ then $X(x)=mx+b$ and $X'(x)=m$. Using the initial condition
+yields
+\[
+    m-a_0b=0, \quad m+a_l(ml+b)=0.
+\]
+Substituting $m=a_0b$ we obtain
+\[
+    b(a_0+a_la_0l+a_l)=0.
+\]
+If $b=0$ then $m=0$ and we have the 0 eigenfunction so this is not a solution,
+therefore the only option left is that:
+\[
+    a_0+a_l=-a_0a_ll.
+\]
+\subsubsection{part b}
 \end{document}
