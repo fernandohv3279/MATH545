@@ -148,7 +148,45 @@ variables and use (8) to find its representation as a series.
 
 \textbf{Solution:}
 
-hola
+\fbox{
+\parbox{0.91\textwidth}{
+\textbf{Note:} The problem says that we should use (8), so in order to do that let's
+assume that we have homogeneous Dirichlet boundary conditions.
+}
+}
+
+We separate variables to get:
+\[
+    XT_t=iX_{xx}T,
+\]
+then:
+\[
+    \frac{T_t}{iT}=\frac{X_{xx}}{X},
+\]
+which implies that
+\[
+    \frac{T_t}{iT}=\frac{X_{xx}}{X}=-\lambda,
+\]
+for $\lambda$ constant.
+
+For the second equation we can use (8) and get
+\[
+    \lambda_n=\left(\frac{n\pi}{l}\right)^2,\quad X_n(x)=\sin\left(\frac{n\pi
+    x}{l}\right) \quad (n=1,2,3,\dots).
+\]
+As for the equation
+\[
+    (T_n)t=-i\lambda_n T_n,
+\]
+this one has solution
+\[
+    C_ne^{-i\lambda_nt}.
+\]
+So the final solution is:
+\[
+    u(x,t)=\sum_{n=1}^\infty C_n\sin\left(\frac{n\pi
+    x}{l}\right)e^{-i\left(\frac{n\pi}{l}\right)^2t}.
+\]
 \section{Section 4.2}
 \subsection{Exercise 2}
 \section{Section 4.3}
