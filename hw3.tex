@@ -261,16 +261,29 @@ so $B=0$. From the Dirichlet condition we obtain
 \[
 X(l)=A\cos(\mu l)=0,
 \]
-so $\mu = (n+\frac{1}{2})\pi/l$, then the eigenfunctions are indeed
+so $\mu_n = (n+1/2)\pi/l$, then the eigenfunctions are indeed
 \[
-\cos\left[\left(n+\frac{1}{2}\right)\pi x/l\right].
+\cos\left[\left(n+1/2\right)\pi x/l\right].
 \]
 \subsubsection{Part b}
 Write the series expansion for a solution $u(x,t)$.
 
 \textbf{Solution:}
 
-hola
+Now we find the solution to
+\[
+    T_n''=-\lambda_nc^2T_n,
+\]
+which we know is
+\[
+T_n(t)=C_n\cos(c\mu_n t) + D_n\sin(c\mu_n t)
+\]
+so the solution is:
+\[
+u(t,x)=\sum_{n=1}^\infty \left(\widetilde{C_n}\cos(c\mu_n t) +
+    \widetilde{D_n}\sin(c\mu_n t)\right)\cos\left[\left(n+1/2\right)\pi
+x/l\right].
+\]
 \section{Section 4.3}
 \subsection{Exercise 2}
 \end{document}
