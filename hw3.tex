@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{mathrsfs}
 \title{MATH 545: Homework 1}
 \author{Yingli, Laurette, Fernando}
@@ -176,7 +177,7 @@ For the second equation we can use (8) and get
 \]
 As for the equation
 \[
-    (T_n)t=-i\lambda_n T_n,
+    T_n'=-i\lambda_n T_n,
 \]
 this one has solution
 \[
@@ -225,7 +226,7 @@ i.e. $\lambda \geq 0$.
 
 Now we check if $\lambda=0$ is actually possible; in this case we have
 \[
-X_xx=0,
+    X_{xx}=0,
 \]
 then
 \[
@@ -236,7 +237,7 @@ Dirichlet boundary condition on $x=l$ implies that $b=0$.
 
 \fbox{
 \parbox{0.91\textwidth}{
-\textbf{Conclusion:} $\lambda=0$ gives us the 0 eigenvector so we are not
+\textbf{Conclusion:} $\lambda=0$ gives us the 0 eigenfunction so we are not
 interested in this case, therefore we can assume $\lambda > 0$.
 }
 }
@@ -263,8 +264,9 @@ X(l)=A\cos(\mu l)=0,
 \]
 so $\mu_n = (n+1/2)\pi/l$, then the eigenfunctions are indeed
 \[
-\cos\left[\left(n+1/2\right)\pi x/l\right].
+\cos\left[\left(n+1/2\right)\pi x/l\right],
 \]
+where $n\in \mathbb{N}$.
 \subsubsection{Part b}
 Write the series expansion for a solution $u(x,t)$.
 
@@ -280,7 +282,7 @@ T_n(t)=C_n\cos(c\mu_n t) + D_n\sin(c\mu_n t)
 \]
 so the solution is:
 \[
-u(t,x)=\sum_{n=1}^\infty \left(\widetilde{C_n}\cos(c\mu_n t) +
+u(t,x)=\sum_{n=0}^\infty \left(\widetilde{C_n}\cos(c\mu_n t) +
     \widetilde{D_n}\sin(c\mu_n t)\right)\cos\left[\left(n+1/2\right)\pi
 x/l\right].
 \]
