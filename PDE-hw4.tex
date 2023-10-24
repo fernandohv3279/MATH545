@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}%
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{mathrsfs}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+%\usepackage{changepage}
+\usepackage{amssymb}
+%\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\begin{document}
+
+\title{Math 545 - PDE - Homework 4}
+\author{YingLi, Fernando, Laurette }
+\date{\today}
+\maketitle
+
+\section*{Section 6.1}
+\subsection*{Exercise 2} Find the solutions that depend only on $r$ of the equation $u_{xx}+u_{yy}+u_{zz}=k^2u$, where $k$ is a positive constant.\\
+\textbf{Solution:} 
+The solutions depend only on $r$, the equation is $\triangle u =u_{rr} +\frac{2}{r}u_{r}=k^2u$.
+
+Substitute $u=\frac{v}{r}$, then $u_{r}=\frac{v_{r}}{r}-\frac{v}{r^2}$, $u_{rr}=\frac{v_{rr}}{r}-\frac{2v_{r}}{r^2}+\frac{2v}{r^3}$.
+
+Plug theses in the equation $u_{rr}+\frac{2}{r}u_{r}=k^2u \implies v_{rr}-k^2v=0.$
+
+Solve the equation, we obtain $v=Acosh kr+Bsinh kr$, $A$ and $B$ are constants. 
+
+Hence, $u=A\frac{cosh kr}{r}+B\frac{sinh kr}{r}$.
+
+\subsection*{Exercise 4} Solve $u_{xx}+u_{yy}+u_{zz}=0$ in the spherical shell $0<a<r<b$ with the boundary conditions $u=A$ on $r=a$ and $u=B$ on $r=b$,
+    where $A$ and $B$ are constants.\\
+    \textbf{Solution:}
+From the shape of domain and boundary conditions, the solution depends only on $r$, thus,
+
+$\triangle u = u_{xx}+u_{yy}+u_{zz}= u_{rr} +\frac{2}{r}u_{r}=0$.
+
+Solve this equation, we obtain $d(r^2u_{r})=0 \implies u_{r}=\frac{C}{r^2}$.
+
+Intergrating about $r$, $u(r)=-\frac{C}{r}+D$, where $C$ and $D$ are constants.
+
+From boudnary conditions, $u(a)=-\frac{C}{a}+D=A$, and $u(b)=-\frac{C}{b}+D=B$, thus $C=\frac{B-A}{b-a}ab$, $D=A+b\frac{B-A}{b-a}$.
+
+Therefore, $u=\frac{B-A}{r(b-a)}ab+A+b\frac{B-A}{b-a}.$
+
+    \subsection*{Exercise 9} A spherical shell with inner radius 1 and outer radius 2 has a steady-state temperature distribution. Its inner boundary is held at $100 ^{\circ} C$.
+     Its outer boundary satisfies $\frac{\partial u}{\partial r}=-\gamma<0$, where $\gamma$ is a constant.
+     \subsubsection*{Part a} Find the temperature.\\
+     \textbf{Solution:}
+     The temperature depends only on the radius, $\triangle u = u_{rr} +\frac{2}{r}u_{r}=0$, solve this equation, $u_{r}=\frac{C}{r^2}$ and $u(r)=-\frac{C}{r}+D$, where $C$ and $D$ are constants.
+
+     From boundary conditions, $u(1)=-C+D=100$, $\frac{\partial u}{\partial r}|_{r=2}=\frac{C}{4}=-\gamma$, thus $C=-4\gamma, D=100-4\gamma$.
+
+     Hence, $u(r)=\frac{4\gamma}{r}+100-4\gamma$.
+
+     \subsubsection*{Part b} What are the hottest and coldest temperatures?\\
+     \textbf{Solution:}
+     From maximun principle, the maximun and minimun are only attained in the boundary.
+
+     Thus, the coldest temperature is the minimum of $\frac{4\gamma}{r}+100-4\gamma $ for $r\in[1,2]$, i.e. $u_{min}=100-2\gamma$.
+
+     Therefore, the hottest temperature is $100 ^{\circ} C$, in the inner boundary; the coldest temperature is $100-2\gamma$.
+
+     \subsubsection*{Part c} Can you choose $\gamma$ so that the temperature on its outer boundary is $20 ^{\circ} C$.\\
+     \textbf{Solution:}
+      On the outer boundary, $u=100-2\gamma$, let $u=20$, implies $\gamma = 40$, so that choose $\gamma = 40$, the temperature on its outer boundary is $20 ^{\circ} C$.
+
+
+     \section*{Section 6.2}
+     \subsection*{Exercise 3} Find the harmonic function $u(x,y)$ in the square $D={0<x<\pi, 0<y<\pi}$ with the boundary conditions:
+   
+     $ u_{y}=0$, for $y=0$ and for $y=\pi$, $ u=0$  for  $x=0 $  and  $u=\cos ^{2} y=\frac{1}{2}(1+\cos 2 y)$  for $ x=\pi $.\\
+     \textbf{Solution:}
+     Assume $u(x,y)=X(x)Y(y)$. 
+     
+     By separating variables, $\frac{X''}{X}=-\frac{Y''}{Y}=\lambda$, the boundary conditions are $X(0)=Y'(0)=Y'(\pi)=0.$
+    
+    First, solve the equation $-\frac{Y''}{Y}=\lambda$ with boundary conditions $Y'(0)=0$ and $Y'(\pi)=0$,
+    the solution is $Y_{n}(y)=C_{n}cos (ny), n\ge 1$.
+
+    Then, solve the equation $\frac{X''}{X}=\lambda$ with boundary condition $X(0)=0$, the solution is 
+    $X_{n}(x)=\widetilde{A_{n}}sinh (nx)$.
+    For $\lambda = 0$, $X(x)=A_{0}x$.
+    
+    Thus, $u(x,y)=A_{0}x+\sum_{n=1}^{\infty}A_{n}sinh(nx)cosny$, where $A_{n}=\widetilde{A_{n}}C_{n}$.
+
+    From the final boundary condition, \[u(\pi,y)=A_{0}\pi+A_{2}sinh(2x)cos2y=\frac{1}{2}(1+\cos 2 y),\]
+    implies that \[A_{0}=\frac{1}{2\pi}, A_{2}=\frac{1}{2sinh(2\pi)}, A_{n}=0, \text{ for } n \ne 0, 2.\]
+
+    Therefore, $u(x,y)=\frac{1}{2\pi}x+\frac{1}{2sinh(2\pi)}sinh(2x)cos2y.$
+
+
+    \section*{Section 6.3}
+    \subsection*{Exercise 1} Suppose that $u$ is a harmonic function in the disk $D=\{r<2\}$ and that $u=3 sin2 \theta +1$ for $r=2$. Without finding the solution, answer the following questions.\\
+    \subsubsection*{Part a} Find the maximun value of $u$ in $\overline{D} $.\\
+    \textbf{Solution:}
+    From maximun principle, the maximun is only attained in the boundary. 
+    For the disk D, the boundary is $r=2$, thus the maximun is attained when $u=3 sin2 \theta +1$ is the maximun.
+    When $\theta = \frac{\pi}{4}, u_{max}=4$.
+    
+    Thus the maximun value of $u$ in $\overline{D}$ is 4.
+
+    \subsubsection*{Part b} Calculate the value of $u$ at the orgin.\\
+    \textbf{Solution:}
+    By mean value property, the value of $u$ at the center of $D$ equals the average of $u$ on its circumference.
+    
+    Hence, $u(0)=\frac{1}{2\pi}\int_{0}^{2\pi}(3sin 2\theta+1)d\theta=1$.
+
+
+    \section*{Section 6.4}
+    \subsection*{Exercise 1} Solve $u_{xx}+u_{yy}=0$ in the exterior $\{r>a\}$ of a disk, with the boundary condition $u=1+3sin \theta$ on $ r=a$, and the conditon at infinity that $u$ be bounded as $r\to \infty$.\\
+    \textbf{Solution:}
+        From textbook, the general solution of $u$ is \[u(r, \theta)=\frac{1}{2} A_{0}+\sum_{n=1}^{\infty} r^{-n}\left(A_{n} \cos n \theta+B_{n} \sin n \theta\right).\] 
+        The boundary condition means 
+        \[u(a, \theta)=\frac{1}{2} A_{0}+\sum_{n=1}^{\infty} a^{-n}\left(A_{n} \cos n \theta+B_{n} \sin n \theta\right)=1+3sin \theta.\] 
+        Thus, $A_{0}=2, B_{1}=3a, A_{n}=0, \text{ for } n \ge 1, B_{n}=0, \text{ for } n \ne 1.$
+        
+        Therefore, $u(r, \theta)=1+\frac{3a}{r}sin\theta.$
+ 
+
+\end{document}
