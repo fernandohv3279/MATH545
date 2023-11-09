@@ -9,30 +9,8 @@
 \usepackage{amsmath}
 %\usepackage{changepage}
 \usepackage{amssymb}
+\usepackage{amsthm}
 %\usepackage{graphicx}%
-\setcounter{MaxMatrixCols}{30}
-\newtheorem{theorem}{Theorem}
-\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
-\newtheorem{axiom}{Axiom}
-\newtheorem{case}[theorem]{Case}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conclusion}[theorem]{Conclusion}
-\newtheorem{condition}[theorem]{Condition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{criterion}[theorem]{Criterion}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{summary}[theorem]{Summary}
-\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
@@ -54,7 +32,42 @@
 \subsection*{Exercise 3}
 Derive the three-dimensional maximum principle from the mean value property.\\
 \textbf{Solution:}\\
-hola
+Let's denote the ball or radius $r$ and center $x$ by $B_r(x)$, and let $D$ be
+open. The mean value property tells us that if $B_r(x)\subset D$ then
+\[
+    u(x)=\frac{1}{4\pi r^2}\int_{\partial B_r(x)}u.
+\]
+Now let's assume that $u$ attains it's maximum at $x_M\in D$, because $D$ is
+open we can find $\varepsilon$ such that $B_\varepsilon(x_M) \subset D$ and
+\begin{equation}\label{mvp}
+    u(x_M) = \frac{1}{4\pi \varepsilon^2}\int_{\partial B_\varepsilon(x_M)} u.
+\end{equation}
+Notice that if at any point $x\in \partial B_\varepsilon(x_M)$ we have
+\begin{equation}\label{ineq1}
+u(x) < u(x_M)
+\end{equation}
+because $u$ is continuous then we would need another point
+$y\in \partial B_\varepsilon(x_M)$ such that
+\begin{equation}\label{ineq2}
+u(y)>u(x_M)
+\end{equation}
+in order to satisfy
+(\ref{mvp}). However by definition, for
+any $x\in D$ and in particular any $x\in \partial
+B_\varepsilon(x_M)$
+\begin{equation}\label{trueineq}
+    u(x)\leq u(x_M),
+\end{equation}
+so (\ref{ineq2}) is impossible and therefore (\ref{ineq1}) is impossible. This
+in combination with (\ref{trueineq}) implies that
+\[
+u(x)=u(x_M) \quad \forall x \in \partial B_\varepsilon(x_M).
+\]
+Since this is true for all smaller $\varepsilon$'s we get that $u$ is constant
+on $B_\varepsilon(x_M)$. Now we continue with the same argument on a different
+ball that overlaps with $B_\varepsilon(x_M)$ and conclude that $u$ is constant
+there. If $D$ is convex we can cover the domain with balls and conclude that
+$u$ is constant in $D$. \qedsymbol
 \section*{Section 7.2}
 \subsection*{Exercise 2}
 \section*{Section 7.3}
