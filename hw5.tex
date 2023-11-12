@@ -71,11 +71,56 @@ $u$ is constant in $D$. \qedsymbol
 \section*{Section 7.2}
 \subsection*{Exercise 2}
 Let $\phi(x)$ be any $C^2$ function defined on all of the three-dimensional
-space that vanished outside some sphere. Show that
+space that vanishes outside some sphere. Show that
 \[
     \phi(0)=-\int\int\int \frac{1}{|x|}\Delta \phi(x) \frac{dx}{4\pi}.
 \]
-The integration is taken over the region where $\phi(x)$ is not zero.
+The integration is taken over the region where $\phi(x)$ is not zero.\\
+\textbf{Solution:}\\
+Let $B_r$ be the ball of radius $r$ centered at the origin. For
+$\varepsilon<r$. Let $D=B_r-B_\varepsilon$.\\
+Let $v=-(4\pi|x|)^{-1}$. Using Green's identity we get:
+\[
+    \int_D \phi\Delta v  - v \Delta \phi = \int_{\partial D} \phi \partial_n v
+    - v \partial_n \phi,
+\]
+Since $v$ is harmonic in $D$ we get
+\[
+    \int_D v \Delta \phi = -\int_{\partial D} \phi \partial_n v - v \partial_n \phi = -
+    \int_{\partial B_r} \phi \partial_n v - v \partial_n \phi - \int_{\partial
+    B_\varepsilon} \phi \partial_n v - v \partial_n \phi.
+\]
+Letting $r\to \infty$ and using the fact that $\phi$ vanishes we get
+\[
+    \int_{B_\epsilon^c}v\Delta\phi = \int_{\partial B_\varepsilon}
+    v\partial_n \phi - \phi \partial_n v.
+\]
+Now we let $\varepsilon \to 0$. Notice that because $\phi$ is $C^2$, its
+derivative is bounded so we get
+\[
+    \bigg| \int_{\partial B_\varepsilon} v\partial_n \phi\bigg|
+    \leq \int_{\partial B_\varepsilon} |v\partial_n \phi|
+    \leq C \int_{\partial B_\varepsilon}|v| =
+    C/(4\pi\varepsilon)\int_{B_\varepsilon}1=C4\pi\varepsilon^2/(4\pi\varepsilon)
+    = C\varepsilon,
+\]
+so now we have
+\[
+    \int_{\mathbb{R}^3}v\Delta\phi = -\lim_{\varepsilon\to0}\int_{\partial B_\varepsilon}\phi\partial_n v
+\]
+And we observe that $\partial_n v=-\partial_r v= -1/(4\pi r^2)$ so on
+$\partial B_\varepsilon$ we have $\partial_n v = -1/(4\pi\varepsilon^2)$, then
+\begin{align*}
+    \int_{\mathbb{R}^3}v\Delta\phi &=
+    \lim_{\varepsilon\to0}\left[\frac{1}{4\pi\varepsilon^2}\int_{\partial
+    B_\varepsilon}\phi\right]\\
+    \int_{\mathbb{R}^3}v\Delta\phi &=\lim_{\varepsilon\to0}\left[
+    \frac{1}{4\pi} \int_{\partial B_1} \phi(\varepsilon x) \right]\\
+    \int_{\mathbb{R}^3}v\Delta\phi &=
+    \frac{1}{4\pi} \phi(0) \int_{\partial B_1}1= \phi(0),
+\end{align*}
+where we assumed we can take the limit inside the integral because $\phi$ is
+sufficiently nice. This concludes the proof.
 \section*{Section 7.3}
 \subsection*{Exercise 1}
 Show that the Green's function is unique.\\
