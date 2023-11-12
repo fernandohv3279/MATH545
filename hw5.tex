@@ -106,21 +106,20 @@ derivative is bounded so we get
 \]
 so now we have
 \[
-    \int_{\mathbb{R}^3}v\Delta\phi = -\lim_{\varepsilon\to0}\int_{\partial B_\varepsilon}\phi\partial_n v
+    \int_{\mathbb{R}^3}v\Delta\phi = -\lim_{\varepsilon\to0}\int_{\partial B_\varepsilon}\phi\partial_n v,
 \]
-And we observe that $\partial_n v=-\partial_r v= -1/(4\pi r^2)$ so on
+and we observe that $\partial_n v=-\partial_r v= -1/(4\pi r^2)$ so on
 $\partial B_\varepsilon$ we have $\partial_n v = -1/(4\pi\varepsilon^2)$, then
 \begin{align*}
     \int_{\mathbb{R}^3}v\Delta\phi &=
     \lim_{\varepsilon\to0}\left[\frac{1}{4\pi\varepsilon^2}\int_{\partial
     B_\varepsilon}\phi\right]\\
-    \int_{\mathbb{R}^3}v\Delta\phi &=\lim_{\varepsilon\to0}\left[
-    \frac{1}{4\pi} \int_{\partial B_1} \phi(\varepsilon x) \right]\\
-    \int_{\mathbb{R}^3}v\Delta\phi &=
-    \frac{1}{4\pi} \phi(0) \int_{\partial B_1}1= \phi(0),
+    &=\phi(0). \quad \qedsymbol
 \end{align*}
-where we assumed we can take the limit inside the integral because $\phi$ is
-sufficiently nice. This concludes the proof.
+The last equality is true because $\frac{1}{4\pi
+\varepsilon^2}\int_{\partial B_\varepsilon}\phi$ is the average value of $\phi$
+on the sphere $\partial B_\varepsilon$ and $\phi$ is continuous (this is how it
+is justified in the book).
 \section*{Section 7.3}
 \subsection*{Exercise 1}
 Show that the Green's function is unique.\\
