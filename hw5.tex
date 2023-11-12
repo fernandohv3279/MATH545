@@ -78,7 +78,58 @@ space that vanished outside some sphere. Show that
 The integration is taken over the region where $\phi(x)$ is not zero.
 \section*{Section 7.3}
 \subsection*{Exercise 1}
+Show that the Green's function is unique.\\
+\textbf{Solution:}\\
+Suppose there are two different Green's functions $G_1$ and $G_2$. Consider
+\begin{align*}
+    G=G_1-G_2&= G_1 + 1/(4\pi |x-x_0|) - [G_2 + 1/(4\pi |x-x_0|)]\\
+\end{align*}
+According to the book $G_i+1/(4\pi|x-x_o|)$ ($i=1,2$) is finite at $x_0$ and has
+continuous second derivatives everywhere. Then the same is true for $G$.\\
+\textbf{Upshot:} G has continuous second derivatives at every point in $D$.\\
+Also we see that $\Delta G =0$ in \textbf{all} of $D$ (including $x_0$!),
+because of the previous upshot.\\
+Finally since $G=0$, by the maximum principle ($G$ is harmonic!) we conclude
+that $g\equiv0$.
 \subsection*{Exercise 2}
+Proof Theorem 2, which gives the solution of Poisson's equation in terms of the
+Green's function.\\
+\textbf{Solution:}\\
+Suppose that u satisfies
+\[
+    \Delta u =f \quad \text{in D} \quad u=h \quad \text{on }\partial D,
+\]
+then
+\[
+    u(y)=\int_{\partial D}h(x)\partial_nG(x,y) + \int_D f(x)G(x,y)
+\]
+\textbf{Proof:}
+Green's function satisfies:
+\[
+\begin{cases}
+    \Delta_xG(x,y)=\delta(x-y) \quad \text{in } D\\
+    G(x,y)=0 \qquad\qquad\quad x\in \partial D
+\end{cases}
+\]
+Using integration by parts (divergence theorem) we get:
+\begin{equation}\label{byParts}
+    \int_D \Delta_x G(x,y)u(x)dx=\int_{\partial D} u(x)\partial_nG(x,y)ds - \int_D \nabla_xG(x,y)\nabla u(x)dx.
+\end{equation}
+For the second term notice that
+\begin{align} \label{secondByParts}
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=\int_{\partial D}G(x,y)\partial_nu(x)ds - \int_D G(x,y)\Delta u(x)dx \nonumber\\
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=- \int_D G(x,y)\Delta u(x)dx \nonumber\\
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=- \int_D G(x,y)f(x)dx.
+\end{align}
+Where we used the fact that $G$ vanishes at the boundary and that $\Delta u =f$.
+Substituting (\ref{secondByParts}) into (\ref{byParts}) we get
+\[
+    \int_D \Delta_x G(x,y)u(x)dx=\int_{\partial D} u(x)\partial_nG(x,y)ds + \int_D f(x)G(x,y)dx.
+\]
+since $\Delta_xG(x,y)=\delta(x-y)$ and $u=h$ on $\partial D$ we get
+\[
+    u(y)=\int_{\partial D} h(x)\partial_nG(x,y)ds + \int_D f(x)G(x,y)dx.
+\]
 \section*{Section 7.4}
 \subsection*{Exercise 1}
 \subsection*{Exercise 5}
