@@ -177,5 +177,25 @@ since $\Delta_xG(x,y)=\delta(x-y)$ and $u=h$ on $\partial D$ we get
 \]
 \section*{Section 7.4}
 \subsection*{Exercise 1}
+Find the one-dimensional Green's function for the interval $(0,l)$. The three
+properties defining it can be restated as follows.\\
+(i) It solves $G''=0$ for $x\neq x_0$ ("harmonic").\\
+(ii) $G(0)=G(l)=0$.\\
+(iii) $G(x)$ is continuous at $x_0$ and $G(x)+\frac{1}{2}|x-x_0|$ is harmonic at $x_0$.\\
+\textbf{Solution:}\\
+For $0\leq x \leq x_0\leq l$, we know $G(x)=ax+b$ from (i) and $b=0$ from (ii). So
+\[
+G(x)=ax.
+\]
+For $0\leq x_0\leq x\leq l$, we know again that $G(x)=cx+d$ from
+(i) and $d=-cl$ from (ii). For $G$ to be continuous at $x_0$ we
+need $ax_0=cx_0+d=cx_0-cl=c(x_0-l)$ and for $G$ to be harmonic it's second
+derivative must be continuous at $x_0$ so we need $a-\frac{1}{2}=c+\frac{1}{2}$. Solving for $a$ and $c$ we find $c=-x_0/l$ and $a=-x_0/l+1$, hence
+\[
+    G(x) =\begin{cases}
+        x(l-x_0)/l \quad \text{for } 0\leq x\leq x_0 \leq l\\
+        x_0(l-x)/l \quad \text{for } 0\leq x_0\leq x \leq l
+    \end{cases}. \quad \qedsymbol
+\]
 \subsection*{Exercise 5}
 \end{document}
