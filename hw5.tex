@@ -7,19 +7,13 @@
 {geometry}
 \usepackage{times}
 \usepackage{amsmath}
-%\usepackage{changepage}
 \usepackage{amssymb}
 \usepackage{amsthm}
-%\usepackage{graphicx}%
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
-
-\newcommand{\E}{\mathrm{E}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\Cov}{\mathrm{Cov}}
 
 \begin{document}
 
@@ -195,7 +189,7 @@ properties defining it can be restated as follows.\\
 We want to find $G(x,x_0)$ such that
 \[
     \begin{cases}
-       \Delta_x G(x,x_0)=\delta(x-x_0)\\
+       \Delta_x G(x,x_0)=-\delta(x-x_0)\\
        G=0 \text{ on } \partial D
     \end{cases}
 \]
@@ -203,15 +197,39 @@ so for every $x\neq x_0$ the delta is 0 so we know that $G$ is a line from 0 to
 $x_0$ and from $x_0$ to $l$. Now we want to check that $\Delta_x G$ indeed is the
 delta. For this we take $\phi \in C_0^\infty$ and we must find $a,b,c,d$ that
 satisfy
-\[
-    \phi(x_0)=\int_0^l \delta(x-x_0)\phi(x)=\int_0^l \Delta_xG(x,x_0)\phi(x) =\int_0^{x_0}(ax+b)\phi''(x) + \int_{x_0}^l(cx+d)\phi''(x)
-\]
-The initial condition on $x=0$ tells us that $b=0$.
+\begin{equation}\label{deltaCondition}
+    -\phi(x_0)=\int_0^l -\delta(x-x_0)\phi(x)=\int_0^l \Delta_xG(x,x_0)\phi(x) =\int_0^{x_0}(ax+b)\phi''(x) + \int_{x_0}^l(cx+d)\phi''(x)
+\end{equation}
+The initial condition at $x=0$ tells us that $b=0$.
 Using integration by parts and remembering that $\phi(0)=0$ we get:
 \begin{align*}
     \int_0^{x_0} ax\phi''(x) &= ax\phi'(x)\bigg|_0^{x_0} - \int_0^{x_0}a\phi'(x)\\
     &= ax_0\phi'(x_0) - a\phi(x_0)
 \end{align*}
+On the other hand the condition at $x=l$ tells us that $d=-cl$. Again using
+integration by parts and the fact that $\phi(l)=0$ we get
+\begin{align*}
+    \int_{x_0}^l c(x-l)\phi''(x) &= c(x-l)\phi'(x)\bigg|_{x_0}^l - \int_{x_0}^lc\phi'(x)\\
+    &= c(l-x_0)\phi'(x_0) + c\phi(x_0),
+\end{align*}
+so
+\[
+    \int_0^l G\phi''=(ax_0-cx_0+cl)\phi'(x_0)+(c-a)\phi(x_0),
+\]
+then in order to satisfy (\ref{deltaCondition}) we need
+\[
+    \begin{cases}
+       ax_0-cx_0+cl = 0\\
+       c-a=-1\\
+    \end{cases}.
+\]
+Solving the system gives us the function
+\[
+    G(x) =\begin{cases}
+        x(l-x_0)/l \quad \text{for } 0\leq x\leq x_0 \leq l\\
+        x_0(l-x)/l \quad \text{for } 0\leq x_0\leq x \leq l
+    \end{cases}. \quad \qedsymbol
+\]
 \\\textbf{Solution 2:}\\
 For $0\leq x \leq x_0\leq l$, we know $G(x)=ax+b$ from (i) and $b=0$ from (ii). So
 \[
