@@ -145,7 +145,6 @@ because of the previous upshot.\\
 Finally since $G=0$ on $\partial D$ (because $G_1=G_2$ on $\partial D$) and $G$
 is harmonic, by the unicity of the Dirichlet problem we conclude that
 $G\equiv0$. $\qedsymbol$
-% TODO: Add second solution!!
 \subsection*{Exercise 2}
 Proof Theorem 2, which gives the solution of Poisson's equation in terms of the
 Green's function.\\
@@ -192,7 +191,16 @@ properties defining it can be restated as follows.\\
 (i) It solves $G''=0$ for $x\neq x_0$ ("harmonic").\\
 (ii) $G(0)=G(l)=0$.\\
 (iii) $G(x)$ is continuous at $x_0$ and $G(x)+\frac{1}{2}|x-x_0|$ is harmonic at $x_0$.\\
-\textbf{Solution:}\\
+\textbf{Solution 1:}\\
+We want to find $G(x,y)$ such that
+\[
+    \begin{cases}
+       \Delta_x G(x,y)=\delta(x-y)\\
+       G=0 \text{ on } \partial D
+    \end{cases}
+\]
+In this case we can revify that
+\textbf{Solution 2:}\\
 For $0\leq x \leq x_0\leq l$, we know $G(x)=ax+b$ from (i) and $b=0$ from (ii). So
 \[
 G(x)=ax.
