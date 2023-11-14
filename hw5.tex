@@ -123,18 +123,28 @@ is justified in the book).
 \section*{Section 7.3}
 \subsection*{Exercise 1}
 Show that the Green's function is unique.\\
-\textbf{Solution:}\\
-Suppose there are two different Green's functions $G_1$ and $G_2$. Consider
+\textbf{Solution 1:}\\
+Suppose $G_1$ and $G_2$ are Green's functions. Consider $G=G_1-G_2$. We have
+\[
+    \Delta_x G(x,y)=\Delta_x G_1(x,y)-\Delta_x G_2(x,y) = \delta(x-y) -
+    \delta(x-y) =0.
+\]
+This means that $G$ is harmonic with respect to $x$. Since
+$G_1=G_2$ on $\partial D$, we have $G=0$ on $\partial D$, and by the unicity of
+the Dirichlet problem we have $G\equiv0$. $\qedsymbol$
+\\\textbf{Solution 2:}\\
+Suppose there are two Green's functions $G_1$ and $G_2$. Consider
 \begin{align*}
     G=G_1-G_2&= G_1 + 1/(4\pi |x-x_0|) - [G_2 + 1/(4\pi |x-x_0|)]\\
 \end{align*}
-According to the book $G_i+1/(4\pi|x-x_o|)$ ($i=1,2$) is finite at $x_0$ and has
-continuous second derivatives everywhere. Then the same is true for $G$.\\
+According to the book $G_i+1/(4\pi|x-x_o|)$ ($i=1,2$) is finite at $x_0$ and
+has continuous second derivatives everywhere. Then the same is true for $G$.\\
 \textbf{Upshot:} G has continuous second derivatives at every point in $D$.\\
 Also we see that $\Delta G =0$ in \textbf{all} of $D$ (including $x_0$!),
 because of the previous upshot.\\
-Finally since $G=0$, by the maximum principle ($G$ is harmonic!) we conclude
-that $g\equiv0$. $\qedsymbol$
+Finally since $G=0$ on $\partial D$ (because $G_1=G_2$ on $\partial D$) and $G$
+is harmonic, by the unicity of the Dirichlet problem we conclude that
+$G\equiv0$. $\qedsymbol$
 % TODO: Add second solution!!
 \subsection*{Exercise 2}
 Proof Theorem 2, which gives the solution of Poisson's equation in terms of the
