@@ -192,15 +192,27 @@ properties defining it can be restated as follows.\\
 (ii) $G(0)=G(l)=0$.\\
 (iii) $G(x)$ is continuous at $x_0$ and $G(x)+\frac{1}{2}|x-x_0|$ is harmonic at $x_0$.\\
 \textbf{Solution 1:}\\
-We want to find $G(x,y)$ such that
+We want to find $G(x,x_0)$ such that
 \[
     \begin{cases}
-       \Delta_x G(x,y)=\delta(x-y)\\
+       \Delta_x G(x,x_0)=\delta(x-x_0)\\
        G=0 \text{ on } \partial D
     \end{cases}
 \]
-In this case we can revify that
-\textbf{Solution 2:}\\
+so for every $x\neq x_0$ the delta is 0 so we know that $G$ is a line from 0 to
+$x_0$ and from $x_0$ to $l$. Now we want to check that $\Delta_x G$ indeed is the
+delta. For this we take $\phi \in C_0^\infty$ and we must find $a,b,c,d$ that
+satisfy
+\[
+    \phi(x_0)=\int_0^l \delta(x-x_0)\phi(x)=\int_0^l \Delta_xG(x,x_0)\phi(x) =\int_0^{x_0}(ax+b)\phi''(x) + \int_{x_0}^l(cx+d)\phi''(x)
+\]
+The initial condition on $x=0$ tells us that $b=0$.
+Using integration by parts and remembering that $\phi(0)=0$ we get:
+\begin{align*}
+    \int_0^{x_0} ax\phi''(x) &= ax\phi'(x)\bigg|_0^{x_0} - \int_0^{x_0}a\phi'(x)\\
+    &= ax_0\phi'(x_0) - a\phi(x_0)
+\end{align*}
+\\\textbf{Solution 2:}\\
 For $0\leq x \leq x_0\leq l$, we know $G(x)=ax+b$ from (i) and $b=0$ from (ii). So
 \[
 G(x)=ax.
@@ -208,7 +220,9 @@ G(x)=ax.
 For $0\leq x_0\leq x\leq l$, we know again that $G(x)=cx+d$ from
 (i) and $d=-cl$ from (ii). For $G$ to be continuous at $x_0$ we
 need $ax_0=cx_0+d=cx_0-cl=c(x_0-l)$ and for $G$ to be harmonic it's second
-derivative must be continuous at $x_0$ so we need $a-\frac{1}{2}=c+\frac{1}{2}$. Solving for $a$ and $c$ we find $c=-x_0/l$ and $a=-x_0/l+1$, hence
+derivative must be continuous at $x_0$ so we need
+$a-\frac{1}{2}=c+\frac{1}{2}$. Solving for $a$ and $c$ we find $c=-x_0/l$ and
+$a=-x_0/l+1$, hence
 \[
     G(x) =\begin{cases}
         x(l-x_0)/l \quad \text{for } 0\leq x\leq x_0 \leq l\\
