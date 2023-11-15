@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}%
+ \documentclass[12pt]{article}%
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \usepackage{comment}
@@ -7,60 +7,288 @@
 {geometry}
 \usepackage{times}
 \usepackage{amsmath}
-%\usepackage{changepage}
 \usepackage{amssymb}
-%\usepackage{graphicx}%
-\setcounter{MaxMatrixCols}{30}
-\newtheorem{theorem}{Theorem}
-\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
-\newtheorem{axiom}{Axiom}
-\newtheorem{case}[theorem]{Case}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conclusion}[theorem]{Conclusion}
-\newtheorem{condition}[theorem]{Condition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{criterion}[theorem]{Criterion}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{summary}[theorem]{Summary}
-\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\usepackage{amsthm}
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 
-\newcommand{\E}{\mathrm{E}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\Cov}{\mathrm{Cov}}
-
 \begin{document}
 
 \title{Math 545 - PDE - Homework 4}
-\author{YingLi, Fernando, Laurette }
+\author{Fernando, YingLi, Laurette }
 \date{\today}
 \maketitle
 
 \section*{Section 7.1}
 \subsection*{Exercise 3}
+Prove the uniqueness of the Robin problem $\frac{\partial u}{\partial n}+a(\mathbf{x})u(\mathbf{x})=h(\mathbf{x})$ provided that 
+$a(\mathbf{x})>0$ on the boundary.\\
+\textbf{Solution:}\\
+Assume we have two harmonic functions $u_{1}$, $u_{2}$ with the same boundary condition, 
+their difference $u=u_{1}-u_{2}$ is harmonic and has boundary $\frac{\partial u}{\partial n}+a(\mathbf{x})u(\mathbf{x})=0$.\\
+Since $u$ is harmonic, we have $\triangle u=0$ and from Green's first identity,
+\begin{equation}
+     \iint\limits_{bdy D}^{} u\frac{\partial u}{\partial n}dS=\iiint\limits_{D}^{} \left |\nabla  u \right |^2d\mathbf{x}.  
+\end{equation}\label{Green 1}
+For boundary condition $\frac{\partial u}{\partial n}+a(\mathbf{x})u(\mathbf{x})=0$, multiplying by $u$ on both sides, i.e.
+\[u\frac{\partial u}{\partial n}+a(\mathbf{x})u^2(\mathbf{x})=0.\]
+Plug this in equation (1), 
+\[ -\iint\limits_{bdy D}^{} a(\mathbf{x})u^2(\mathbf{x}) dS=\iiint\limits_{D}^{} \left |\nabla  u \right |^2d\mathbf{x}.  
+\]
+Since $-\iint\limits_{bdy D}^{} a(\mathbf{x})u^2(\mathbf{x}) dS \le 0 $, and $\iiint\limits_{D}^{} \left |\nabla  u \right |^2d\mathbf{x}\ge 0$, thus,
+\[-\iint\limits_{bdy D}^{} a(\mathbf{x})u^2(\mathbf{x}) dS=\iiint\limits_{D}^{} \left |\nabla  u \right |^2d\mathbf{x} = 0.\]
+I.e.
+\begin{equation*}
+    \begin{cases}
+        u=0 \text{\quad on bdy D }\\
+        \nabla u=0 \text{\quad  in D }
+    \end{cases}
+\end{equation*}
+Hence, $u=0$ in $D\implies u_{1}=u_{2}$. This proves the uniqueness of the Robin problem.
+
+\iffalse
+\subsection*{Exercise 1}
 Derive the three-dimensional maximum principle from the mean value property.\\
 \textbf{Solution:}\\
-hola
+Let's denote the ball or radius $r$ and center $x$ by $B_r(x)$, and let $D$ be
+open. The mean value property tells us that if $B_r(x)\subset D$ then
+\[
+    u(x)=\frac{1}{4\pi r^2}\int_{\partial B_r(x)}u.
+\]
+Now let's assume that $u$ attains it's maximum at $x_M\in D$, because $D$ is
+open we can find $\varepsilon$ such that $B_\varepsilon(x_M) \subset D$ and
+\begin{equation}\label{mvp}
+    u(x_M) = \frac{1}{4\pi \varepsilon^2}\int_{\partial B_\varepsilon(x_M)} u.
+\end{equation}
+Notice that if at any point $x\in \partial B_\varepsilon(x_M)$ we have
+\begin{equation}\label{ineq1}
+u(x) < u(x_M)
+\end{equation}
+because $u$ is continuous then we would need another point
+$y\in \partial B_\varepsilon(x_M)$ such that
+\begin{equation}\label{ineq2}
+u(y)>u(x_M)
+\end{equation}
+in order to satisfy
+(\ref{mvp}). However by definition, for
+any $x\in D$ and in particular any $x\in \partial
+B_\varepsilon(x_M)$
+\begin{equation}\label{trueineq}
+    u(x)\leq u(x_M),
+\end{equation}
+so (\ref{ineq2}) is impossible and therefore (\ref{ineq1}) is impossible. This
+in combination with (\ref{trueineq}) implies that
+\[
+u(x)=u(x_M) \quad \forall x \in \partial B_\varepsilon(x_M).
+\]
+Since this is true for all smaller $\varepsilon$'s we get that $u$ is constant
+on $B_\varepsilon(x_M)$. Now we continue with the same argument on a different
+ball that overlaps with $B_\varepsilon(x_M)$ and conclude that $u$ is constant
+there. If $D$ is convex we can cover the domain with balls and conclude that
+$u$ is constant in $D$. \qedsymbol
+\fi
 \section*{Section 7.2}
 \subsection*{Exercise 2}
+Let $\phi(x)$ be any $C^2$ function defined on all of the three-dimensional
+space that vanishes outside some sphere. Show that
+\[
+    \phi(0)=-\int\int\int \frac{1}{|x|}\Delta \phi(x) \frac{dx}{4\pi}.
+\]
+The integration is taken over the region where $\phi(x)$ is not zero.\\
+\textbf{Solution:}\\
+Let $B_r$ be the ball of radius $r$ centered at the origin. For
+$\varepsilon<r$. Let $D=B_r-B_\varepsilon$.\\
+Let $v=-(4\pi|x|)^{-1}$. Using Green's identity we get:
+\[
+    \int_D \phi\Delta v  - v \Delta \phi = \int_{\partial D} \phi \partial_n v
+    - v \partial_n \phi,
+\]
+Since $v$ is harmonic in $D$ we get
+\[
+    \int_D v \Delta \phi = -\int_{\partial D} \phi \partial_n v - v \partial_n \phi = -
+    \int_{\partial B_r} \phi \partial_n v - v \partial_n \phi - \int_{\partial
+    B_\varepsilon} \phi \partial_n v - v \partial_n \phi.
+\]
+Letting $r\to \infty$ and using the fact that $\phi$ vanishes we get
+\[
+    \int_{B_\epsilon^c}v\Delta\phi = \int_{\partial B_\varepsilon}
+    v\partial_n \phi - \phi \partial_n v.
+\]
+Now we let $\varepsilon \to 0$. Notice that because $\phi$ is $C^2$, its
+derivative is bounded so we get
+\[
+    \bigg| \int_{\partial B_\varepsilon} v\partial_n \phi\bigg|
+    \leq \int_{\partial B_\varepsilon} |v\partial_n \phi|
+    \leq C \int_{\partial B_\varepsilon}|v| =
+    C/(4\pi\varepsilon)\int_{B_\varepsilon}1=C4\pi\varepsilon^2/(4\pi\varepsilon)
+    = C\varepsilon,
+\]
+so now we have
+\[
+    \int_{\mathbb{R}^3}v\Delta\phi = -\lim_{\varepsilon\to0}\int_{\partial B_\varepsilon}\phi\partial_n v,
+\]
+and we observe that $\partial_n v=-\partial_r v= -1/(4\pi r^2)$ so on
+$\partial B_\varepsilon$ we have $\partial_n v = -1/(4\pi\varepsilon^2)$, then
+\begin{align*}
+    \int_{\mathbb{R}^3}v\Delta\phi &=
+    \lim_{\varepsilon\to0}\left[\frac{1}{4\pi\varepsilon^2}\int_{\partial
+    B_\varepsilon}\phi\right]\\
+    &=\phi(0). \quad \qedsymbol
+\end{align*}
+The last equality is true because $\frac{1}{4\pi
+\varepsilon^2}\int_{\partial B_\varepsilon}\phi$ is the average value of $\phi$
+on the sphere $\partial B_\varepsilon$ and $\phi$ is continuous (this is how it
+is justified in the book).
 \section*{Section 7.3}
 \subsection*{Exercise 1}
+Show that the Green's function is unique.\\
+\textbf{Solution 1:}\\
+Suppose $G_1$ and $G_2$ are Green's functions. Consider $G=G_1-G_2$. We have
+\[
+    \Delta_x G(x,y)=\Delta_x G_1(x,y)-\Delta_x G_2(x,y) = \delta(x-y) -
+    \delta(x-y) =0.
+\]
+This means that $G$ is harmonic with respect to $x$. Since
+$G_1=G_2$ on $\partial D$, we have $G=0$ on $\partial D$, and by the unicity of
+the Dirichlet problem we have $G\equiv0$. $\qedsymbol$
+\\\textbf{Solution 2:}\\
+Suppose there are two Green's functions $G_1$ and $G_2$. Consider
+\begin{align*}
+    G=G_1-G_2&= G_1 + 1/(4\pi |x-x_0|) - [G_2 + 1/(4\pi |x-x_0|)]\\
+\end{align*}
+According to the book $G_i+1/(4\pi|x-x_0|)$ ($i=1,2$) is finite at $x_0$ and
+has continuous second derivatives everywhere. Then the same is true for $G$.\\
+\textbf{Upshot:} G has continuous second derivatives at every point in $D$.\\
+Also we see that $\Delta G =0$ in \textbf{all} of $D$ (including $x_0$!),
+because of the previous upshot.\\
+Finally since $G=0$ on $\partial D$ (because $G_1=G_2$ on $\partial D$) and $G$
+is harmonic, by the uniqueness of the Dirichlet problem we conclude that
+$G\equiv0$. $\qedsymbol$
 \subsection*{Exercise 2}
+Proof Theorem 2, which gives the solution of Poisson's equation in terms of the
+Green's function.\\
+\textbf{Solution:}\\
+Suppose that u satisfies
+\[
+    \Delta u =f \quad \text{in D} \quad u=h \quad \text{on }\partial D,
+\]
+then
+\[
+    u(y)=\int_{\partial D}h(x)\partial_nG(x,y) + \int_D f(x)G(x,y)
+\]
+\textbf{Proof:}
+Green's function satisfies:
+\[
+\begin{cases}
+    \Delta_xG(x,y)=\delta(x-y) \quad \text{in } D\\
+    G(x,y)=0 \qquad\qquad\quad x\in \partial D
+\end{cases}
+\]
+Using integration by parts (divergence theorem) we get:
+\begin{equation}\label{byParts}
+    \int_D \Delta_x G(x,y)u(x)dx=\int_{\partial D} u(x)\partial_nG(x,y)ds - \int_D \nabla_xG(x,y)\nabla u(x)dx.
+\end{equation}
+For the second term notice that
+\begin{align} \label{secondByParts}
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=\int_{\partial D}G(x,y)\partial_nu(x)ds - \int_D G(x,y)\Delta u(x)dx \nonumber\\
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=- \int_D G(x,y)\Delta u(x)dx \nonumber\\
+    \int_D \nabla_xG(x,y)\nabla u(x)dx&=- \int_D G(x,y)f(x)dx.
+\end{align}
+Where we used the fact that $G$ vanishes at the boundary and that $\Delta u =f$.
+Substituting (\ref{secondByParts}) into (\ref{byParts}) we get
+\[
+    \int_D \Delta_x G(x,y)u(x)dx=\int_{\partial D} u(x)\partial_nG(x,y)ds + \int_D f(x)G(x,y)dx.
+\]
+since $\Delta_xG(x,y)=\delta(x-y)$ and $u=h$ on $\partial D$ we get
+\[
+    u(y)=\int_{\partial D} h(x)\partial_nG(x,y)ds + \int_D f(x)G(x,y)dx. \quad \qedsymbol
+\]
 \section*{Section 7.4}
 \subsection*{Exercise 1}
+Find the one-dimensional Green's function for the interval $(0,l)$. 
+The threeproperties defining it can be restated as follows.\\
+(i) It solves $G''=0$ for $x\neq x_0$ ("harmonic").\\
+(ii) $G(0)=G(l)=0$.\\
+(iii) $G(x)$ is continuous at $x_0$ and $G(x)+\frac{1}{2}|x-x_0|$ is harmonic at $x_0$.\\
+\textbf{Solution 1:}\\
+We want to find $G(x,x_0)$ such that
+\[
+    \begin{cases}
+       \Delta_x G(x,x_0)=-\delta(x-x_0)\\
+       G=0 \text{ on } \partial D
+    \end{cases}
+\]
+so for every $x\neq x_0$ the delta is 0 so we know that $G$ is a line from 0 to
+$x_0$ and from $x_0$ to $l$. Now we want to check that $\Delta_x G$ indeed is the
+delta. For this we take $\phi \in C_0^\infty$ and we must find $a,b,c,d$ that
+satisfy
+\begin{equation}\label{deltaCondition}
+    -\phi(x_0)=\int_0^l -\delta(x-x_0)\phi(x)dx=\int_0^l \Delta_xG(x,x_0)\phi(x)dx =\int_0^{x_0}(ax+b)\phi''(x)dx + \int_{x_0}^l(cx+d)\phi''(x)dx
+\end{equation}
+The initial condition at $x=0$ tells us that $b=0$.
+Using integration by parts and remembering that $\phi(0)=0$ we get:
+\begin{align*}
+    \int_0^{x_0} ax\phi''(x)dx &= ax\phi'(x)\bigg|_0^{x_0} - \int_0^{x_0}a\phi'(x)dx\\
+    &= ax_0\phi'(x_0) - a\phi(x_0)
+\end{align*}
+On the other hand the condition at $x=l$ tells us that $d=-cl$. Again using
+integration by parts and the fact that $\phi(l)=0$ we get
+\begin{align*}
+    \int_{x_0}^l c(x-l)\phi''(x)dx &= c(x-l)\phi'(x)\bigg|_{x_0}^l - \int_{x_0}^lc\phi'(x)dx\\
+    &= c(l-x_0)\phi'(x_0) + c\phi(x_0),
+\end{align*}
+so
+\[
+    \int_0^l G\phi''=(ax_0-cx_0+cl)\phi'(x_0)+(c-a)\phi(x_0),
+\]
+then in order to satisfy (\ref{deltaCondition}) we need
+\[
+    \begin{cases}
+       ax_0-cx_0+cl = 0\\
+       c-a=-1\\
+    \end{cases}.
+\]
+Solving the system gives us the function
+\[
+    G(x) =\begin{cases}
+        x(l-x_0)/l \quad \text{for } 0\leq x\leq x_0 \leq l\\
+        x_0(l-x)/l \quad \text{for } 0\leq x_0\leq x \leq l
+    \end{cases}. \quad \qedsymbol
+\]
+\\\textbf{Solution 2:}\\
+For $0\leq x \leq x_0\leq l$, we know $G(x)=ax+b$ from (i) and $b=0$ from (ii). So
+\[
+G(x)=ax.
+\]
+For $0\leq x_0\leq x\leq l$, we know again that $G(x)=cx+d$ from
+(i) and $d=-cl$ from (ii). For $G$ to be continuous at $x_0$ we
+need $ax_0=cx_0+d=cx_0-cl=c(x_0-l)$ and for $G$ to be harmonic it's second
+derivative must be continuous at $x_0$ so we need
+$a-\frac{1}{2}=c+\frac{1}{2}$. Solving for $a$ and $c$ we find $c=-x_0/l$ and
+$a=-x_0/l+1$, hence
+\[
+    G(x) =\begin{cases}
+        x(l-x_0)/l \quad \text{for } 0\leq x\leq x_0 \leq l\\
+        x_0(l-x)/l \quad \text{for } 0\leq x_0\leq x \leq l
+    \end{cases}. \quad \qedsymbol
+\]
 \subsection*{Exercise 5}
+Notice that the function $xy$ is harmonic in the half-plane
+$\{y>0\}$ and vanishes on the boundary line $\{y=0\}$. The function 0 has the same properties. Does this mean that the solution is not unique? Explain.\\
+\textbf{Solution:}\\
+Indeed these are two different functions that solve the Dirichlet
+problem
+\[
+    \begin{cases}
+    \Delta u =0 \quad \text{in } D\\
+    u =0 \quad \text{on } \partial D,
+    \end{cases}
+\]
+where $D$ is the upper half-plane. The reason for this is that the
+Dirichlet problem has a unique solution when $D$ is a bounded domain,
+which is not the case here. We would need to add more requirements to $u$
+in order to guarantee uniqueness. $\qedsymbol$
 \end{document}
